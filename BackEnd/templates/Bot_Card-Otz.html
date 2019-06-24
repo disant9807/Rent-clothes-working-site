@@ -1,0 +1,148 @@
+{% extends "Bot_base.html" %}
+{% load staticfiles %}
+{% load widget_tweaks %}
+
+
+{% block title %}
+
+<title> Карточка отзыва</title>
+
+{% endblock %}
+
+{% block main %}
+
+<div class="container mt-3 mb-3">
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="">Главная</a></li>
+            <li class="breadcrumb-item"><a href="/admnotzivi/">Список отзывов</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Отзыв: {otziv.zvezdi}} звезды </li>
+        </ol>
+    </nav>
+
+    <h1 class="mb-3 text-center">Отзыв</h1>
+
+    <div class="row">
+        <div class="col">
+            <div class="card" >
+                
+                <div class="card-body">
+                     <h5 class="card-title">Отзыв {{otziv.zvezdi}} звезды</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Дата: {{otziv.date}}</h6>
+                    <p class="card-text">{{otziv.Opisanie}}</p>
+					{% if otziv.delete %}
+					<h6 class="card-subtitle mb-2">Отзыв удален</h6>
+					{% else %}
+					<h6 class="card-subtitle mb-2">Отзыв не удален</h6>
+					{% endif %}
+					<form method="POST" action="/admnotziv/{{otziv.id}}">
+						{% csrf_token %}
+						<input type="hidden" name="Delete" id="itogo" value="1">
+						<button type="sumbit" class="btn btn-danger m-1">Удалить</button>
+					</form>
+					<form method="POST" action="/admnotziv/{{otziv.id}}">
+						{% csrf_token %}
+						<input type="hidden" name="Delete" id="itogo" value="0">
+						<button type="sumbit" class="btn btn-danger m-1">Восстановить</button>
+					</form>
+                    <a href="/admeditotz/{{otziv.id}}" class="btn btn-secondary m-1">Редактировать</a>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><h5>Статус: {{otziv.Status}}</h5>
+					<form method="POST" action="/admnotziv/{{otziv.id}}">
+						{% csrf_token %}
+						<input type="hidden" name="Razresh" value="1">
+						<button id="okay"  class="btn btn-success m-1">Разрешить</button>
+					</form>
+					<form method="POST" action="/admnotziv/{{otziv.id}}">
+						{% csrf_token %}
+						<input type="hidden" name="Razresh" value="0">
+						<button class="btn btn-secondary m-1">Отклонить</button>
+					</form>
+                    </li>
+
+                    <li class="list-group-item"><h5>Клиент: {{client.name}}</h5>
+                        <a href="/admnkardperson/{{client.id}}" class="btn btn-secondary m-1">Перейти к клиенту</a>
+                    </li>
+                    <li class="list-group-item"><h5>Товар отзыва</h5>
+                        <a href="/admtovar/{{tovar.id}}" class="list-group-item list-group-item-action flex-column align-items-start border border-dark">
+
+                            <div class="d-flex w-100 justify-content-start">
+                                <h5 class="mb-1 mr-2">Название: </h5>
+								<p class="mb-1">{{tovar.name}}</p>
+                            </div>
+							
+							<div class="d-flex w-100 justify-content-start">
+                                <h5 class="mb-1 mr-2">Описание: </h5>
+								<p class="mb-1">{{tovar.opisanie}}</p>
+                            </div>
+							
+							<div class="d-flex w-100 justify-content-start">
+                                <h5 class="mb-1 mr-2">Бренд: </h5>
+								<p class="mb-1">{{tovar.brand}}</p>
+                            </div>
+							
+							<div class="d-flex w-100 justify-content-start">
+                                <h5 class="mb-1 mr-2">Пол: </h5>
+								<p class="mb-1">{{tovar.sex}}</p>
+                            </div>
+							
+							<div class="d-flex w-100 justify-content-start">
+                                <h5 class="mb-1 mr-2">Материал: </h5>
+								<p class="mb-1">{{tovar.Material}}</p>
+                            </div>
+							
+							<div class="d-flex w-100 justify-content-start">
+                                <h5 class="mb-1 mr-2">Тип: </h5>
+								<p class="mb-1">{{tovar.del}}</p>
+                            </div>
+							
+							<div class="d-flex w-100 justify-content-start">
+                                <h5 class="mb-1 mr-2">Размеры: </h5>
+								{% for si in tovar.size %}
+								<p class="mb-1 mr-2">{{si.Size__name}} <span class="badge badge-secondary"> Наличие: </span> <span class="badge badge-secondary"> {{si.nalichie}}</span></p>
+								{% endfor %}
+                            </div>
+							
+							 <div class="d-flex w-100 justify-content-start">
+                                <h5 class="mb-1 mr-2">аренда: </h5>
+								{% for ar in tovar.arenda %}
+								<p class="mb-1 mr-2">{{ar.vidArendi__name}} </p>
+								{% endfor %}
+                            </div>
+							
+                             <a href="/admtovar/{{tovar.id}}" class="btn btn-secondary m-1 mt-2">Перейти к товару</a>
+                        </a>
+                    </li>
+                    <li class="list-group-item"><h5>Ответить отзыву</h5>
+					
+					{% if otziv.otvet != None %}
+					<h6 class="card-subtitle mt-3 ">Ответ отзыву</h6>
+					<p class="card-text">{{otziv.otvet}}</p>
+					{% else %}
+					<h6 class="card-subtitle mb-2">Нет ответа</h6>
+					{% endif %}
+                        <form method="POST" action="/admnotziv/{{otziv.id}}">
+						{% csrf_token %}
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1">Ответ отзыву</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" name="textotvet" rows="3"></textarea>
+                            </div>
+                            <button class="btn btn-success"> Ответить отзыву/изменить ответ </button>
+
+                        </form>
+						<form method="POST" class="mt-2" action="/admnotziv/{{otziv.id}}">
+						{% csrf_token %}
+                            <input type="hidden" name="DellOtvet" value="1">
+                            <button class="btn btn-danger"> Удалить ответ </button>
+                        </form>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

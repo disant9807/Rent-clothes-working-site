@@ -1,0 +1,126 @@
+.fform-red
+{
+	border: 0.15em solid #1F2226;
+	background-color: #D6231E;
+	color: #FFF4E0;
+	display:flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 30em;
+	margin-top:0.5em;
+	margin-bottom: 0.5em;
+	padding-left: 1em;
+	padding-right: 1em;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+
+}
+.fform-red_UN
+{
+	border: 0.15em solid #1F2226;
+	background-color: #D6231E;
+	color: #FFF4E0;
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 30em;
+	margin-top:0.5em;
+	margin-bottom: 0.5em;
+	padding-left: 1em;
+	padding-right: 1em;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+}
+
+.zaglushka2
+{
+	 width: 25em;
+	 height: 3em;
+	 position: absolute;
+	 background-color: black;
+	 opacity: 0;
+}
+
+.fform-red__main
+{
+	display:flex;
+	justify-content:center;
+	align-items: center;
+}
+
+.fform-red__icon
+{
+	cursor: pointer
+}
+.fform-red__None
+{
+	display: None;
+}
+.fform-red__Ok
+{
+	display: block;
+}
+
+
+.fform-red_theme_orange
+{
+	
+}
+
+.fform-red__zag
+{
+	width:10em;
+}
+
+.fform-red__width
+{
+	width: 12em;
+}
+
+.fform-red-butt
+{
+	border: 0.15em solid #1F2226;
+	background-color: #D6231E;
+	color: #FFF4E0;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	width: 30em;
+	margin-top:0.5em;
+	margin-bottom: 0.5em;
+	padding-left: 1em;
+	padding-right: 1em;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+}
+
+.fform-red__Biginput
+{
+	border: 0.15em solid #1F2226;
+	padding: 1em;
+	font-size: 12pt;
+	text-align: center;
+	background-color: #FFF4E0;
+	color: #1F2226;
+	border: 0em solid #FFF4E0;
+	margin: 0.3em;
+	padding-left: 0.6em;
+	padding-right: 0.6em;
+	margin-right: 0.7em;
+	height: 10em;
+	width: 28em;
+}
+
+.fform-red__input
+{	
+	font-size: 12pt;
+	text-align: center;
+	background-color: #FFF4E0;
+	color: #1F2226;
+	border: 0em solid #FFF4E0;
+	margin: 0.3em;
+	padding-left: 0.6em;
+	padding-right: 0.6em;
+	margin-right: 0.7em;
+}

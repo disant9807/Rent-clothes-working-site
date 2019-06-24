@@ -1,0 +1,134 @@
+body {
+    margin: 0;
+}
+.page
+{
+    font-family: 'Museo Sans Cyrl',Sans-Serif;
+    background-color:#FFF4E0;
+
+}
+.page_header
+{
+    width: 1000px;
+}
+.Zagolovok
+{
+    margin-top: 2em;
+    text-align: center;
+    font-family:'Beer money';
+    color: #D6231E;
+    font-size: x-large;
+}
+
+
+.Button{
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-top: 0.2em;
+    padding-bottom:0.2em;
+    width: max-content;
+    background-color: #F8B500;
+    color: #FFF4E0;
+    font-size: large;
+    font-family: 'Kelson Sans';
+}
+.page_buttons
+{
+    background-color: #D6231E;
+    margin-top: 1em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.banner-otz{
+    width: 55em;
+    border: 0.15em solid #1F2226;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+.banner
+{
+    width: 1180px;
+    height: 300px;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.page__left
+{
+    position: absolute;
+    left: 0px;
+    height: 8.15em;
+    width:11em ;
+    background-color: #F8B500;
+}
+.page__right
+{
+    position: absolute;
+    right: 0px;
+    height: 8.15em;
+    width:11em ;
+    background-color: #F8B500;
+}
+.Main_tovars
+{
+    font-family: "Kelson Sans";
+    margin: 0.5em 0.25em 0.5em 0.25em;
+}
+
+
+
+
+@media (max-width: 1210px)
+{
+    .banner{
+        width: 1000px;
+    }
+    .Main_tovars_last
+    {
+        display: none;
+    }
+    .Main_sets_last
+    {
+        display: none;
+    }
+    .banner-otz
+    {
+        width: 40em;
+    }
+    .znack__like{
+        display: none;
+    }
+}
+
+@media (max-width: 1000px)
+{
+    .banner{
+        width: 760px;
+    }
+    .Main_tovars_last
+    {
+        display: none;
+    }
+    .Main_sets_last
+    {
+        display: block;
+    }
+    .banner-otz
+    {
+        width: 40em;
+    }
+    .znack__like{
+        display: none;
+    }
+    .banner-otz{
+        margin-top: 1em;
+        width: inherit;
+    }
+    .logo_null{
+        display: none;
+    }
+}

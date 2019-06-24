@@ -1,0 +1,174 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}
+<title> История операции </title>
+{% endblock %}
+
+{% block content %}
+
+<div class="Base__flex Bread-flex">
+    <div class="Bread">
+        <a href="./Main.html" class="Base__txt-kelson Bread__txt">
+            Главная
+        </a>
+    </div>
+    <div class="Bread-poloska"></div>
+    <div class="Bread">
+        <a href="/kabinet/" class="Base__txt-kelson Bread__txt">
+            Личный кабинет
+        </a>
+    </div>
+    <div class="Bread-poloska"></div>
+    <div class="Bread Bread_viible_orange">
+        <div class="Base__txt-kelson Bread__txt">
+            История операций
+        </div>
+    </div>
+</div>
+
+<div class="Page__finds">
+<div class="Page__element-oba ">
+    <div class="Page__element-obertka">
+        <div class="zagolovok Page__zagolovok Page__zagolovok-funny Page__element-zagolovok">История операций</div>
+    </div>
+
+    <div class="Menu">
+        <div class="Menu__flex">
+            <div class="Base__button  Colonka__button  Menu__filter" id="filter">Фильтр</div>
+    <div class="Base__flex Colonka__Base-flex ">
+        <div class="Base__button  Colonka__button Menu__button"><i class="fas fa-caret-square-down Menu__logo"></i>Сумма операции</div>
+        <div class="Base__button  Colonka__button Menu__button"><i class="fas fa-caret-square-down Menu__logo"></i>Время</div>
+        <div class="Base__button  Colonka__button Menu__button"><i class="fas fa-caret-square-down Menu__logo"></i>Дата операции</div>
+    </div>
+        </div>
+    </div>
+
+<div class="Base__flex Page__Base__flex history__base--flex">
+    <div class=" Base__flex_type_column  Colonka__Base-flex Colonka__Base history__Colonka Colonka__Base-flex-left" id="filter-elem">
+
+        <div class="Base__flex Base__flex_type_column Colonka__Base-flex">
+
+            <div class="Base__txt-kelson  Base__txt_size_big  Colonka__Zagolovok Colonka__Zagolovok_margin_big">Шмотки</div>
+        <div class="Base__flex Base__flex_type_column Colonka__Base-flex">
+
+            <input class="Base__input Colonka__input Base__input_color_white">
+            <div class="boxes">
+                <input type="checkbox" id="box-1">
+                <label for="box-1">Куртка</label>
+            </div>
+        </div>
+
+            <div class="Base__flex Base__flex_type_column Colonka__Base-flex">
+                <input class="Base__input Colonka__input Base__input_color_white">
+                <div class="boxes">
+                    <input type="checkbox" id="box-2">
+                    <label for="box-2">Шапка</label>
+                </div>
+            </div>
+
+            <div class="Base__flex Base__flex_type_column Colonka__Base-flex">
+                <input class="Base__input Base__input_color_white">
+                <div class="boxes">
+                    <input type="checkbox" id="box-3">
+                    <label for="box-3">Штаны</label>
+                </div>
+            </div>
+
+            <div class="Base__flex Base__flex_type_column Colonka__Base-flex">
+                <input class="Base__input Colonka__input Base__input_color_white">
+                <div class="boxes">
+                    <input type="checkbox" id="box-4">
+                    <label for="box-4">Обувь</label>
+                </div>
+            </div>
+
+            <div class="Base__txt-kelson  Base__txt_size_big  Colonka__Zagolovok Colonka__Zagolovok_margin_big">Тип операции</div>
+
+            <div class="boxes">
+                <input type="checkbox" id="box-5">
+                <label for="box-5">Вывод средств</label>
+
+                <input type="checkbox" id="box-6" checked>
+                <label for="box-6">Пополнение средств</label>
+
+                <input type="checkbox" id="box-7">
+                <label for="box-7">Снятие средств за аренду</label>
+
+                <input type="checkbox" id="box-8">
+                <label for="box-8">Снятие средств за погонять</label>
+
+            </div>
+
+
+
+
+            <div class="Base__flex Base__flex_type_column Colonka__Base-flex ">
+            <div class="Base__txt-kelson  Base__txt_size_big Colonka__Zagolovok">Сумма операции</div>
+            <div class="Base__flex Colonka__Base-flex">
+                <input class="Base__input Colonka__input-stoimost Colonka__input Base__input_color_white">
+                <div class="Colonka__null_4em">от и до</div>
+                <input class="Base__input Colonka__input-stoimost Colonka__input Base__input_color_white"></input>
+            </div>
+        </div>
+
+        <a href="#" class="Base__button Base__button_color_orange Colonka__button">Применить</a>
+
+        </div>
+    </div>
+
+
+    <div class="Sets__sets Colonka__sets ">
+
+
+        <div class="Base__flex Base__flex_type_column">
+             {% for elem in mass %}
+            <div class="history_element">
+                <div class="Base__flex Base__flex_type_column">
+                    <div class="Base__zagolovok history_zagolovok">
+                        {{elem.text}}
+                    </div>
+                    <div class="Base__zagolovok history_zagolovok history__red"> остаток: {{elem.summ}}</div>
+                        <div class="Base__txt-kelson"> Дата: {{elem.data}}</div>
+                        <div class="Base__txt-kelson"> Время: {{elem.time}}</div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+
+    </div>
+</div>
+    <div class="Menu">
+        <div class="Base__flex Colonka__Base-flex ">
+            <div class="Base__button  Colonka__button Menu__button">1</div>
+            <div class="Base__button  Colonka__button Menu__button">2</div>
+            <div class="Base__button  Colonka__button Menu__button">3</div>
+            <div class="Base__button  Colonka__button Menu__button">...</div>
+            <div class="Base__button  Colonka__button Menu__button">max</div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" type="text/css" href="{% static "history/style/history.css"%}"/>
+<link rel="stylesheet" type="text/css" href="{% static "Elements.css"%}"/>
+<link rel="stylesheet" type="text/css" href="{% static "bread/style/bread.css"%}"/>
+<link rel="stylesheet" type="text/css" href="{% static "Tovar/style/Tovar.css"%}"/>
+<link rel="stylesheet" type="text/css" href="{% static "tovars/style/tovars.css"%}"/ >
+<link rel="stylesheet" type="text/css" href="{% static "sets/style/Sets.css"%}"/ >
+<link rel="stylesheet" type="text/css" href="{% static "Tvr/style/Tvr.css"%}"/ >
+<link rel="stylesheet" type="text/css" href="{% static "SET/style/SET.css"%}"/  >
+<link rel="stylesheet" type="text/css" href="{% static "Korzina/style/korz.css"%}"/  >
+<link rel="stylesheet" type="text/css" href="{% static "Menu/style/Menu.css"%}"/  >
+<link rel="stylesheet" type="text/css" href="{% static "Colonka/style/Colonka.css"%}"/ >
+<link rel="stylesheet" type="text/css" href="{% static "breadkfest/style/breadkfest.css"%}"/  >
+<link rel="stylesheet" type="text/css" href="{% static "checkbox/style/checkbox.css"%}"/  >
+<link rel="stylesheet" type="text/css" href="{% static "Otzyvi/style/Otzyvi.css"%}"/  >
+
+{% endblock %}

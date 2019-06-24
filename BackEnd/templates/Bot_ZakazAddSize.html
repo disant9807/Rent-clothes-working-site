@@ -1,0 +1,194 @@
+{% extends "Bot_base.html" %}
+{% load staticfiles %}
+{% load widget_tweaks %}
+
+
+{% block title %}
+
+<title> Карточка Товара</title>
+
+{% endblock %}
+
+{% block main %}
+
+<div class="container mt-3 mb-3">
+	
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="#">Главная</a></li>
+			<li class="breadcrumb-item"><a href="/admtovars/">Список товаров</a></li>
+			<li class="breadcrumb-item active" aria-current="page">Товар: {{name}}</li>
+		</ol>
+	</nav>
+
+	<h1 class="mb-3 text-center">Выберите размер и тип аренды товара</h1>
+	
+	
+	<form>
+		
+
+	</form>
+	
+    <div class="row justify-content-center">
+			
+        <div class="col">
+			
+			
+			
+		
+			<h3 class="text-center mt-3">Товар</h3>
+            <div class="card" >
+			
+				<div class="d-flex align-items-start justify-content-center flex-wrap">
+                    <img src="/static/{{main}}" class="card-img-top m-2" style="width: 22em;" alt="...">
+                </div>
+				
+                <div class="card-body">
+                     <h5 class="card-title">{{name}}</h5>
+                    <p class="card-text">{{opisanie}}</p>
+					<p class="card-text">{{material}}</p>
+                    <a href="/admtovar/{{id}}" class="btn btn-secondary  m-1">Перейти к товару</a>
+
+
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><h5>Вид: {% for s in type %}  {{s}}  {% endfor %}</h5></li>
+                    <li class="list-group-item"><h5>Бренд: {{brand}}</h5></li>        
+                </ul>
+
+            </div>
+	</div>
+	<div class="col border bg-white">
+			
+			<h3 class="text-center mt-3">Выбранное</h3>
+			<div class="p-2 bg-white border border-dark">
+			<div class="d-flex justify-content-between align-items-center">		
+				<h6>ID выбранного размера: <span id="size" class="badge badge-pill badge-primary"> Пусто</span> </h6>
+				<h6>ID выбранной аренды: <span id="rent" class="badge badge-pill badge-primary"> Пусто</span> </h6>				
+			</div>
+			<div class="d-flex justify-content-start align-items-center">
+				<form action="/admtovarszakaz/{{idzakaz}}" method="POST">
+				{% csrf_token %}
+					<input type="hidden" id="size_id" name="size" value="fal">  </input>
+					<input type="hidden" id="rent_id" name="rent" value="fal">  </input>
+					<input type="hidden"  name="addtov" value="1">  </input>
+					
+					<button class="btn btn-success" id="goform" type="sumbit" style="display:none;" > Готово </button>
+					<div id="form" class="btn btn-success"> Готово </div>
+				</form>
+				<p class=" ml-2 text-danger" id="danger" style="display:none;"> Ошибка, размер и аренда не выбранны ! </p>
+			</div>
+			</div>
+	
+			<h3 class="text-center mt-3">Размеры </h3>
+			<div id="message3 "class="fixed-bottom">
+			</div>
+            <div class="list-group ">
+			<div class="btn-group mb-2" role="group" aria-label="First group">
+			</div>
+			{% for s in size %}
+            <div  class="list-group-item list-group-item-action flex-column align-items-start">
+			
+                <div class="d-flex 	w-100 justify-content-between align-items-center">
+
+                    <h5 class="mb-1"><span class="badge badge-pill badge-primary">{{s.name}}</span></h5>
+					<h6 class=" mr-3 mb-1">Количество: {{s.koll}} </h6>
+
+					<div class="btn btn-secondary size"> Выбрать <input type="hidden" id="idsize" name="rent" value={{s.id}} ></input></div> 
+
+
+
+                </div>
+                
+            </div>
+			{% endfor %}
+			</div>
+			
+			<h3 class="text-center mt-3">Аренда </h3>
+			<div id="message5"class="fixed-bottom">
+			</div>
+            <div class="list-group ">
+			  
+			{% for s in arenda %}
+            <div  class="list-group-item list-group-item-action flex-column align-items-start">
+			
+                <div class="">
+					<div class="d-flex align-items-center justify-content-between ml-3">
+                    <h5 class="mb-1"><span class="badge badge-pill badge-primary">{{s.name}}</span></h5>	
+					<div class="btn btn-secondary rent"> Выбрать <input type="hidden"  value={{s.id}} ></input></div>  				
+					
+					</div>
+					<div class="d-flex align-items-center justify-content-between ml-3 ">
+					<p class=" mr-3 mb-1">Платежей до выкупа: <span class="badge badge-pill badge-secondary">{{s.vikup}}</span> </p>
+					<p class="  mb-1">Платежей до возврата: <span class="badge badge-pill badge-secondary">{{s.vozvrat}}</span> </p>
+					</div>
+					<div class="d-flex align-items-center justify-content-between ml-3">
+					<p class=" mr-3 mb-1">Частота платежа: <span class="badge badge-pill badge-secondary">{{s.platej}}</span> </p>
+					<p class=" mb-1">Стоимость оплаты: <span class="badge badge-pill badge-secondary">{{s.stoimost}}</span> </p>
+					</div>
+					
+                </div>
+                
+            </div>
+			{% endfor %}
+			</div>
+			
+			
+			
+        </div>
+
+</div>
+
+
+
+
+{% endblock %}
+{% block js %}
+
+	<script>
+	
+	var stsize = null;
+	
+	var strent = null;
+	
+	$(".size").click(function(){
+		var size = $(this).find(":first-child").val();
+		$("#size").text(size);
+		$("#size_id").val(size);
+		if (stsize != null)
+		{
+			stsize.css('background-color','white');
+		}
+		stsize = $(this).parent().parent();
+		stsize.css('background-color','silver');
+	})
+	
+	$(".rent").click(function(){
+		var size = $(this).find(":first-child").val();
+		$("#rent").text(size);
+		$("#rent_id").val(size);
+		if (strent != null)
+		{
+			strent.css('background-color','white')
+		}
+		strent = $(this).parent().parent().parent();
+		strent.css('background-color','silver');
+		
+	})
+	
+	$("#form").click(function(){
+		var _rent = $(this).parent().find("#rent_id").val();
+		var _size = $(this).parent().find("#size_id").val();
+		if (_rent !='fal' && _size !='fal')
+		{
+			$("#goform").click();
+		}
+		else
+		{
+			$("#danger").css("display","block");
+		}
+	})
+	
+	</script>
+
+{% endblock %}

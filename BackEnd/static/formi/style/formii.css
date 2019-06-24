@@ -1,0 +1,104 @@
+
+.formii
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.formii__text
+{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.formii__Button
+{
+    margin: 5px 5px 5px 5px;
+}
+
+.formii__Button_theme_big{
+    margin: 20px 20px 20px 20px;
+}
+
+.formii__Button_margin_center{
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.formii__formii{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.formii__element{
+    margin: 10px 10px 10px 10px;
+}
+
+.formii__main{
+    padding: 5px 5px 5px 5px;
+}
+
+.formii_theme_black{
+    box-shadow: none;
+    background-color: #1F2226;
+    color: #FFF4E0;
+
+}
+
+.formii__theme_left
+{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.formii__theme_center
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.formii__theme_row
+{
+    flex-direction: row;
+    justify-content: center;
+
+}
+.formii_theme_orange
+{
+    box-shadow: none;
+    background-color: #F8B500;
+    color: #1F2226;
+}
+.formii__zagolovok
+{
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+.formii_theme_justify-content_space-arrouny
+{
+    justify-content: space-around;
+}
+
+.formii_align-items_baseline{
+    align-items: baseline;
+}
+
+.formii_theme_justify-content_space-between
+{
+    justify-content: space-between;
+}
+.formii_theme_Wrap{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.formii__input_text{
+    height: 300px;
+    width: 400px;
+}
+
+@media (max-width: 1416px){
+
+
+
+}

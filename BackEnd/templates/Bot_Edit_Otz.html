@@ -1,0 +1,203 @@
+{% extends "Bot_base.html" %}
+{% load staticfiles %}
+{% load widget_tweaks %}
+
+
+{% block title %}
+
+<title> Редактирование отзыва</title>
+
+{% endblock %}
+
+{% block main %}
+
+<div class="container mt-3">
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Главная</a></li>
+            <li class="breadcrumb-item"><a href="#">Список товаров</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Добавление товара</li>
+        </ol>
+    </nav>
+
+
+    <h1 class="mb-3 text-center">Редактирование отзыв</h1>
+
+
+    <div class="row justify-content-center">
+        <div class="col col-xl-7 col-lg-8 col-md-10 ">
+
+<form id="formadd" action="/admeditotz/{{id}}" method="POST">
+	<div id="token">
+	{% csrf_token %}
+	</div>
+	
+	<div class="form-group">
+	<label> Товар, для которого отзыв </label>
+	<a href="/admtovar/{{Tovar.id}}" class="list-group-item list-group-item-action flex-column align-items-start border border-dark">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">{{Tovar.name}}</h5>
+
+                        <small>{{Tovar.date}}</small>
+                    </div>
+                    <div class="d-flex flex-wrap justify-content-between">
+                        <div class="d-flex ml-2 mr-2">
+                            <p class="mb-1 ">Аренда: </p>
+                            <p class="mb-1 ml-1">{{Tovar.name}}</p>
+                        </div>
+                        <div class="d-flex ml-2 mr-2">
+                            <p class="mb-1 ">Аренда: </p>
+                            <p class="mb-1 ml-1">{{Tovar.priceArenda}} р/мес</p>
+                        </div>
+						
+						<div class="d-flex ml-2 mr-2">
+                            <p class="mb-1 ">Погонять: </p>
+                            <p class="mb-1 ml-1">{{Tovar.pricePogon}} р/день</p>
+                        </div>
+						
+                        <div class="d-flex ml-2 mr-2">
+                            <p class="mb-1 ">Заказы: </p>
+                            <p class="mb-1 ml-1">{{Tovar.zakazi}}</p>
+                        </div>
+                        <div class="d-flex ml-2 mr-2">
+                            <p class="mb-1 ">Лайкнутое: </p>
+                            <p class="mb-1 ml-1">{{Tovar.like}} шт</p>
+                        </div>
+						
+						<div class="d-flex ml-2 mr-2">
+                            <p class="mb-1 ">Дата добавления: </p>
+                            <p class="mb-1 ml-1">{{Tovar.date}}</p>
+                        </div>
+						
+						<div class="d-flex ml-2 mr-2">
+                            <p class="mb-1 ">Дата редактирования: </p>
+                            <p class="mb-1 ml-1">{{Tovar.datelast}}</p>
+                        </div>
+                    </div>
+                </a>
+	</div>
+	<div class="form-group">
+	<label> Клиент, чей отзыв</label>
+	<a href="/admnkardperson/{{Person.id}}" class="list-group-item list-group-item-action flex-column align-items-start border border-dark">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1 ml-2">{{Person.name}}</h5>
+                    <small  class="mr-2">{{Person.datelast}}</small>
+                </div>
+                <div class="d-flex flex-wrap justify-content-between">
+                    <div class="d-flex ml-2 mr-2">
+                        <p class="mb-1 ">Пол: </p>
+						
+						{% if Person.sex == True %}
+                        <p class="mb-1 ml-1">Мужской</p>
+						{% else %}
+						<p class="mb-1 ml-1">:Женский</p>
+						{% endif %}
+                    </div>
+                    <div class="d-flex ml-2 mr-2">
+						
+                        <p class="mb-1 ">Статус: </p>
+						{% if Person.zamoroz == False %}
+                        <p class="mb-1 ml-1">Разморожен</p>
+						{% else %}
+						<p class="mb-1 ml-1">Заморожен</p>
+						{% endif %}
+                    </div>
+
+
+                    <div class="d-flex ml-2 mr-2">
+                        <p class="mb-1 ">Баланс: </p>
+                        <p class="mb-1 ml-1">{{Person.balans}}</p>
+                    </div>
+
+                    <div class="d-flex ml-2 mr-2">
+                        <p class="mb-1 ">Число шмоток: </p>
+                        <p class="mb-1 ml-1">{{Person.schchislo}}</p>
+                    </div>
+
+                </div>
+            </a>
+	</div>
+    <div class="form-group">
+        <label >Описание отзыва</label>
+		{{form.Opisanie|add_class:"form-control"}}
+        <small id="emailHelp" class="form-text text-muted">Пишите название товара + модель.</small>
+    </div>
+
+    <div class="form-group">
+        <label >Рейтинг отзыва</label>
+        {{form.zvezdi|add_class:"form-control"}}
+    </div>
+	
+	<div class="form-group">
+        <label >дата отзыва</label>
+		
+        {{form.date|add_class:"form-control"}}
+    </div>
+	
+	
+	<div class="form-group" style="display:none;">	
+        {{form.Tovar|add_class:"form-control"}}
+		{{form.Status|add_class:"form-control"}}
+
+    </div>
+	
+	
+	
+
+	
+    <div class="d-flex justify-content-center">
+    <button type="submit" class="btn   btn-success btn-lg ml-2 mt-1 mb-3">Сохранить</button>
+    </div>
+</form>
+
+<div id="Message">
+
+</div>
+
+</div>
+    </div>
+</div>
+{% endblock %}
+
+{% block js %}
+<script>
+ $(function(){
+        $('#filter-form').submit(function(e){
+    //отменяем стандартное действие при отправке формы
+            e.preventDefault();
+    //берем из формы метод передачи данных
+            var m_method=$(this).attr('method');
+    //получаем адрес скрипта на сервере, куда нужно отправить форму
+            var m_action=$(this).attr('action');
+    //получаем данные, введенные пользователем в формате input1=value1&input2=value2...,
+    //то есть в стандартном формате передачи данных формы
+            var m_data=$(this).serialize();
+            $.ajax({
+                type: m_method,
+                url: m_action,
+                data: m_data,
+                success: function(result){
+                    console.log(m_data)
+                    $('#tovar').html(result);
+                }
+            });
+        });
+
+        $('.str').click(function(e){
+
+            m_data =  $('#filter-form').serialize() + '&'+'str'+'='+$(this).text()
+
+            console.log(m_data)
+            $.ajax({
+                type: 'GET',
+                url: '/tovars/',
+                data: m_data,
+                success: function(result){
+                    $('#tovar').html(result);
+                }
+            });
+        })
+    });
+</script>
+{% endblock %}

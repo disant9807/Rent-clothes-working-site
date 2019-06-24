@@ -1,0 +1,525 @@
+{% extends "Bot_base.html" %}
+{% load staticfiles %}
+{% load widget_tweaks %}
+
+{% block title %}
+
+<title> Cписок товаров</title>
+
+{% endblock %}
+
+{% block main %}
+
+
+
+<div class="ml-3 mt-3 d-flex flex-column align-items-center">
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Главная</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Список Товаров</li>
+        </ol>
+    </nav>
+
+    <h1 class="mb-3">Список Товаров</h1>
+
+	
+	<form action="/admtovars/" method="GET">
+				<div class="d-flex bg-white border mb-4 p-2 justify-content-center align-items-center">
+					
+					<div class="form-group ml-2 mr-2">
+                        <label for="id_str" >Текущая страница: {{zapros.str}}</label>
+                    
+						<div class='btn-spn btn-spn-lg input-group'>
+						  <span class='input-group-btn'>
+							<button
+							  class='btn btn-secondary btn-spn-down' 
+							  type='button'><i class="fa fa-minus"></i></button>
+						  </span> 
+						  {{formsort.str|add_class:"btn-spn-input form-control text-center"}}
+						  <span class='input-group-btn'>
+							<button        
+							  class='btn btn-secondary btn-spn-up'
+							  type='button'><i class="fa fa-plus"></i></button>
+						  </span>
+						</div>
+					</div>
+					
+					<div class="form-group ml-2 mr-2">
+                        <label for="id_kolich" >Текущее количество: {{zapros.kolich}}</label>
+                    
+						<div class='btn-spn btn-spn-lg input-group'>
+						  <span class='input-group-btn'>
+							<button
+							  class='btn btn-secondary btn-spn-down' 
+							  type='button'><i class="fa fa-minus"></i></button>
+						  </span> 
+						  {{formsort.kolich|add_class:"btn-spn-input form-control text-center"}}
+						  <span class='input-group-btn'>
+							<button        
+							  class='btn btn-secondary btn-spn-up'
+							  type='button'><i class="fa fa-plus"></i></button>
+						  </span>
+						</div>
+					</div>
+					
+					
+                    <div class="form-group ml-2 mr-2">
+                        <label for="id_sort" >Текущее поле для сортировки: {{zapros.sort}}</label>
+                        {{formsort.sort|add_class:"form-control"}}
+                    </div>
+					
+                    <div class="custom-control ml-2 mr-2 custom-switch">
+                        {{formsort.sortingType|add_class:"custom-control-input"}}
+						 <label class="custom-control-label" for="id_sortingType">По возрастанию/убыванию</label>
+                    </div>
+
+ 
+                    <div class="d-flex ml-1 flex-column">
+                        <button type="submit" class="btn btn-primary mt-1 mb-1">Применить</button>
+                    </div>
+				</div>
+              
+	
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class=" mb-4 col-xl-5 col-lg-5  ">
+
+                <div class=" border p-3 border border-dark bg-white">
+                    
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Название</label>
+							{% if form.name %}
+                            <input type="text" name="name" class="form-control" id="exampleFormControlInput1" value="{{form.name}}" placeholder="Zer-0109">
+							{%else%}
+							<input type="text" name="name" class="form-control" id="exampleFormControlInput1" value="{{form.name}}" placeholder="Zer-0109">
+							{% endif %}
+							
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Бренд</label>
+							{% if form.brand %}
+                            <input type="text" name="brand" class="form-control" value={form.brand} id="exampleFormControlInput1" placeholder="Nike Air-max">
+							{%else%}
+							<input type="text" name="brand" class="form-control" id="exampleFormControlInput1" placeholder="Nike Air-max">
+							{% endif %}
+                        </div>
+							
+
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Вид</label>
+                            <div class="form-check">
+								{% if form.Kurtka %}
+                                <input class="form-check-input" type="checkbox" name="Kurtka" id="defaultCheck1" checked>
+								{% else %}
+								<input class="form-check-input" type="checkbox" name="Kurtka"  id="defaultCheck1">
+								{% endif %}
+								
+                                <label class="form-check-label" for="defaultCheck1" checked>
+                                    Куртки
+                                </label>
+
+								
+                            </div>
+                            <div class="form-check">
+								{% if form.Palto %}
+                                <input class="form-check-input" type="checkbox" name="Palto" id="defaultCheck1" checked>
+								{% else %}
+								<input class="form-check-input" type="checkbox" name="Palto" id="defaultCheck1">
+								{% endif %}
+								
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Пальто
+                                </label>
+                            </div>
+                            <div class="form-check">
+								{% if form.Vetrovka %}
+                                <input class="form-check-input" type="checkbox" name="Vetrovka" id="defaultCheck1" checked>
+								{% else %}
+								<input class="form-check-input" type="checkbox"   name="Vetrovka"  id="defaultCheck1">
+								{% endif%}
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Ветровки
+                                </label>
+                            </div>
+                            <div class="form-check">
+								{% if form.Puhovik %}
+								<input class="form-check-input" type="checkbox" name="Puhovik" id="defaultCheck1" checked>
+								{% else %}
+								<input class="form-check-input" type="checkbox"  name="Puhovik" id="defaultCheck1">
+								{% endif%}
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Пуховики
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+								{% if form.Hudi %}
+                                <input class="form-check-input" type="checkbox" name="Hudi" id="defaultCheck1" checked>
+								{% else %}
+								<input class="form-check-input" type="checkbox" name="Hudi" id="defaultCheck1">
+								{% endif%}
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Худи
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+								{% if form.Jaket %}
+                                <input class="form-check-input" type="checkbox" name="Jaket" id="defaultCheck1" checked>
+								{% else %}
+								<input class="form-check-input" type="checkbox" name="Jaket" id="defaultCheck1">
+								{% endif%}
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Жакеты
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+								{% if form.Maika %}
+                                <input class="form-check-input" type="checkbox" name="Maika" id="defaultCheck1" checked>
+								{% else %}
+								 <input class="form-check-input" type="checkbox" name="Maika"  id="defaultCheck1">
+								{% endif%}
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Майки
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+								{% if form.Rubashki %}
+                                <input class="form-check-input" type="checkbox" name="Rubashki" id="defaultCheck1" checked>
+								{% else %}
+								<input class="form-check-input" type="checkbox" name="Rubashki" id="defaultCheck1" >
+								{% endif%}
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Рубашки
+                                </label>
+                            </div>
+							<div class="form-check">
+							{% if form.Jeans %}
+                                <input class="form-check-input" type="checkbox" name="Jeans" id="defaultCheck1" checked>
+								{% else %}
+								<input class="form-check-input" type="checkbox" name="Jeans" id="defaultCheck1">
+								{% endif%}
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Джинсы
+                                </label>
+                            </div>
+							<div class="form-check">
+							{% if form.Triko %}
+                                <input class="form-check-input" type="checkbox" name="Triko" id="defaultCheck1" checked>
+								{% else %}
+								<input class="form-check-input" type="checkbox" name="Triko"  id="defaultCheck1">
+								{% endif%}
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Трико
+                                </label>
+                            </div>
+							<div class="form-check">
+								{% if form.Djoggers %}
+                                <input class="form-check-input" type="checkbox" name="Djoggers" checked id="defaultCheck1">
+								{% else %}
+								<input class="form-check-input" type="checkbox" name="Djoggers" id="defaultCheck1">
+								{% endif%}
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Джоггеры
+                                </label>
+                            </div>
+							<div class="form-check">
+								{% if form.Classic %}
+                                <input class="form-check-input" type="checkbox" name="Classic" id="defaultCheck1" checked>
+								{% else %}
+								<input class="form-check-input" type="checkbox" name="Classic" id="defaultCheck1" >
+								{% endif%}
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Классика
+                                </label>
+                            </div>
+							<div class="form-check">
+								{% if form.Krossy %}
+                                <input class="form-check-input" type="checkbox" name="Krossy" id="defaultCheck1" checked>
+								{% else %}
+								<input class="form-check-input" type="checkbox" name="Krossy" id="defaultCheck1" >
+								{% endif%}
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Кроссовки
+                                </label>
+                            </div>
+							<div class="form-check">
+								{% if form.Kedi %}
+                                <input class="form-check-input" type="checkbox" name="Kedi" id="defaultCheck1" checked>
+								{% else %}
+								<input class="form-check-input" type="checkbox" name="Kedi" id="defaultCheck1">
+								{% endif%}
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Кеды
+                                </label>
+                            </div>
+							<div class="form-check">
+								{% if form.Botinki %}
+                                <input class="form-check-input" type="checkbox" name="Botinki" id="defaultCheck1" checked>
+								{% else %}
+								<input class="form-check-input" type="checkbox" name="Botinki" id="defaultCheck1">
+								{% endif%}
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Ботинки
+                                </label>
+                            </div>
+							<div class="form-check">
+								{% if form.Tufli %}
+                                <input class="form-check-input" type="checkbox" name="Tufli" id="defaultCheck1" checked>
+								{% else %}
+								<input class="form-check-input" type="checkbox" name="Tufli" id="defaultCheck1">
+								{% endif%}
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Туфли
+                                </label>
+                            </div>
+                        </div>
+			
+			
+			<div class="Base__txt-kelson  Base__txt_size_big  Colonka__Zagolovok Colonka__Zagolovok_margin_big">Сезон</div>
+
+            <div class="boxes">
+                {% if form.leto %}
+                <input type="checkbox" id="leto" name="leto" checked>
+                <label for="leto">Лето</label>
+                {% else %}
+                <input type="checkbox" id="leto" name="leto">
+                <label for="leto">Лето</label>
+                {% endif %}
+                {% if form.vesna %}
+                <input type="checkbox" id="vesna" name="vesna" checked>
+                <label for="vesna">Весна</label>
+                {% else %}
+                <input type="checkbox" id="vesna" name="vesna" >
+                <label for="vesna">Весна</label>
+                {% endif %}
+                {% if form.osen %}
+                <input type="checkbox" id="osen" name="osen"checked>
+                <label for="osen">Осень</label>
+                {% else %}
+                <input type="checkbox" id="osen" name="osen">
+                <label for="osen">Осень</label>
+                {% endif %}
+                {% if form.zima %}
+                <input type="checkbox" id="zima" name="zima" checked>
+                <label for="zima">Зима</label>
+                {% else %}
+                <input type="checkbox" id="zima" name="zima">
+                <label for="zima">Зима</label>
+                {% endif %}
+            </div>
+			
+			<div class="Base__txt-kelson  Base__txt_size_big  Colonka__Zagolovok">Пол</div>
+
+            <div class="boxes">
+                {% if form.woman %}
+                <input type="checkbox" id="woman" name="woman" checked>
+                <label for="woman">Женский</label>
+                {% else %}
+                <input type="checkbox" id="woman" name="woman" >
+                <label for="woman">Женский</label>
+                {% endif %}
+                {% if form.man %}
+                <input type="checkbox" id="man" name="man" checked>
+                <label for="man">Мужской</label>
+                {% else %}
+                <input type="checkbox" id="man" name="man">
+                <label for="man">Мужской</label>
+                {% endif %}
+                {% if form.uni %}
+                <input type="checkbox" id="Uni" name="uni" checked>
+                <label for="Uni">Унисекс</label>
+                {% else %}
+                <input type="checkbox" id="Uni" name="uni">
+                <label for="Uni">Унисекс</label>
+                {% endif %}
+
+            </div>
+
+
+            <div class="Base__txt-kelson  Base__txt_size_big Colonka__Zagolovok">Размер</div>
+
+            <div class="boxes">
+                {% if form.s %}
+                <input type="checkbox" id="s" name="s" checked>
+                <label for="s">S</label>
+                {% else %}
+                <input type="checkbox" id="s" name="s">
+                <label for="s">S</label>
+                {% endif %}
+
+                {% if form.m %}
+                <input type="checkbox" id="m" name="m" checked>
+                <label for="m">M</label>
+                {% else %}
+                <input type="checkbox" id="m" name="m" >
+                <label for="m">M</label>
+                {% endif %}
+
+                {% if form.l %}
+                <input type="checkbox" id="l" name="l"  checked>
+                <label for="l">L</label>
+                {% else %}
+                <input type="checkbox" id="l" name="l" >
+                <label for="l">L</label>
+                {% endif %}
+
+                {% if form.xl %}
+                <input type="checkbox" id="xl" name="xl" checked>
+                <label for="xl">xl</label>
+                {% else %}
+                <input type="checkbox" id="xl" name="xl" >
+                <label for="xl">xl</label>
+                {% endif %}
+            </div>
+			
+			<div class="Base__txt-kelson  Base__txt_size_big Colonka__Zagolovok">Тип</div>
+			
+			<div class="boxes">
+                {% if form.delete %}
+                <input type="checkbox" id="delete" name="delete" checked>
+                <label for="delete">Удаленные</label>
+                {% else %}
+                <input type="checkbox" id="delete" name="delete">
+                <label for="delete">Удаленные</label>
+                {% endif %}
+
+                {% if form.nodell %}
+                <input type="checkbox" id="nodell" name="nodell" checked>
+                <label for="nodell">Не удаленные</label>
+                {% else %}
+                <input type="checkbox" id="nodell" name="nodell" >
+                <label for="nodell">Не удаленные</label>
+                {% endif %}
+
+            </div>
+			
+			<div class="Base__txt-kelson  Base__txt_size_big Colonka__Zagolovok">Наличие</div>
+			
+			<div class="boxes">
+                {% if form.nal %}
+                <input type="checkbox" id="nal" name="nal" checked>
+                <label for="nal">В наличии</label>
+                {% else %}
+                <input type="checkbox" id="nal" name="nal">
+                <label for="nal">В Наличии</label>
+                {% endif %}
+
+                {% if form.nonal %}
+                <input type="checkbox" id="nonal" name="nonal" checked>
+                <label for="nonal">Не в наличии</label>
+                {% else %}
+                <input type="checkbox" id="nonal" name="nonal" >
+                <label for="nonal">Не в наличии</label>
+                {% endif %}
+
+            </div>
+			
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Стоимость минимальной аренды</label>
+                            <div class="row">
+                                <div class="col">
+                                    <input type="text" name="mincenaAren" class="form-control" placeholder="От">
+                                </div>
+                                <div class="col">
+                                    <input type="text" name="maxcenaAren" class="form-control" placeholder="До">
+                                </div>
+                            </div>
+                        </div>
+
+
+						<input type="hidden" name="Str" id="itogo" value="0">
+							{% if form.type%}
+							<input type="hidden"  name="type" id="type" value="{{form.type}}">
+							{% else %}
+							<input type="hidden"  name="type" id="type">
+							{% endif %}
+						<input type="hidden" name="Sort" id="sorting" value="DateAdd">
+						<input type="hidden" name="Sort_kak" id="sorting_kak" value="on">
+                        <div class="d-flex flex-column">
+                            <button id="poihali" type="submit" class="btn btn-primary mt-1 mb-1">Применить</button>
+                            <button type="submit" class="btn btn-info mt-1 mb-1">Сбросить</button>
+                        </div>
+
+
+                    </form>
+                </div>
+            </div>
+
+
+            <div class="col-xl-7 col-lg-7 ">
+                <div class="list-group">
+                    <a href="/admedittov/" class="list-group-item list-group-item-action flex-column align-items-start bg-success">
+                        <div class="d-flex w-100">
+                            <h5 class="mb-1 text-uppercase text-white">Добавить товар</h5>
+                        </div>
+                    </a>
+					
+					
+			{% for Tovar in Tovars %}
+                <a href="/admtovar/{{Tovar.id}}" class="list-group-item list-group-item-action flex-column align-items-start border border-dark">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">{{Tovar.name}}</h5>
+
+                        <small>{{Tovar.date}}</small>
+                    </div>
+                    <div class="d-flex flex-wrap justify-content-between">
+                        <div class="d-flex ml-2 mr-2">
+                            <p class="mb-1 ">Аренда: </p>
+                            <p class="mb-1 ml-1">{{Tovar.name}}</p>
+                        </div>
+                        <div class="d-flex ml-2 mr-2">
+                            <p class="mb-1 ">Аренда: </p>
+                            <p class="mb-1 ml-1">{{Tovar.priceArenda}} р/мес</p>
+                        </div>
+						
+						<div class="d-flex ml-2 mr-2">
+                            <p class="mb-1 ">Погонять: </p>
+                            <p class="mb-1 ml-1">{{Tovar.pricePogon}} р/день</p>
+                        </div>
+						
+                        <div class="d-flex ml-2 mr-2">
+                            <p class="mb-1 ">Заказы: </p>
+                            <p class="mb-1 ml-1">{{Tovar.zakazi}}</p>
+                        </div>
+                        <div class="d-flex ml-2 mr-2">
+                            <p class="mb-1 ">Лайкнутое: </p>
+                            <p class="mb-1 ml-1">{{Tovar.like}} шт</p>
+                        </div>
+						
+						<div class="d-flex ml-2 mr-2">
+                            <p class="mb-1 ">Дата добавления: </p>
+                            <p class="mb-1 ml-1">{{Tovar.date}}</p>
+                        </div>
+						
+						<div class="d-flex ml-2 mr-2">
+                            <p class="mb-1 ">Дата редактирования: </p>
+                            <p class="mb-1 ml-1">{{Tovar.datelast}}</p>
+                        </div>
+                    </div>
+                </a>
+			{% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+{% endblock %}
+
+
+{% block js %}
+	<link rel="stylesheet" type="text/css" href="{% static "numberbootstrap/kss.css" %}"/ >
+	<script src="{% static "numberbootstrap/java.js" %}"/></script>
+
+	
+{% endblock %}

@@ -1,0 +1,50 @@
+.Bread
+{
+    padding: 0.5em;
+    border: 0.15em solid #1F2226;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    text-decoration: none;
+
+}
+.Bread-poloska
+{
+    width: 1em;
+    height: 0.15em;
+    background-color: #1F2226;
+
+}
+
+.Bread__txt
+{
+    text-decoration: none;
+    color: #1F2226;
+}
+
+.Bread__txt :hover{
+    background-color: #D6231E;
+}
+
+
+.Bread-flex
+{
+    align-items: center;
+}
+.Bread_viible_orange
+{
+    background-color: #F8B500;
+}
+
+@media (max-width: 1000px) {
+
+    .Bread
+    {
+        font-size: 22pt;
+
+    }
+
+    .Bread__txt
+    {
+
+    }
+}

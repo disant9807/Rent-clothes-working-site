@@ -1,0 +1,30 @@
+.Dostavka__opisanie
+{
+    font-size: large;
+    text-align: center;
+}
+.Dostavka__zagolovok
+{
+    margin-top: 1em;
+    margin-bottom: 0.25em;
+    text-align: center;
+}
+.Dostavka__status
+{
+    padding: 0.5em 1em 0.5em 1em;
+}
+.Dostavka__main
+{
+    transform: translateY(-15%);
+}
+@media (max-width: 1000px)
+{
+    .Dostavka__opisanie
+    {
+        font-size: 20pt;
+    }
+    .Dostavka__zagolovok
+    {
+        font-size: 25pt;
+    }
+}

@@ -1,0 +1,162 @@
+
+{% extends "base.html" %}
+
+{% load staticfiles %}
+{% block title %}
+<title>Заказ: #{{zakaz.nomer}}</title>
+{% endblock %}
+
+{% block content %}
+<div class="Base__flex Bread-flex">
+    <div class="Bread">
+        <a href="/main/" class="Base__txt-kelson Bread__txt">
+            Главная
+        </a>
+    </div>
+    <div class="Bread-poloska"></div>
+    <div class="Bread">
+        <a href="/kabinet/" class="Base__txt-kelson Bread__txt">
+            Личный кабинет
+        </a>
+    </div>
+    <div class="Bread-poloska"></div>
+    <div class="Bread Bread_viible_orange">
+        <div class="Base__txt-kelson Bread__txt">
+            Заказ #{{zakaz.nomer}}
+        </div>
+    </div>
+</div>
+
+<div class="Korzina Page__element-oba ">
+    <div class="Page__element-obertka">
+        <div class="zagolovok Page__zagolovok Page__zagolovok-funny Page__element-zagolovok">Заказ #{{zakaz.nomer}}</div>
+    </div>
+
+    <div class="">
+
+        <div class=" Korzina_element Dostavka__main">
+           <div class="Base__flex Base__flex_type_column">
+               <div class="Base__zagolovok Dostavka__zagolovok">
+                   Дата заказа
+               </div>
+               <div class="Base__txt-kelson Dostavka__opisanie">
+                   {{zakaz.date}}
+               </div>
+           </div>
+			
+			{% if zakaz.vid == False %}
+				{% if zakaz.status == False %}
+				<div class="Base__flex Base__flex_type_column">
+					<div class="Base__zagolovok Dostavka__zagolovok">
+						статус
+					</div>
+					<div class="Base__txt-kelson Dostavka__opisanie">
+						отменен
+					</div>
+				</div>
+				<div style="display:flex; justify-content:center; margin-top:1em;">
+				<form method="POST" action="/zakaz/{{zakaz.id}}/">
+						{% csrf_token %}
+						<input type="hidden" name="nootmena" value="1" > </input>
+						<button type="sumbit" style="margin:0.25em; font-size:12pt;"  class="vibor Base__button Page__button Tvr__button Base__button_color_orange"  id="GoEbaca"  class="btn btn-danger ">Восстановить</button>
+				</form>
+				</div>
+				{% else %}
+				<div class="Base__flex Base__flex_type_column">
+					<div class="Base__zagolovok Dostavka__zagolovok">
+						статус
+					</div>
+					<div class="Base__txt-kelson Dostavka__opisanie">
+						Активен
+					</div>
+				</div>
+				<div style="display:flex; justify-content:center; margin-top:1em;">
+				<form id="formdang" method="POST" action="/zakaz/{{zakaz.id}}/">
+					<button type="sumbit" style="margin:0.25em; font-size:12pt;" 	 class="vibor Base__button Page__button Tvr__button Base__button_color_orange"  id="GoEbaca"  class="btn btn-danger ">Отменить</button>
+					{% csrf_token %}
+					<input type="hidden" name="otmena" value="1" > </input>
+
+				</form>
+				</div>
+				{% endif %}
+			{% else %}
+			<div class="Base__flex Base__flex_type_column">
+                <div class="Base__zagolovok Dostavka__zagolovok">
+                    статус
+                </div>
+                <div class="Base__txt-kelson Dostavka__opisanie">
+                   Выдан
+                </div>
+            </div>
+			{% endif %}
+			
+			
+
+			
+        </div>
+<div class="Base__poloska-gor"></div>
+
+{% for tov in tovars %}
+<div class=" Korzina_element">
+            <div class="tovar">
+                <a  href="/tovar/{{tov.id}}" class="tovar__img">
+                    <img src="/static/{{tov.img}}" class ="tovar__img__img">
+                </a>
+                <div class="Base__flex Base__flex_type_column tovar__Base  tovar__opisanie Korzina__Base-flex Korzina__element-str">
+
+                    <div class="Base__zagolovok tovar__zagolovok tovar__zagolovok_no_margin-top">{{tov.name}}</div>
+                    <div class="Base">
+                        <div class="tovar__opisanie__text">{{tov.material}}</div>
+                    </div>
+                    <div class="Base">
+                        <div class="tovar__opisanie__zagolovok Base__zagolovok tovar__zagolovok">{{tov.rentname}}</div>
+                        <div class="tovar__opisanie__text Korzina__txt-price">Платеж: {{tov.rentstoimost}} рублей</div>
+						<div class="tovar__opisanie__text">Платеж раз в {{tov.rentplatej}} дней</div>
+						<div class="tovar__opisanie__text">Выкуп через {{tov.rentvikup}} дней</div>
+						<div class="tovar__opisanie__text">Возможность возврата через {{tov.rentvozvrat}} дней</div>	
+                        <div class="tovar__opisanie__zagolovok Base__zagolovok tovar__zagolovok">размер</div>
+                        <div class="tovar__opisanie__text">{{tov.size}}</div>
+                    </div>
+                </div>
+
+            </div>
+			
+</div>
+		
+		
+		<div class="Base__poloska-gor"></div>
+		
+{% endfor %}
+
+
+        </div>
+    </div>
+ {% endblock %}
+
+{% block style %}
+<link rel="stylesheet" type="text/css" href="{% static "fonts/Style/fonts.css" %}" / >
+<link rel="stylesheet" type="text/css" href="{% static "Dostavka/style/Dostavka.css" %}" / >
+<link rel="stylesheet" type="text/css" href="{% static "bread/style/bread.css" %}" / >
+<link rel="stylesheet" type="text/css" href="{% static "Katalog/style/Katalog.css" %}" / >
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css"  href="{% static "header/style/Header.css" %}"/ >
+<link rel="stylesheet" type="text/css" href="{% static "Korzina/style/korz.css" %}" / >
+<link rel="stylesheet" type="text/css" href="{% static "Page/style/Page.css" %}" / >
+
+<link rel="stylesheet" type="text/css" href="{% static "base/style/base.css" %}" / >
+<link rel="stylesheet" type="text/css" href="{% static "Menu/style/Menu.css" %}" / >
+<link rel="stylesheet" type="text/css" href="{% static "Tovar/style/Tovar.css" %}" / >
+<link rel="stylesheet" type="text/css" href="{% static "Elements.css" %}" / >
+ {% endblock %}
+ 
+ {% block JS %}
+</body>
+<script>
+	
+	$("#DELETE").click(function(){
+		$(this).find(':first-child').find(':first-child').click();
+	})
+	
+</script>
+</html>
+{% endblock %}

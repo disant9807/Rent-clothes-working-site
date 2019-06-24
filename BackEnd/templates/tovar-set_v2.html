@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Сет</title>
+    <meta name="viewport" content="width=device-width">
+    <style>
+    </style>
+</head>
+<body class="page">
+<div class="head page_head ">
+
+    <div class="contact head__contact">
+        <a href="#" class="contact__ssilka contact__ssilka_theme-left">город:</a>
+        <a href="#" class="contact__ssilka">доставка</a>
+        <a href="#" class="contact__ssilka">условия</a>
+        <a href="#" class="contact__ssilka">о нас</a>
+    </div>
+    <div class="contact_poloska"></div>
+    <div class="head__poloska">
+    </div>
+
+    <div class="header head__page">
+        <a href="./Main.html"  class="header_logo_img logo_null"> <img class="logo__img"  src="{% static "img/logo.png"%}"/></a>
+
+
+        <a  class="menu__ssilka znack__ssilka" id="btn-katlog"><div class="button menu__button ">
+            <i class="fas fa-tshirt znack__shirt"></i>
+            <div class="znack__img-txt">Каталог товаров</div>
+        </div>
+        </a>
+        <div class="button search header_search znack__ssilka znack__ssilka_margin-right_0">
+            <input type="text" class="input input__search" >
+            <a href="#" class="znack__ssilka"><div class="search__button">Искать</div></a>
+        </div>
+
+
+
+
+        <a href="./LK_Kabinet_v2.html" class="znack__ssilka znack__like ">
+            <div class="button button_znack">
+                <i class="fas fa-heart"></i>
+                <div class="znack__img-txt">Лайкнутое</div>
+            </div>
+        </a>
+
+        <a href="./LK_Kabinet_v2.html" class="znack__ssilka">
+            <div class="button button_znack"><i class="fas fa-user"></i><div class="znack__img-txt">Кабинет</div></div>
+        </a>
+        <a href="./korzina_v2.html" class="znack__ssilka znack__ssilka_margin-right_0">
+            <div class="button button_znack">
+                <i class="fas fa-shopping-cart"></i>
+                <div class="znack__img-txt">Корзина</div>
+            </div>
+        </a>
+
+    </div>
+
+
+    <div class="head__poloska">
+    </div>
+</div>
+
+<div class="Base__flex Katalog" id="Katalog">
+
+    <div class="Base__flex Base__flex_type_column Katalog__element">
+        <div class="Base__flex Katalog__card">
+            <div class="Base__zagolovok">верхняя одежда</div>
+        </div>
+        <div class="Base__flex ">
+            <div class="Base__poloska-ver"></div>
+            <div class="Base__flex Base__flex_type_column">
+                <div class="Base__flex Katalog__mejpolosie Katalog_last">
+                    <div class="Base__poloska-gor Katalog__poloska"></div>
+                    <a href="./Find_tovars_v2.html" class="Base__txt-kelson Katalog__ssilk">
+                        Ветровки
+                    </a>
+                </div>
+                <div class="Base__flex Katalog__mejpolosie">
+                    <div class="Base__poloska-gor Katalog__poloska"></div>
+                    <a href="./Find_tovars_v2.html" class="Base__txt-kelson Katalog__ssilk">
+                    Пальто
+                    </a>
+                </div>
+                <div class="Base__flex Katalog__mejpolosie">
+                    <div class="Base__poloska-gor Katalog__poloska"></div>
+                    <a href="./Find_tovars_v2.html" class="Base__txt-kelson Katalog__ssilk">
+                    Пуховики
+                    </a>
+                </div>
+                <div class="Base__flex Katalog__mejpolosie">
+                    <div class="Base__poloska-gor Katalog__poloska"></div>
+                    <a href="./Find_tovars_v2.html" class="Base__txt-kelson Katalog__ssilk">
+                    Куртки
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="Base__flex Base__flex_type_column Katalog__element">
+        <div class="Base__flex Katalog__card">
+            <div class="Base__zagolovok">кофты</div>
+        </div>
+        <div class="Base__flex ">
+            <div class="Base__poloska-ver"></div>
+            <div class="Base__flex Base__flex_type_column">
+                <div class="Base__flex Katalog__mejpolosie Katalog_last">
+                    <div class="Base__poloska-gor Katalog__poloska"></div>
+                    <a href="./Find_tovars_v2.html"" class="Base__txt-kelson Katalog__ssilk">
+                    Худи
+                    </a>
+                </div>
+                <div class="Base__flex Katalog__mejpolosie">
+                    <div class="Base__poloska-gor Katalog__poloska"></div>
+                    <a href="./Find_tovars_v2.html"" class="Base__txt-kelson Katalog__ssilk">
+                    Жакеты
+                    </a>
+                </div>
+                <div class="Base__flex Katalog__mejpolosie">
+                    <div class="Base__poloska-gor Katalog__poloska"></div>
+                    <a href="./Find_tovars_v2.html"" class="Base__txt-kelson Katalog__ssilk">
+                    Майки
+                    </a>
+                </div>
+                <div class="Base__flex Katalog__mejpolosie">
+                    <div class="Base__poloska-gor Katalog__poloska"></div>
+                    <a href="./Find_tovars_v2.html"" class="Base__txt-kelson Katalog__ssilk">
+                    Рубашки
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="Base__flex Base__flex_type_column Katalog__element">
+        <div class=" Base__flex Katalog__card">
+            <div class="Base__zagolovok">штаны</div>
+        </div>
+        <div class="Base__flex ">
+            <div class="Base__poloska-ver"></div>
+            <div class="Base__flex Base__flex_type_column">
+                <div class="Base__flex Katalog__mejpolosie Katalog_last">
+                    <div class="Base__poloska-gor Katalog__poloska"></div>
+                    <a href="./Find_tovars_v2.html"" class="Base__txt-kelson Katalog__ssilk">
+                    Джинсы
+                    </a>
+                </div>
+                <div class="Base__flex Katalog__mejpolosie">
+                    <div class="Base__poloska-gor Katalog__poloska"></div>
+                    <a href="./Find_tovars_v2.html"" class="Base__txt-kelson Katalog__ssilk">
+                    Тренники
+                    </a>
+                </div>
+                <div class="Base__flex Katalog__mejpolosie">
+                    <div class="Base__poloska-gor Katalog__poloska"></div>
+                    <a href="./Find_tovars_v2.html"" class="Base__txt-kelson Katalog__ssilk">
+                    Джоггеры
+                    </a>
+                </div>
+                <div class="Base__flex Katalog__mejpolosie">
+                    <div class="Base__poloska-gor Katalog__poloska"></div>
+                    <a href="./Find_tovars_v2.html"" class="Base__txt-kelson Katalog__ssilk">
+                    Классика
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="Base__flex Base__flex_type_column Katalog__element">
+        <div class=" Base__flex Katalog__card">
+            <div class="Base__zagolovok">обувь</div>
+        </div>
+        <div class="Base__flex ">
+            <div class="Base__poloska-ver"></div>
+            <div class="Base__flex Base__flex_type_column">
+                <div class="Base__flex Katalog__mejpolosie  Katalog_last">
+                    <div class="Base__poloska-gor Katalog__poloska"></div>
+                    <a href="./Find_tovars_v2.html"" class="Base__txt-kelson Katalog__ssilk">
+                    Кроссовки
+                    </a>
+                </div>
+                <div class="Base__flex Katalog__mejpolosie">
+                    <div class="Base__poloska-gor Katalog__poloska"></div>
+                    <a href="./Find_tovars_v2.html"" class="Base__txt-kelson Katalog__ssilk">
+                    Кеды
+                    </a>
+                </div>
+                <div class="Base__flex Katalog__mejpolosie">
+                    <div class="Base__poloska-gor Katalog__poloska"></div>
+                    <a href="./Find_tovars_v2.html"" class="Base__txt-kelson Katalog__ssilk">
+                    Ботинки
+                    </a>
+                </div>
+                <div class="Base__flex Katalog__mejpolosie">
+                    <div class="Base__poloska-gor Katalog__poloska"></div>
+                    <a href="./Find_tovars_v2.html"" class="Base__txt-kelson Katalog__ssilk">
+                    Туфли
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="Base__flex Base__flex_type_column Katalog__element">
+        <div class=" Base__flex Katalog__card-set">
+            <div class="Base__zagolovok">Сеты</div>
+        </div>
+        <div class="Base__flex ">
+            <div class="Base__poloska-ver Katalog-poloska-set"></div>
+            <div class="Base__flex Base__flex_type_column">
+                <div class="Base__flex Katalog__mejpolosie Katalog_last">
+                    <div class="Base__poloska-gor Katalog__poloska Katalog-poloska-set"></div>
+                    <a href="./Find_set_v2.html" class="Base__txt-kelson Katalog__ssilk">
+                        Районообразный
+                    </a>
+                </div>
+                <div class="Base__flex Katalog__mejpolosie">
+                    <div class="Base__poloska-gor Katalog__poloska Katalog-poloska-set"></div>
+                    <a href="./Find_set_v2.html" class="Base__txt-kelson Katalog__ssilk">
+                        Банан
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="Base__flex Bread-flex">
+    <div class="Bread">
+        <a href="./Main.html" class="Base__txt-kelson Bread__txt">
+            Главная
+        </a>
+    </div>
+    <div class="Bread-poloska"></div>
+    <div class="Bread Bread_viible_orange">
+        <div class="Base__txt-kelson Bread__txt">
+            Сет: {{set.name}}
+        </div>
+    </div>
+</div>
+
+<div class="Korzina Page__element-oba ">
+    <div class="Page__element-obertka">
+        <div class="zagolovok Page__zagolovok Page__zagolovok-funny Page__element-zagolovok">Сет {{set.name}}</div>
+    </div>
+    {% for Tovar in set.tovari %}
+    <div class=" Korzina_element">
+        <div class="Tov">
+            <div class="">
+                <img src="/static/{{Tovar.photo}}" class ="SET__img">
+            </div>
+
+
+            <div class="Base__flex Base__flex_type_column tovar__opisanie Tvr__opi">
+
+                <div class="Base__zagolovok tovar__zagolovok tovar__zagolovok_no_margin-top">{{Tovar.name}}</div>
+                <div class="Base">
+                    <div class="tovar__opisanie__text">{{Tovar.opisanie}}</div>
+                    <div class="tovar__opisanie__text">{{Tovar.material}}</div>
+                </div>
+
+                <div class="Tvr__vibor-photo Page__element-border">
+                    <div class="Tvr__Vibor-null">
+                        <div class="Base__txt-kelson Tvr__Vibor_txt">
+                            Еще
+                        </div>
+                    </div>
+                    <div class="Tvr__Vibor">
+                        <img src="./tovars/img/krossy_one.jpg" class ="Tvr__Vibor-img">
+                    </div>
+                    <div class="Tvr__Vibor">
+                        <img src="./tovars/img/krossy_one.jpg" class ="Tvr__Vibor-img">
+                    </div>
+                    <div class="Tvr__Vibor">
+                        <img src="./tovars/img/krossy_one.jpg" class ="Tvr__Vibor-img">
+                    </div>
+                    <div class="Tvr__Vibor">
+                        <img src="./tovars/img/krossy_one.jpg" class ="Tvr__Vibor-img">
+                    </div>
+                    <div class="Tvr__Vibor-null">
+                        <div class="Base__txt-kelson Tvr__Vibor_txt">
+                            Еще
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="Base">
+                    <div class="tovar__opisanie__zagolovok Base__zagolovok tovar__zagolovok">размер</div>
+                    <div class="Base__flex">
+                        {% for si in Tovar.size %}
+                        <a href="#" class=" Page__button Tvr__button"> {{si}} </a>
+                        {% endfor %}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+     <div class="Base__poloska-gor"></div>
+    {% endfor %}
+
+    <div class="SET__zag">{{set.name}}</div>
+
+    <div class="SET__zag">Взять погонять: {{set.pricePogon}}</div>
+    <div class="SET__zag">Аренда: {{set.pricaArend}}</div>
+
+    <div class="Base__flex Tvr__dei SET__dei">
+        <a href="#" class="Base__button Page__button Tvr__button Base__button_color_orange"> Арендовать </a>
+        <a  href="#" class="Base__button Page__button Tvr__button Base__button_color_orange"> Погонять </a>
+
+        <div class="Base__flex ">
+            <a href="#" class="Base__button Page__button Tvr__button-coll1">
+                <i class="fas fa-chevron-left "></i>
+            </a>
+            <div class="Base__txt-kelson Tvr__txt">
+                1
+            </div>
+            <a href="#" class="Base__button Page__button Tvr__button-coll2">
+                <i class="fas fa-chevron-right "></i>
+            </a>
+        </div>
+    </div>
+
+
+
+    <div class="Base__zagolovok Tvr__Otz-zag">отзывы</div>
+
+    <div class="Menu">
+        <div class="Base__flex Colonka__Base-flex ">
+            <a href="#" class="Base__button  Colonka__button Menu__button"><i class="fas fa-caret-square-down Menu__logo"></i>Дата добавления</a>
+            <a href="#" class="Base__button  Colonka__button Menu__button"><i class="fas fa-caret-square-down Menu__logo"></i>Рейтинг</a>
+            <div class="boxes Tvr__sotr-check">
+                <input type="checkbox" id="box-1">
+                <label for="box-1">С фото</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="Base__flex Base__flex_type_column Tvr__Otzyvi">
+
+        {% for o in otz %}
+        <div class="Tvr__Otz">
+            <div href="#" class="Otzyvi__ssilka">
+                <div class="Otzyvi__top">
+                    <div class="Otzyvi__Name">
+                        {{o.name}}
+                    </div>
+                    <div class="Otzyvi__Data">
+                       {{o.date}}
+                    </div>
+
+                </div>
+                <div class="Otzyvi__main">
+
+                    <div class="Otzyvi__opisanie">
+                        <div class="Otzyvi__text">
+                           {{o.text}}
+                        </div>
+                    </div>
+
+                    <div class="Otzyvi__zvezda">
+                        <div class="Otzyvi__zvizdi">
+                            <i class="fas fa-star Otzyvi__zv-im"></i>
+                            <i class="fas fa-star Otzyvi__zv-im" ></i>
+                            <i class="fas fa-star Otzyvi__zv-im"></i>
+                            <i class="fas fa-star Otzyvi__zv-im"></i>
+                            <i class="fas fa-star Otzyvi__zv-im"></i>
+                        </div>
+                        <div class="Otzyvi__cifri">
+                            {{o.rating}}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="Tvr__Otz-photo">
+                <div class="Base__poloska-gor Tvr__Otz-poloska">
+                </div>
+                <div class="Base__flex Tvr__Otz-flexphoto">
+                    <a href="#" class="Tvr__Otz-img">
+                        <img src="./tovars/img/krossy_one.jpg" class ="Tvr__Otz-img-img">
+                    </a>
+
+                    <a href="#" class="Tvr__Otz-img">
+                        <img src="./tovars/img/krossy_one.jpg" class ="Tvr__Otz-img-img">
+                    </a>
+
+                    <a href="#" class="Tvr__Otz-img">
+                        <img src="./tovars/img/krossy_one.jpg" class ="Tvr__Otz-img-img">
+                    </a>
+                </div>
+                </div>
+
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    </div>
+</div>
+
+<div class="head page_head ">
+
+    <div class="head__poloska">
+    </div>
+
+    <div class="header head__page">
+
+
+        <div class="button menu__button_bott">
+            <a href="#" class="menu__bott">О нас</a>
+            <a href ="#" class="menu__bott bott-konec">Контакты</a>
+            <a href="#"  class="menu__bott bott-konec">Соглащение пользователя</a>
+            <a href="#" class="menu__bott bott-konec">FAQ</a>
+            <a href="#" class="menu__bott bott-konec">Брендам</a>
+
+        </div>
+
+        <div class="head__soc">
+            <a href="#" class="fab fa-instagram znack__ssilka fa-2x "></a>
+            <a href="#" class="fab fa-vk znack__ssilka fa-2x "></a>
+            <a href="#" class="fab fa-viber znack__ssilka fa-2x "></a>
+        </div>
+
+
+        <a href="#" class="znack__ssilka ">
+            <div class="button button_znack">
+                <i class="fas fa-wrench"></i>
+                <div class="znack__img-txt">Поддержка</div>
+            </div>
+        </a>
+
+
+
+    </div>
+
+
+    <div class="head__poloska">
+    </div>
+</div>
+<link rel="stylesheet" type="text/css" href="{% static "fonts/Style/fonts.css" %}"/ >
+<link rel="stylesheet" type="text/css" href="{% static "Page/style/Page.css" %}"/ >
+<link rel="stylesheet" type="text/css" href="{% static "Elements.css" %}"/ >
+<link rel="stylesheet" type="text/css" href="{% static "base/style/base.css" %}"/ >
+<link rel="stylesheet" type="text/css" href="{% static "header/style/Header.css" %}"/ >
+<link rel="stylesheet" type="text/css" href="{% static "Katalog/style/Katalog.css" %}"/>
+<link rel="stylesheet" type="text/css" href="{% static "bread/style/bread.css" %}"/>
+<link rel="stylesheet" type="text/css" href="{% static "Tovar/style/Tovar.css" %}"/>
+<link rel="stylesheet" type="text/css" href="{% static "Tvr/style/Tvr.css" %}"/ >
+<link rel="stylesheet" type="text/css" href="{% static "SET/style/SET.css" %}"/ >
+<link rel="stylesheet" type="text/css" href="{% static "Korzina/style/korz.css" %}"/ >
+<link rel="stylesheet" type="text/css" href="{% static "Menu/style/Menu.css" %}"/ >
+<link rel="stylesheet" type="text/css" href="{% static "Colonka/style/Colonka.css" %}"/>
+<link rel="stylesheet" type="text/css" href="{% static "checkbox/style/checkbox.css" %}"/>
+<link rel="stylesheet" type="text/css" href="{% static "Otzyvi/style/Otzyvi.css" %}"/ >
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="https://yarnpkg.com/en/package/normalize.css">
+
+</body>
+<script src="Modul/Jquery/jquery-3.3.1.js"></script>
+<script>
+    pokaz();
+    $('#btn-katlog').click(pokaz);
+    function pokaz() {
+        $('#Katalog').css("display",function (index, old) {
+            (old == 'flex')? $('#Katalog').fadeOut() :$('#Katalog').fadeIn();
+        });
+    }
+</script>
+</html>

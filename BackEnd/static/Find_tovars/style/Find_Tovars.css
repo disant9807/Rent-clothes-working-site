@@ -1,0 +1,18 @@
+@media (max-width: 1210px){
+    .last
+    {
+        display: none;
+    }
+    .znack__like
+    {
+        display: none;
+    }
+}
+@media (max-width: 1000px)
+{
+
+    .last
+    {
+        display: block;
+    }
+}

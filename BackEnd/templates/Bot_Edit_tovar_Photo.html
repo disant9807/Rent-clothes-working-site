@@ -1,0 +1,94 @@
+{% extends "Bot_base.html" %}
+{% load staticfiles %}
+{% load widget_tweaks %}
+
+
+{% block title %}
+
+<title> Редактирование фото Товара</title>
+
+{% endblock %}
+
+{% block main %}
+
+
+<div class="container mt-3">
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Главная</a></li>
+            <li class="breadcrumb-item"><a href="/admtovars/">Список товаров</a></li>
+			<li class="breadcrumb-item"><a href="/admtovar/{{id}}">Товар ID: {{id}}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Редактирование Товара</li>
+        </ol>
+    </nav>
+
+
+    <h1 class="mb-3 text-center">Редактирование фото товара</h1>
+
+
+    <div class="d-flex flex-wrap justify-content-center align-items-start">
+        
+		{% for t in photo %}
+		
+			<div class="m-2 card" style="width: 18rem;">
+			  <img src="/static/{{t.photo}}" class="card-img-top">
+			  <div class="card-body">
+				{% if t.main == True %}
+				<h5 class="card-title">Главное фото товара</h5>
+				{% else %}
+				<h5 class="card-title">Фото товара</h5>
+				{% endif %}
+				
+				{% if t.del == False %}
+				<form method="POST" action="/admntovarphoto/{{id}}">
+				{% csrf_token %}
+				<input name="delet" value="{{t.id}}" type="hidden"> </input>
+				<button type="sumbit" class="mt-1 btn btn-danger">Удалить</button>
+				</form>
+				{% else %}
+				<form method="POST" action="/admntovarphoto/{{id}}">
+				{% csrf_token %}
+				<input name="Nodelet" value="{{t.id}}" type="hidden"> </input>
+				<button type="sumbit" class="mt-1 btn btn-success">Восстановить</button>
+				</form>
+				{% endif %}
+				
+				<form method="POST" action="/admntovarphoto/{{id}}">
+				{% csrf_token %}
+				<input name="maine" value="{{t.id}}" type="hidden"> </input>
+				<button type="sumbit" class="mt-1 btn btn-success">Сделать главным</button>
+				</form>
+			  </div>
+			</div>
+		
+		{% endfor %}
+		
+			<div class="m-2 bg-light border border-dark card" style="width: 18rem;">
+			  <div class="card-body">
+				<h5 class="card-title">Добавить еще фото</h5>
+				<form method="POST" enctype="multipart/form-data" action="/admntovarphoto/{{id}}" class="mt-2 mb-2">
+				{% csrf_token %}
+
+					{{form.photo|add_class:"form-control-file"}}
+
+					<input name="add" value="1" type="hidden"> </input>
+					<div class="d-flex mt-2 align-items-center justify-content-between">
+					<button type="sumbit" class="btn btn-success">Добавить</button>
+					
+					<div class="custom-control custom-switch">
+					  {{form.main|add_class:"custom-control-input"}}
+					  <label for="id_main" class="custom-control-label" >Главное</label>
+					</div>
+					</div>
+				</form>
+			  </div>
+			</div>
+		
+    </div>
+	
+
+	
+</div>
+
+{% endblock %}

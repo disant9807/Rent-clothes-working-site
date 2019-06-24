@@ -1,0 +1,107 @@
+.Base__button
+{
+    border: 0.15em solid #1F2226;
+    font-family: 'Kelson Sans';
+    text-align: center;
+}
+
+.Base__button_color_red
+{
+    background-color: #D6231E;
+}
+
+.Base__button_color_orange
+{
+    background-color: #F8B500;
+}
+
+.Base__button_text-color_white{
+    color: #FFF4E0;
+}
+
+.Base__element
+{
+    border: 0.1em solid #1F2226;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Base__poloska-gor{
+    background-color: #1F2226;
+    height: 0.1em;
+}
+.Base__poloska-ver{
+    background-color: #1F2226;
+    width: 0.1em;
+}
+.Base__zagolovok{
+    font-weight: 600;
+    font-size: x-large;
+    font-family: 'Baron Neue';
+}
+.Base__zagolovok_theme_funny{
+    border: 0.1em solid #1F2226;
+    padding: 0.5em 1em 0.7em 1em;
+    background-color: #F8B500;
+}
+.Base__element-zagolovok{
+    position: absolute;
+    z-index: 10;
+    right: 50%;
+    transform: translateX(50%);
+    bottom: -1px;
+}
+.Base__flex
+{
+    display: flex;
+
+
+}
+.Base__flex_align-items-left{
+    align-items: flex-start;
+}
+.Base__flex_type_column
+{
+    flex-direction: column;
+}
+.Base__flex_type_space-b
+{
+    justify-content: space-between;
+}
+.Base__flex-elem{
+    margin:0.5em;
+}
+.Base__flex-elem_margin_big{
+    margin:1em;
+}
+.Base__txt-kelson{
+    font-family: 'Kelson Sans';
+}
+.Base__txt-size_big{
+    font-size: large;
+}
+.Base__txt_jir{
+
+}
+
+.Base__input{
+    height: 25px;
+    border: 0.1em solid #1F2226;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+.Base__input_color_white{
+    background-color: #FFF4E0;
+}
+
+.Base__checkbox{
+    border: 0.1em solid #1F2226;
+    width: 1em;
+    background-color: #1F2226;
+    color: #1F2226;
+}
+
+.Base__element_color_orange
+{
+    background-color: #F8B500;
+}

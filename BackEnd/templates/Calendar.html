@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}
+<title> Календарь Оплат </title>
+{% endblock %}
+
+{% block content %}
+<div class="Base__flex Bread-flex">
+    <div class="Bread">
+        <a href="./Main.html" class="Base__txt-kelson Bread__txt">
+            Главная
+        </a>
+    </div>
+    <div class="Bread-poloska"></div>
+	<div class="Bread">
+        <a href="/kabinet/" class="Base__txt-kelson Bread__txt">
+            Кабинет
+        </a>
+    </div>
+	<div class="Bread-poloska"></div>
+    <div class="Bread Bread_viible_orange">
+        <div class="Base__txt-kelson Bread__txt">
+            Календарь оплат
+        </div>
+    </div>
+</div>
+
+<div class="Page__finds">
+		{% for Tovar in Grafik %}
+<div class="Page__element-oba ">
+    <div class="Page__element-obertka">
+        <div class="zagolovok Page__zagolovok Page__zagolovok-funny Page__element-zagolovok">{{Tovar.name}}</div>
+    </div>
+
+<div class="Base__flex Page__Base__flex">
+			
+
+		    <div class="Tovars_bloki Page__colonka-tovar" id="tovar">
+
+				{% for graf in Tovar.graf %}
+				{% if graf.Pogon == True %}
+					 <div class="tovars">
+                
+                <div class="tovars__head">
+                    <div class="tovars__head__top">
+                        Каждый день до возврата
+                    </div>
+                    <div class="tovars__head__price">
+                        {{graf.Summ}} руб
+                    </div>
+                </div>
+   
+				</div>
+				{% else %}
+					<div class="tovars">
+					<div class="tovars__head">
+                    <div class="tovars__head__top">
+                        {{graf.time}}
+                    </div>
+                    <div class="tovars__head__price">
+                        {{graf.Summ}} руб
+                    </div>
+					</div>
+					</div>
+				{% endif %}
+				{% endfor %}
+			</div>
+</div>
+</div>
+		{% endfor %}
+</div>
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" type="text/css" href="{% static "bread/style/bread.css" %}"/>
+<link rel="stylesheet" type="text/css" href="{% static "tovars/style/tovars.css" %}"/>
+<link rel="stylesheet" type="text/css" href="{% static "Colonka/style/Colonka.css" %}"/>
+<link rel="stylesheet" type="text/css" href="{% static "Elements.css" %}"/>
+<link rel="stylesheet" type="text/css" href="{% static "Menu/style/Menu.css" %}"/>
+<link rel="stylesheet" type="text/css" href="{% static "checkbox/style/checkbox.css" %}"/>
+{% endblock %}
+

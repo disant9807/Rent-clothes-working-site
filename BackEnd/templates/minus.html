@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Сеты</title>
+    <meta name="viewport" content="width=device-width">
+    <style>
+        @media (max-width: 1210px)
+        {
+            .last{
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="page">
+<div class="head page_head ">
+
+    <div class="contact head__contact">
+        <a href="#" class="contact__ssilka contact__ssilka_theme-left">город:</a>
+        <a href="#" class="contact__ssilka">доставка</a>
+        <a href="#" class="contact__ssilka">условия</a>
+        <a href="#" class="contact__ssilka">о нас</a>
+    </div>
+    <div class="contact_poloska"></div>
+    <div class="head__poloska">
+    </div>
+
+    <div class="header head__page">
+        <a href="./Main.html"  class="header_logo_img logo_null"> <img class="logo__img" src="{% static "img/logo.png"%}"/></a>
+
+
+
+
+        <a  class="menu__ssilka znack__ssilka" id="btn-katlog"><div class="button menu__button ">
+            <i class="fas fa-tshirt znack__shirt"></i>
+            <div class="znack__img-txt">Каталог товаров</div>
+        </div>
+        </a>
+        <div class="button search header_search znack__ssilka znack__ssilka_margin-right_0">
+            <input type="text" class="input input__search" >
+            <a href="#" class="znack__ssilka"><div class="search__button">Искать</div></a>
+        </div>
+
+
+
+
+        <a href="./LK_Kabinet_v2.html" class="znack__ssilka znack__like ">
+            <div class="button button_znack">
+                <i class="fas fa-heart"></i>
+                <div class="znack__img-txt">Лайкнутое</div>
+            </div>
+        </a>
+
+        <a href="./LK_Kabinet_v2.html" class="znack__ssilka">
+            <div class="button button_znack"><i class="fas fa-user"></i><div class="znack__img-txt">Кабинет</div></div>
+        </a>
+        <a href="./korzina_v2.html" class="znack__ssilka znack__ssilka_margin-right_0">
+            <div class="button button_znack">
+                <i class="fas fa-shopping-cart"></i>
+                <div class="znack__img-txt">Корзина</div>
+            </div>
+        </a>
+
+    </div>
+
+
+    <div class="head__poloska">
+    </div>
+</div>
+
+<div class="Base__flex Katalog" id="Katalog">
+
+    <div class="Base__flex Base__flex_type_column Katalog__element">
+        <div class="Base__flex Katalog__card">
+            <div class="Base__zagolovok">верхняя одежда</div>
+        </div>
+        <div class="Base__flex ">
+            <div class="Base__poloska-ver"></div>
+            <div class="Base__flex Base__flex_type_column">
+                <div class="Base__flex Katalog__mejpolosie Katalog_last">
+                    <div class="Base__poloska-gor Katalog__poloska"></div>
+                    <a href="./Find_tovars_v2.html" class="Base__txt-kelson Katalog__ssilk">
+                        Ветровки
+                    </a>
+                </div>
+                <div class="Base__flex Katalog__mejpolosie">
+                    <div class="Base__poloska-gor Katalog__poloska"></div>
+                    <a href="./Find_tovars_v2.html"" class="Base__txt-kelson Katalog__ssilk">
+                    Пальто
+                    </a>
+                </div>
+                <div class="Base__flex Katalog__mejpolosie">
+                    <div class="Base__poloska-gor Katalog__poloska"></div>
+                    <a href="./Find_tovars_v2.html"" class="Base__txt-kelson Katalog__ssilk">
+                    Пуховики
+                    </a>
+                </div>
+                <div class="Base__flex Katalog__mejpolosie">
+                    <div class="Base__poloska-gor Katalog__poloska"></div>
+                    <a href="./Find_tovars_v2.html"" class="Base__txt-kelson Katalog__ssilk">
+                    Куртки
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="Base__flex Base__flex_type_column Katalog__element">
+        <div class="Base__flex Katalog__card">
+            <div class="Base__zagolovok">кофты</div>
+        </div>
+        <div class="Base__flex ">
+            <div class="Base__poloska-ver"></div>
+            <div class="Base__flex Base__flex_type_column">
+                <div class="Base__flex Katalog__mejpolosie Katalog_last">
+                    <div class="Base__poloska-gor Katalog__poloska"></div>
+                    <a href="./Find_tovars_v2.html"" class="Base__txt-kelson Katalog__ssilk">
+                    Худи
+                    </a>
+                </div>
+                <div class="Base__flex Katalog__mejpolosie">
+                    <div class="Base__poloska-gor Katalog__poloska"></div>
+                    <a href="./Find_tovars_v2.html"" class="Base__txt-kelson Katalog__ssilk">
+                    Жакеты
+                    </a>
+                </div>
+                <div class="Base__flex Katalog__mejpolosie">
+                    <div class="Base__poloska-gor Katalog__poloska"></div>
+                    <a href="./Find_tovars_v2.html"" class="Base__txt-kelson Katalog__ssilk">
+                    Майки
+                    </a>
+                </div>
+                <div class="Base__flex Katalog__mejpolosie">
+                    <div class="Base__poloska-gor Katalog__poloska"></div>
+                    <a href="./Find_tovars_v2.html"" class="Base__txt-kelson Katalog__ssilk">
+                    Рубашки
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="Base__flex Base__flex_type_column Katalog__element">
+        <div class=" Base__flex Katalog__card">
+            <div class="Base__zagolovok">штаны</div>
+        </div>
+        <div class="Base__flex ">
+            <div class="Base__poloska-ver"></div>
+            <div class="Base__flex Base__flex_type_column">
+                <div class="Base__flex Katalog__mejpolosie Katalog_last">
+                    <div class="Base__poloska-gor Katalog__poloska"></div>
+                    <a href="./Find_tovars_v2.html"" class="Base__txt-kelson Katalog__ssilk">
+                    Джинсы
+                    </a>
+                </div>
+                <div class="Base__flex Katalog__mejpolosie">
+                    <div class="Base__poloska-gor Katalog__poloska"></div>
+                    <a href="./Find_tovars_v2.html"" class="Base__txt-kelson Katalog__ssilk">
+                    Тренники
+                    </a>
+                </div>
+                <div class="Base__flex Katalog__mejpolosie">
+                    <div class="Base__poloska-gor Katalog__poloska"></div>
+                    <a href="./Find_tovars_v2.html"" class="Base__txt-kelson Katalog__ssilk">
+                    Джоггеры
+                    </a>
+                </div>
+                <div class="Base__flex Katalog__mejpolosie">
+                    <div class="Base__poloska-gor Katalog__poloska"></div>
+                    <a href="./Find_tovars_v2.html"" class="Base__txt-kelson Katalog__ssilk">
+                    Классика
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="Base__flex Base__flex_type_column Katalog__element">
+        <div class=" Base__flex Katalog__card">
+            <div class="Base__zagolovok">обувь</div>
+        </div>
+        <div class="Base__flex ">
+            <div class="Base__poloska-ver"></div>
+            <div class="Base__flex Base__flex_type_column">
+                <div class="Base__flex Katalog__mejpolosie  Katalog_last">
+                    <div class="Base__poloska-gor Katalog__poloska"></div>
+                    <a href="./Find_tovars_v2.html" class="Base__txt-kelson Katalog__ssilk">
+                    Кроссовки
+                    </a>
+                </div>
+                <div class="Base__flex Katalog__mejpolosie">
+                    <div class="Base__poloska-gor Katalog__poloska"></div>
+                    <a href="./Find_tovars_v2.html"" class="Base__txt-kelson Katalog__ssilk">
+                    Кеды
+                    </a>
+                </div>
+                <div class="Base__flex Katalog__mejpolosie">
+                    <div class="Base__poloska-gor Katalog__poloska"></div>
+                    <a href="./Find_tovars_v2.html" class="Base__txt-kelson Katalog__ssilk">
+                    Ботинки
+                    </a>
+                </div>
+                <div class="Base__flex Katalog__mejpolosie">
+                    <div class="Base__poloska-gor Katalog__poloska"></div>
+                    <a href="./Find_tovars_v2.html" class="Base__txt-kelson Katalog__ssilk">
+                    Туфли
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="Base__flex Base__flex_type_column Katalog__element">
+        <div class=" Base__flex Katalog__card-set">
+            <div class="Base__zagolovok">Сеты</div>
+        </div>
+        <div class="Base__flex ">
+            <div class="Base__poloska-ver Katalog-poloska-set"></div>
+            <div class="Base__flex Base__flex_type_column">
+                <div class="Base__flex Katalog__mejpolosie Katalog_last">
+                    <div class="Base__poloska-gor Katalog__poloska Katalog-poloska-set"></div>
+                    <a href="./Find_set_v2.html" class="Base__txt-kelson Katalog__ssilk">
+                        Районообразный
+                    </a>
+                </div>
+                <div class="Base__flex Katalog__mejpolosie">
+                    <div class="Base__poloska-gor Katalog__poloska Katalog-poloska-set"></div>
+                    <a href="./Find_set_v2.html" class="Base__txt-kelson Katalog__ssilk">
+                        Банан
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    {% block content %}{% endblock %}
+
+<div class="head page_head ">
+
+    <div class="head__poloska">
+    </div>
+
+    <div class="header head__page">
+
+
+        <div class="button menu__button_bott">
+            <a href="#" class="menu__bott">О нас</a>
+            <a href ="#" class="menu__bott bott-konec">Контакты</a>
+            <a href="#"  class="menu__bott bott-konec">Соглащение пользователя</a>
+            <a href="#" class="menu__bott bott-konec">FAQ</a>
+            <a href="#" class="menu__bott bott-konec">Брендам</a>
+
+        </div>
+
+        <div class="head__soc">
+            <a href="#" class="fab fa-instagram znack__ssilka fa-2x "></a>
+            <a href="#" class="fab fa-vk znack__ssilka fa-2x "></a>
+            <a href="#" class="fab fa-viber znack__ssilka fa-2x "></a>
+        </div>
+
+
+        <a href="#" class="znack__ssilka ">
+            <div class="button button_znack">
+                <i class="fas fa-wrench"></i>
+                <div class="znack__img-txt">Поддержка</div>
+            </div>
+        </a>
+
+
+
+    </div>
+
+
+    <div class="head__poloska">
+    </div>
+</div>
+
+</body>
+<link rel="stylesheet" type="text/css" href="{% static "fonts/Style/fonts.css "%}"/ >
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="{% static "Katalog/style/Katalog.css "%}"/ >
+<link rel="stylesheet" type="text/css" href="{% static "header/style/Header.css "%}"/ >
+<link rel="stylesheet" type="text/css" href="{% static "Page/style/Page.css "%}"/ >
+<link rel="stylesheet" type="text/css" href="https://yarnpkg.com/en/package/normalize.css">
+<link rel="stylesheet" type="text/css" href="{% static "base/style/base.css "%}"/ >
+<link rel="stylesheet" type="text/css" href="{% static "Elements.css" %}"/ >
+
+    {% block style %}{% endblock %}
+<script src="{% static "Modul/Jquery/jquery-3.3.1.js" %}"/></script>
+<script>
+    pokaz();
+    filter();
+
+    $('#btn-katlog').click(pokaz);
+    function pokaz() {
+        $('#Katalog').css("display",function (index, old) {
+            (old == 'flex')? $('#Katalog').fadeOut() :$('#Katalog').fadeIn();
+        });
+    }
+
+    $('#filter').click(filter)
+    function filter() {
+        $('#filter-elem').css('display',function (index,old) {
+            (old == 'flex')? $('#filter-elem').fadeOut() :$('#filter-elem').fadeIn();
+        });
+    }
+</script>
+</html>

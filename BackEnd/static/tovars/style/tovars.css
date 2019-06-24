@@ -1,0 +1,118 @@
+
+.Tovars_bloki
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.Tovars
+{
+
+
+    margin-left: auto;
+    margin-right: auto;
+
+}
+.tovars
+{
+    font-family: 'Kelson Sans';
+    margin: 1em 0.5em 1em 0.5em;
+
+}
+
+.tovars__ssilka
+{
+    text-decoration: none;
+}
+
+.tovars__head
+{
+    width: 14em;
+    position: relative;
+    text-align: center;
+}
+.tovars__head__top
+{
+    margin-top: 0.5em;
+    font-size: large;
+    color: #1F2226;
+
+}
+.tovars__head__price
+{
+    font-family: 'Baron Neue';
+    bottom: 0px;
+    margin-bottom: 0.75em;
+    color: #1F2226;
+    font-size: large;
+}
+.tovars__img
+{
+
+}
+.tovars__img__photo
+{
+    height: 14em;
+}
+.tovars__ves
+{
+    text-align: center;
+    color: #1F2226;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    font-size: small;
+
+}
+
+.IMG
+{
+
+    width: 0.75em;
+    height: 0.75em;
+
+}
+.IMG__Color_Red
+{
+    fill: #D6231E;
+}
+.IMG__text
+{
+    margin-left: 0.25em;
+    font-size: small;
+}
+
+.tovar__ves__img
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.tovars__ves__text
+{
+    margin-right: 10px;
+    margin-left: 10px;
+    text-align: center;
+    height: min-content;
+}
+
+@media (max-width: 1000px)
+{
+    .tovars__head
+    {
+        width: 20em;
+    }
+    .tovars__img__photo
+    {
+        height: 20em;
+    }
+    .tovars__head__top
+    {
+        font-size: 25pt;
+    }
+    .tovars__head__price
+    {
+        font-size: 25pt;
+    }
+}

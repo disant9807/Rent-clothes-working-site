@@ -1,0 +1,77 @@
+.Korzina_element
+{
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+.Korzina__Base-flex{
+    justify-content: space-between;
+}
+.Korzina__element-str
+{
+
+}
+.Korzina__txt-menu
+{
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+.Korzina__button{
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+
+}
+.Korzina__button-arenda
+{
+    margin-top: 1em;
+    font-size: large;
+}
+.Korzina__zagolovok
+{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+.Korzina{
+    margin-bottom: 1em;
+}
+.Korzina__txt-price{
+    color: #D6231E;
+    font-weight: bold;
+}
+.Korzina__base-center
+{
+    justify-content: center;
+}
+
+.Korzina__Base-flex{
+    justify-content: center;
+    align-items: stretch;
+    border-left: 0.15em solid #1F2226;
+    padding-left: 1em;
+}
+
+.Korzina__tovar
+{
+    padding-right: 1em;
+    padding-left: 1em;
+}
+
+@media (max-width: 1000px)
+{
+    .Korzina__button-arenda
+    {
+        font-size: 25pt;
+    }
+    .Korzina__button{
+        font-size: 17pt;
+    }
+    .Korzina__element-str
+    {
+        border: none;
+    }
+    .Korzina__Base-flex
+    {
+        padding-left: 0.25em;
+    }
+
+}

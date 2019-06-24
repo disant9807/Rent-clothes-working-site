@@ -1,0 +1,26 @@
+
+{% load staticfiles %}
+		{% for Tovar in Tovars %}
+		
+        <div class="tovars">
+            <a href="/tovar/{{Tovar.id}}" class="tovars__ssilka">
+                <div class="tovars__poloska">
+
+                </div>
+                <div class="tovars__head">
+                    <div class="tovars__head__top">
+                        {{Tovar.name}}
+                    </div>
+                    <div class="tovars__head__price">
+                        {{Tovar.cena}} руб
+                    </div>
+                </div>
+                <div class="tovars__img">
+                    <img src="{{Tovar.foto}}" class="tovars__img__photo">
+                </div>
+            </a>
+        </div>
+		{% endfor %}
+
+
+

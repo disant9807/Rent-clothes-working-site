@@ -1,0 +1,25 @@
+.history_element
+{
+    margin: 0.5em;
+    padding: 1em;
+    border: 0.15em solid #1F2226;
+
+}
+.history_zagolovok
+{
+    margin-bottom: 0.5em;
+    font-size: 15pt;
+}
+.history__red
+{
+    color: #D6231E;
+}
+.history__Colonka
+{
+    border-right: 0.1em solid #1F2226;
+}
+.history__base--flex
+{
+    border-top: 0.1em solid #1F2226;
+    border-bottom: 0.1em solid #1F2226;
+}

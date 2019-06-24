@@ -1,0 +1,201 @@
+{% extends "Bot_base.html" %}
+{% load staticfiles %}
+{% load widget_tweaks %}
+
+
+{% block title %}
+
+<title> Cписок товаров</title>
+
+{% endblock %}
+
+{% block main %}
+
+
+
+<div class="ml-3 mt-3 d-flex flex-column align-items-center">
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Главная</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Список Товаров</li>
+        </ol>
+    </nav>
+
+    <h1 class="mb-3">Список Товаров</h1>
+
+    <div class="btn-group mb-3" role="group" aria-label="Basic example">
+        <a href="#collapseFilter" class="btn btn-primary" data-toggle="collapse"> <i class="fas fa-keyboard mr-1"></i> Фильтр</a>
+
+    </div>
+
+
+
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class=" mb-4 col-xl-5 col-lg-5  collapse" id="collapseFilter">
+
+                <div class=" border p-3 border border-dark bg-white">
+                    <form action="/admjournal" method="GET">
+						
+						<div class="custom-control custom-switch">
+						  {{form.plus|add_class:"custom-control-input"}}
+						  <label for="id_plus" class="custom-control-label" >Транзакции добавления</label>
+						</div>
+						
+						<div class="custom-control custom-switch">
+						  {{form.minus|add_class:"custom-control-input"}}
+						  <label for="id_minus" class="custom-control-label" >Транзакции вычитания</label>
+						</div>
+						
+						<div class="form-group">
+							<label >Размеры</label>
+							{{form.size|add_class:"form-control"}}
+							<small id="emailHelp" class="form-text text-muted">Размеры</small>
+						</div>
+						
+						<div class="form-group">
+							<label >Дата минимум</label>
+							{{form.DateMin|add_class:"form-control"}}
+							<small id="emailHelp" class="form-text text-muted">От какой даты добавлены ?</small>
+						</div>
+						
+						<div class="form-group">
+							<label >Дата максимум</label>
+							{{form.DateMax|add_class:"form-control"}}
+							<small id="emailHelp" class="form-text text-muted">До какой даты добавлены ?</small>
+						</div>
+						
+						<div class="form-group">
+							<label >Количество от</label>
+							{{form.minCena|add_class:"form-control"}}
+						</div>
+						
+						<div class="form-group">
+							<label >Количество до</label>
+							{{form.maxCena|add_class:"form-control"}}
+
+						</div>
+						
+						<div class="form-group">
+							<label >Название товара</label>
+							{{form.tovar|add_class:"form-control"}}
+						</div>
+						
+						<div class="form-group">
+							<label >Имя клиента</label>
+							{{form.Client|add_class:"form-control"}}
+						</div>
+						
+						<div class="form-group">
+							<label >Страница</label>
+							{{form.str|add_class:"form-control"}}
+						</div>
+						
+						<div class="form-group">
+							<label >Количество</label>
+							{{form.kolich|add_class:"form-control"}}
+						</div>
+						
+						<button class="btn btn-success" type="sumbit"> Применить </button>
+						
+                    </form>
+                </div>
+            </div>
+
+
+            <div class="col-xl-7 col-lg-7 ">
+                <div class="list-group">
+					
+			{% for Tovar in Tovars %}
+                <a  class="list-group-item list-group-item-action flex-column align-items-start border border-dark">
+                    <div class="d-flex flex-wrap justify-content-between">
+                        <div class="d-flex ml-2 mr-2">
+                            <p class="mb-1 ">Товар: </p>
+                            <p class="mb-1 ml-1">{{Tovar.tovar__name}}</p>
+                        </div>
+                        <div class="d-flex ml-2 mr-2">
+                            <p class="mb-1 ">Пользователь: </p>
+                            <p class="mb-1 ml-1">{{Tovar.client__name}} </p>
+                        </div>
+						
+						<div class="d-flex ml-2 mr-2">
+                            <p class="mb-1 ">Размер: </p>
+                            <p class="mb-1 ml-1">{{Tovar.size__Size__name}} </p>
+                        </div>
+						
+						<div class="d-flex ml-2 mr-2">
+                            <p class="mb-1 ">Количество: </p>
+                            <p class="mb-1 ml-1">{{Tovar.count}} </p>
+                        </div>
+						
+						<div class="d-flex ml-2 mr-2">
+                            <p class="mb-1 ">Дата: </p>
+                            <p class="mb-1 ml-1">{{Tovar.date}}</p>
+                        </div>
+						
+						{% if Tovar.PlusMinus == True %}
+						<div class="d-flex ml-2 mr-2">
+                            <p class="mb-1 ">Тип: </p>
+                            <p class="mb-1 ml-1">Добавление</p>
+                        </div>
+						{% else %}
+						<div class="d-flex ml-2 mr-2">
+                            <p class="mb-1 ">Тип: </p>
+                            <p class="mb-1 ml-1">Убавление</p>
+                        </div>
+						{% endif %}
+						
+                    </div>
+                </a>
+			{% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock %}
+
+
+{% block js %}
+ <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+ <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="http://bootstraptema.ru/plugins/2018/irs/ion.rangeSlider.css" />
+<link rel="stylesheet" href="http://bootstraptema.ru/plugins/2018/irs/ion.rangeSlider.skin.css" />
+<script src="http://bootstraptema.ru/plugins/2018/irs/ion.rangeSlider.min.js"></script>
+<script>
+
+	$("#range_04").ionRangeSlider({
+	 type: "double",
+	 grid: true,
+	 min: -1000,
+	 max: 1000,
+	 from: -500,
+	 to: 500
+	 });
+	 
+	 $('#date1').datetimepicker({
+            uiLibrary: 'bootstrap4',
+			format: 'yyyy-mm-dd HH:MM:ss',
+			modal: true,
+            footer: true
+
+        });
+	
+	$('#date2').datetimepicker({
+            uiLibrary: 'bootstrap4',
+			format: 'yyyy-mm-dd HH:MM:ss',
+			modal: true,
+            footer: true
+
+        });
+ 
+</script>
+
+
+{% endblock %}

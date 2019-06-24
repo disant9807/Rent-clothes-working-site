@@ -1,0 +1,401 @@
+
+.header_inp-kat
+{
+    display: flex;
+    justify-content: center;
+}
+.head
+{
+
+    margin-right: auto;
+    margin-left: auto;
+    font-family: 'Kelson Sans';
+    border: 0.15em solid #1F2226;
+}
+.input__search
+{
+    background-color: #F8B500;
+    color: #1F2226;
+    width: 150px;
+
+}
+
+.head__linia
+{
+
+}
+
+.menu__ssilka
+{
+    text-decoration: none;
+    width: max-content;
+}
+
+.znack__ssilka
+ {
+     display: flex;
+     align-items: center;
+     flex-direction: row;
+     text-decoration: none;
+    color: #1F2226;
+
+ }
+
+.znack__ssilka_margin-right_0
+{
+    margin-right: 0px;
+}
+.znack__img-txt
+{
+
+    text-align: center;
+    margin-left: 4px;
+    width: max-content;
+    height: max-content;
+    font-size: 13pt;
+}
+.button
+{
+    font-family: 'Kelson Sans';
+    border: 0.15em solid #1F2226;
+
+    background-color: #F8B500;
+    color: #1F2226;
+    text-align: center;
+    line-height:27Px;
+}
+.BIGbutton
+{
+
+    background-color: #1F2226;
+    text-align: center;
+    height: 3em;
+    width: 13em;
+    line-height: 3em;
+}
+.Text__BIGbutton
+{
+    color: white;
+}
+.search__button
+{
+
+    position: relative;
+    float: left;
+    width: 5em;
+    height: 2em;
+    font-size: 14pt;
+    line-height: 2em;
+    color: #1F2226;
+}
+.header_logo
+{
+    display: flex;
+    flex-direction: row;
+    margin-left: 1.5%;
+}
+.header_search
+{
+    display: flex;
+    justify-content: center;
+
+}
+@keyframes move {
+    from{transform: rotate(-20deg);}
+    50%{transform: rotate(20deg);}
+    to{transform: rotate(-20deg);}
+}
+.znack__img
+{
+    width: 20px;
+}
+
+
+
+.header_znack
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+
+.button_znack
+{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #F8B500;
+    color: #1F2226;
+    font-size: 14pt;
+    height: 2em;
+    width: 6em;
+    line-height:2em;
+    padding-right: 1em;
+    padding-left: 1em;
+}
+
+.header
+{
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    background-color:#F8B500;
+}
+.search
+{
+    align-items: center;
+}
+.head__page
+{   padding-left:  1em;
+    padding-right: 1em;
+    height: 3.5em;
+}
+.input
+{
+    height: 1.9em;
+    border: none;
+    font-size: 14pt;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.contact
+{
+    padding-left:1em;
+    padding-right:1em;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    position: relative;
+    background-color: #F8B500;
+    height: 20px;
+}
+
+.contact_poloska{
+    height: 0.1em;
+    background-color: #1F2226;
+    padding-right: 1em;
+    padding-left: 1em;
+}
+
+.contact__ssilka
+{
+    float: right;
+    margin-left: 0.75em;
+    text-decoration: none;
+    color:#1F2226;
+
+
+}
+
+.znack__ssilka :hover{
+    color: #FFF4E0;
+    background-color: #D6231E;
+}
+
+.contact__ssilka_theme-left
+{
+    float: left;
+    margin-left: 0px;
+}
+.menu
+{
+    background-color:#F8B500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.menu__button
+{
+    font-size: 14pt;
+    height: 2em;
+    width: 10em;
+    line-height:2em
+}
+
+.menu__button_bott
+{
+    font-size: 14pt;
+    display: flex;
+   padding-left: 1em;
+    padding-right: 1em;
+    line-height:2em
+}
+
+.menu__bott
+{
+    margin-right: 8px;
+    margin-left: 8px;
+    text-decoration: none;
+    color: #1F2226;
+}
+
+.head .contact__ssilka :hover
+{
+    color: #D6231E;
+}
+
+
+
+
+
+
+@keyframes poya {
+    from{color: #1F2226}
+    to{color: #D6231E}
+}
+
+.menu__button__color__red
+{
+    background-color: #D6231E;
+}
+.page__img
+{
+    height: 15px;
+    width: 15px;
+}
+
+.head__poloska
+{
+    height: 0.75em;
+    background-color:#F8B500;
+}
+.header_logo_img
+{
+    height: max-content;
+    transform: translatey(1px);
+}
+.logo__img
+{
+    height: 3em;
+}
+.logo__img__animation
+{
+    position: absolute;
+    margin-left: 2px;
+    opacity: 0;
+}
+.menu__button
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.znack__shirt
+{
+    display: none;
+}
+.head__soc
+{
+    display: flex;
+}
+.head__soc
+{
+    display: none;
+}
+
+
+@media (max-width: 1210px)
+{
+    .znack__like{
+        display: none;
+    }
+
+}
+
+@media (max-width: 1000px)
+{
+    .head__soc
+    {
+        display: none;
+    }
+    .znack__ssilka
+    {
+
+    }
+    .znack__shirt
+    {
+        display: block;
+    }
+    .znack__img-txt{
+        display: none;
+    }
+    .button_znack{
+        width: inherit;
+    }
+    .menu__button
+    {
+        font-size: 30pt;
+        width: 2.5em;
+        height: 2em;
+    }
+
+    .menu__button_bott
+    {
+        font-size: 30pt;
+        width: 4em;
+        height: 2em;
+    }
+
+    .header_search
+    {
+        font-size: 30pt;
+    }
+    .button_znack
+    {
+        font-size: 30pt;
+        height: 2em;
+        padding: 0;
+        width: 2.5em;
+    }
+    .search__button{
+        font-size: 30pt;
+        width: 4em;
+    }
+    .input__search
+    {
+        font-size: 30pt;
+    }
+    .contact__ssilka
+    {
+        font-size: 25pt;
+    }
+    .head__page
+    {
+        height: 4em;
+    }
+    .head{
+        border-width: 0.3em;
+    }
+    .contact_poloska{
+        height: 0.25em;
+    }
+    .contact
+    {
+        height: 2em;
+    }
+    .bott-konec{
+        display: none;
+    }
+    .contact
+    {
+        height: 3em;
+    }
+
+    .head__poloska
+    {
+        height: 1.5em;
+    }
+
+    .znack__like{
+        display: none;
+    }
+    .logo_null{
+        display: none;
+    }
+
+
+}

@@ -1,0 +1,246 @@
+{% extends "Bot_base.html" %}
+{% load staticfiles %}
+{% load widget_tweaks %}
+
+
+{% block title %}
+
+<title> Cписок клиентов</title>
+
+{% endblock %}
+
+{% block main %}
+
+
+    <div class="ml-3 mt-3 d-flex flex-column align-items-center">
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Главная</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Список Клиентов</li>
+            </ol>
+        </nav>
+
+        <h1 class="mb-3">Список Клиентов</h1>
+
+        <div class="btn-group mb-3" role="group" aria-label="Basic example">
+            <a href="#collapseFilter" class="btn btn-primary" data-toggle="collapse"> <i class="fas fa-keyboard mr-1"></i> Фильтр</a>
+        </div>
+		
+		
+				<form method="GET" action="/admnpersons">
+				<div class="d-flex bg-white border mb-4 p-2 justify-content-center align-items-center">
+					
+					<div class="form-group ml-2 mr-2">
+                        <label for="id_str" >Текущая страница: {{zapros.str}}</label>
+                    
+						<div class='btn-spn btn-spn-lg input-group'>
+						  <span class='input-group-btn'>
+							<button
+							  class='btn btn-secondary btn-spn-down' 
+							  type='button'><i class="fa fa-minus"></i></button>
+						  </span> 
+						  {{formsort.str|add_class:"btn-spn-input form-control text-center"}}
+						  <span class='input-group-btn'>
+							<button        
+							  class='btn btn-secondary btn-spn-up'
+							  type='button'><i class="fa fa-plus"></i></button>
+						  </span>
+						</div>
+					</div>
+					
+					<div class="form-group ml-2 mr-2">
+                        <label for="id_kolich" >Текущее количество: {{zapros.kolich}}</label>
+                    
+						<div class='btn-spn btn-spn-lg input-group'>
+						  <span class='input-group-btn'>
+							<button
+							  class='btn btn-secondary btn-spn-down' 
+							  type='button'><i class="fa fa-minus"></i></button>
+						  </span> 
+						  {{formsort.kolich|add_class:"btn-spn-input form-control text-center"}}
+						  <span class='input-group-btn'>
+							<button        
+							  class='btn btn-secondary btn-spn-up'
+							  type='button'><i class="fa fa-plus"></i></button>
+						  </span>
+						</div>
+					</div>
+					
+					
+                    <div class="form-group ml-2 mr-2">
+                        <label for="id_sort" >Текущее поле для сортировки: {{zapros.sort}}</label>
+                        {{formsort.sort|add_class:"form-control"}}
+                    </div>
+					
+                    <div class="custom-control ml-2 mr-2 custom-switch">
+                        {{formsort.sortingType|add_class:"custom-control-input"}}
+						 <label class="custom-control-label" for="id_sortingType">По возрастанию/убыванию</label>
+                    </div>
+
+ 
+                    <div class="d-flex ml-1 flex-column">
+                        <button type="submit" class="btn btn-primary mt-1 mb-1">Применить</button>
+                    </div>
+				</div>
+              
+		
+		
+        <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class="col-xl-5 col-lg-5  " >
+
+            <div class="mb-4 border p-3 border border-dark bg-white">
+               
+                    <div class="form-group">
+                        <label for="id_name">Имя</label>
+						{{mmaiinn.name|add_class:"form-control"}}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="id_phone">Телефон</label>
+						{{mmaiinn.phone|add_class:"form-control"}}
+                    </div>
+
+                  
+
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Баланс</label>
+                        <div class="row">
+                            <div class="col">
+							{{mmaiinn.minprice|add_class:"form-control"}}
+                            </div>
+                            <div class="col">
+							{{mmaiinn.maxprice|add_class:"form-control"}}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Число шмоток</label>
+                        <div class="row">
+                            <div class="col">
+							{{mmaiinn.minvesh|add_class:"form-control"}}                              
+                            </div>
+                            <div class="col">
+							{{mmaiinn.maxvesh|add_class:"form-control"}}  
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Месячная плата</label>
+                        <div class="row">
+                            <div class="col">
+							{{mmaiinn.monmin|add_class:"form-control"}} 
+                            </div>
+                            <div class="col">
+							{{mmaiinn.monma|add_class:"form-control"}} 
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Пол</label>
+						<div class="custom-control custom-switch">
+						{{mmaiinn.man|add_class:"custom-control-input"}}
+						<label for="id_man" class="custom-control-label" >Мужской</label>
+						</div>
+						
+						<div class="custom-control custom-switch">
+						{{mmaiinn.woman|add_class:"custom-control-input"}}
+						<label for="id_woman" class="custom-control-label" >Женский</label>
+						</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Тип</label>
+						
+						<div class="custom-control custom-switch">
+						{{mmaiinn.moroz|add_class:"custom-control-input"}}
+							<label for="id_moroz" class="custom-control-label" >Заморожен</label>
+						</div>
+						
+						<div class="custom-control custom-switch">
+						{{mmaiinn.razmoroz|add_class:"custom-control-input"}}
+							<label for="id_razmoroz" class="custom-control-label" >Разморожен</label>
+						</div>
+						
+                    </div>
+
+                    <div class="d-flex flex-column">
+                        <button type="submit" class="btn btn-primary mt-1 mb-1">Применить</button>
+                        <button type="submit" class="btn btn-info mt-1 mb-1">Сбросить</button>
+                    </div>
+
+                </form>
+            </div>
+            </div>
+
+
+        <div class="col-xl-7 col-lg-7 ">
+        <div class="list-group ">
+            <a href="/Registration/" class="list-group-item list-group-item-action flex-column align-items-start bg-success border border-dark">
+                <div class="d-flex w-100">
+                    <h5 class="mb-1 text-uppercase text-white">Добавить клиента</h5>
+                </div>
+            </a>
+			{% for pers in person %}
+            <a href="/admnkardperson/{{pers.id}}" class="list-group-item list-group-item-action flex-column align-items-start border border-dark">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1 ml-2">{{pers.name}}</h5>
+                    <small  class="mr-2">{{pers.datelast}}</small>
+                </div>
+                <div class="d-flex flex-wrap justify-content-between">
+                    <div class="d-flex ml-2 mr-2">
+                        <p class="mb-1 ">Пол: </p>
+						
+						{% if pers.sex == True %}
+                        <p class="mb-1 ml-1">Мужской</p>
+						{% else %}
+						<p class="mb-1 ml-1">:Женский</p>
+						{% endif %}
+                    </div>
+                    <div class="d-flex ml-2 mr-2">
+						
+                        <p class="mb-1 ">Статус: </p>
+						{% if pers.zamoroz == False %}
+                        <p class="mb-1 ml-1">Разморожен</p>
+						{% else %}
+						<p class="mb-1 ml-1">Заморожен</p>
+						{% endif %}
+                    </div>
+
+
+                    <div class="d-flex ml-2 mr-2">
+                        <p class="mb-1 ">Баланс: </p>
+                        <p class="mb-1 ml-1">{{pers.balans}}</p>
+                    </div>
+
+                    <div class="d-flex ml-2 mr-2">
+                        <p class="mb-1 ">Число шмоток: </p>
+                        <p class="mb-1 ml-1">{{pers.schchislo}}</p>
+                    </div>
+
+                </div>
+            </a>
+			{% endfor %}
+        </div>
+        </div>
+        </div>
+        </div>
+
+     
+    </div>
+{% endblock %}
+
+{% block js %}
+	<link rel="stylesheet" type="text/css" href="{% static "numberbootstrap/kss.css" %}"/ >
+	<script src="{% static "numberbootstrap/java.js" %}"/></script>
+
+	
+{% endblock %}
+
+

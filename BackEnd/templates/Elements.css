@@ -1,0 +1,106 @@
+
+
+.Button{
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-top: 0.2em;
+    padding-bottom:0.2em;
+    width: max-content;
+    background-color: #1F2226;
+    color: #FFF4E0;
+    font-size: large;
+    font-family: 'Kelson Sans';
+    text-align: center;
+    text-decoration: none;
+    border-width: 0px;
+}
+.Button_theme_red
+{
+    background-color: #D6231E;
+}
+.Button_theme_Orange
+{
+    background-color: #F8B500;
+    color: #1F2226;
+}
+.Button_theme_width
+{
+    width: inherit;
+    text-align: center;
+}
+.Button_border_circle{
+    border-radius: 50%;
+}
+.Button_theme_BigSize{
+    font-size: x-large;
+}
+
+.text
+{
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+.ssilka
+{
+    text-decoration: none;
+    color: #1F2226;
+}
+.zagolovok
+{
+    font-weight: 600;
+    font-size: x-large;
+    font-family: 'Baron Neue';
+
+}
+
+.zagolovok_theme_orange
+{
+    color: #F8B500;
+}
+
+.zagolovok_theme_red{
+    color: #D6231E;
+}
+
+.zagolovok_theme_white{
+    color: white;
+}
+
+.zagolovok_theme_fat
+{
+    background-color: #D6231E;
+    color: #FFF4E0;
+
+}
+
+.zagolovok_size_23pt{
+    font-size: 23pt;
+}
+.Zagolovok_theme_blood
+{
+
+    text-align: center;
+    font-family:'Beer money';
+    color: #D6231E;
+    font-size: 35pt;
+
+}
+.Sorting
+{
+    display: flex;
+    justify-content: center;
+
+}
+.Sorting_el
+{
+    margin:10px 5px 20px 5px;
+    text-decoration: none;
+}
+
+@media (max-width: 1000px)
+{
+    .zagolovok
+    {
+        font-size: 23pt;
+    }
+}

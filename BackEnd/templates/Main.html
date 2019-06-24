@@ -1,0 +1,207 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+{% block title %}
+<title> Главная </title>
+{% endblock %}
+
+{% block content %}
+
+
+<div class="Base__flex">
+    <div class="Bread Bread_viible_orange">
+        <div class="Base__txt-kelson Bread__txt">
+            Главная
+        </div>
+    </div>
+</div>
+
+
+
+<div class="Tovars Page__element-oba">
+    <div class="Page__element-obertka">
+        <div class="zagolovok Page__zagolovok Page__zagolovok-funny Page__element-zagolovok">Топ Аренды</div>
+    </div>
+    <div class="Tovars_bloki">
+	{% for Tovar in Tovars %}
+        <div class="Main_tovars">
+            <a href="{{Tovar.url}}" class="tovars__ssilka">
+                <div class="tovars__poloska">
+
+                </div>
+                <div class="tovars__head">
+                    <div class="tovars__head__top">
+                        {{Tovar.name}}
+                    </div>
+                    <div class="tovars__head__price">
+                        {{Tovar.cena}} руб
+                    </div>
+                </div>
+                <div class="tovars__img">
+                    <img src="{{Tovar.foto}}" class="tovars__img__photo">
+                </div>
+            </a>
+        </div>
+	{% endfor %}
+    </div>
+</div>
+
+<div class="OTZYVI">
+
+        <div class="zagolovok Page__zagolovok-funny">наши отзывы</div>
+        <div class="Otzyvi__poloska-gor"></div>
+<div class="banner-otz">
+    <div class="Otzyvi">
+    <a href="#" class="Otzyvi__ssilka">
+    <div class="Otzyvi__top">
+        <div class="Otzyvi__Name">
+            Иванов Иван
+        </div>
+        <div class="Otzyvi__Data">
+            25.01.1998
+        </div>
+
+    </div>
+    <div class="Otzyvi__main">
+
+        <div class="Otzyvi__opisanie">
+            <div class="Otzyvi__text">
+                Очень хороший сайт. Мне все нравится. Отличные вещи, хорошие сеты, много размеров, отзывчивая поддержка. Все на высшем уровне! Взял в аренду кроссы найк, со 100% увереностью могу сказать, что не паленки, и еще надо что-то написать, потому что мне нравится писать. Спасибо!!!!
+            </div>
+        </div>
+
+        <div class="Otzyvi__zvezda">
+            <div class="Otzyvi__zvizdi">
+                <i class="fas fa-star Otzyvi__zv-im"></i>
+                <i class="fas fa-star Otzyvi__zv-im" ></i>
+                <i class="fas fa-star Otzyvi__zv-im"></i>
+                <i class="fas fa-star Otzyvi__zv-im"></i>
+                <i class="fas fa-star Otzyvi__zv-im"></i>
+            </div>
+            <div class="Otzyvi__cifri">
+                5
+            </div>
+        </div>
+    </div>
+    </a>
+    </div>
+
+    <div class="Otzyvi">
+    <a href="#" class="Otzyvi__ssilka">
+        <div class="Otzyvi__top">
+            <div class="Otzyvi__Name">
+                Иванов Иван
+            </div>
+            <div class="Otzyvi__Data">
+                25.01.1998
+            </div>
+
+        </div>
+        <div class="Otzyvi__main">
+
+            <div class="Otzyvi__opisanie">
+                <div class="Otzyvi__text">
+                    Очень хороший сайт. Мне все нравится. Отличные вещи, хорошие сеты, много размеров, отзывчивая поддержка. Все на высшем уровне! Взял в аренду кроссы найк, со 100% увереностью могу сказать, что не паленки, и еще надо что-то написать, потому что мне нравится писать. Спасибо!!!!
+                </div>
+            </div>
+
+            <div class="Otzyvi__zvezda">
+                <div class="Otzyvi__zvizdi">
+                    <i class="fas fa-star Otzyvi__zv-im"></i>
+                    <i class="fas fa-star Otzyvi__zv-im" ></i>
+                    <i class="fas fa-star Otzyvi__zv-im"></i>
+                    <i class="fas fa-star Otzyvi__zv-im"></i>
+                    <i class="fas fa-star Otzyvi__zv-im"></i>
+                </div>
+                <div class="Otzyvi__cifri">
+                    5
+                </div>
+            </div>
+        </div>
+    </a>
+    </div>
+
+    <div class="Otzyvi">
+    <a href="#" class="Otzyvi__ssilka">
+        <div class="Otzyvi__top">
+            <div class="Otzyvi__Name">
+                Иванов Иван
+            </div>
+            <div class="Otzyvi__Data">
+                25.01.1998
+            </div>
+
+        </div>
+        <div class="Otzyvi__main">
+
+            <div class="Otzyvi__opisanie">
+                <div class="Otzyvi__text">
+                    Очень хороший сайт. Мне все нравится. Отличные вещи, хорошие сеты, много размеров, отзывчивая поддержка. Все на высшем уровне! Взял в аренду кроссы найк, со 100% увереностью могу сказать, что не паленки, и еще надо что-то написать, потому что мне нравится писать. Спасибо!!!!
+                </div>
+            </div>
+
+            <div class="Otzyvi__zvezda">
+                <div class="Otzyvi__zvizdi">
+                    <i class="fas fa-star Otzyvi__zv-im"></i>
+                    <i class="fas fa-star Otzyvi__zv-im" ></i>
+                    <i class="fas fa-star Otzyvi__zv-im"></i>
+                    <i class="fas fa-star Otzyvi__zv-im"></i>
+                    <i class="fas fa-star Otzyvi__zv-im"></i>
+                </div>
+                <div class="Otzyvi__cifri">
+                    5
+                </div>
+            </div>
+        </div>
+    </a>
+    </div>
+</div>
+</div>
+   {% endblock %}
+
+{% block style %}
+<link rel="stylesheet" type="text/css" href="{% static "fonts/Style/fonts.css" %}"/>
+<link rel="stylesheet" type="text/css" href="{% static "Main/style/Main.css" %}"/>
+<link rel="stylesheet" type="text/css" href="{% static "header/style/Header.css" %}"/>
+<link rel="stylesheet" type="text/css" href="{% static "bread/style/bread.css" %}"/>
+<link rel="stylesheet" type="text/css" href="{% static "sets/style/Sets.css" %}"/>
+<link rel="stylesheet" type="text/css" href="{% static "tovars/style/tovars.css" %}"/>
+<link rel="stylesheet" type="text/css" href="{% static "Otzyvi/style/Otzyvi.css" %}"/>
+<link rel="stylesheet" type="text/css" href="{% static "Page/style/Page.css" %}"/>
+<link rel="stylesheet" type="text/css" href="{% static "base/style/base.css" %}"/>
+<link rel="stylesheet" type="text/css" href="{% static "Katalog/style/Katalog.css" %}"/>
+<link rel="stylesheet" type="text/css" href="{% static "Elements.css" %}"/>
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="https://yarnpkg.com/en/package/normalize.css">
+
+<link rel="stylesheet" type="text/css" href="{% static "Modul/slick-1.8.1/slick/slick.css" %}"/>
+<link rel="stylesheet" type="text/css" href="{% static "Modul/slick-1.8.1/slick/slick-theme.css" %}"/>
+{% endblock %}
+
+{% block JS %}
+<script src="Modul/Jquery/jquery-3.3.1.js"></script>
+<script src="{% static "Modul/slick-1.8.1/slick/slick.js"%}" ></script>
+<script>
+    $('.banner').slick({
+        infinite: true,
+        dots: true,
+        autoplay: true,
+        arrows: false
+    });
+    $('.banner-otz').slick({
+        infinite: true,
+        dots: false,
+        autoplay: true,
+        arrows: false
+
+    });
+
+    
+
+
+
+
+
+</script>
+{% endblock %}

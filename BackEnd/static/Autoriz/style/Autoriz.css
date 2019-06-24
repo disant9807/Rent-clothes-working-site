@@ -1,0 +1,49 @@
+		.Autoriz{
+            padding: 0.5em;
+            margin: 0.5em;
+        }
+        .Autoriz-LEFT
+        {
+
+        }
+        .Autoriz__txt
+        {
+            color: #1F2226;
+        }
+        .Autoriz__txt-main{
+
+            z-index: 100;
+            background-color: #FFF4E0;
+            border: 0.15em solid #1F2226;
+            padding-right: 0.5em;
+            padding-left: 0.5em;
+        }
+        .Autoriz__input
+        {
+            padding: 0.3em;
+            border-top: 0.1em solid #1F2226;
+			border-right: 0.1em solid #1F2226;
+			border-bottom: 0.1em solid #1F2226;
+			border-left: 0.1em solid #FFF4E0;
+            background-color: #FFF4E0;
+
+        }
+        .Autoriz__Base-column
+        {
+            align-items: flex-start;
+            justify-content: center;
+        }
+        .Autoriz__column-element
+        {
+            margin-top: 0.25em;
+            margin-bottom: 0.25em;
+        }
+        .Autoriz__flex-el
+        {
+            margin-left: 0.5em;
+            margin-right: 0.5em;
+        }
+        .Autoriz__flex
+        {
+            justify-content: center;
+        }

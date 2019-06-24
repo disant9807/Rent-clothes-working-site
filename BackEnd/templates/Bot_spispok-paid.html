@@ -1,0 +1,207 @@
+{% extends "Bot_base.html" %}
+{% load staticfiles %}
+{% load widget_tweaks %}
+
+
+{% block title %}
+
+<title> Денежные операции</title>
+
+{% endblock %}
+
+{% block main %}
+
+
+<div class="ml-3 mt-3 d-flex flex-column align-items-center">
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Главная</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Список операций </li>
+        </ol>
+    </nav>
+
+    <h1 class="mb-3">Денежные Операции</h1>
+	
+	<form action="/admpaid/" method="GET">
+				<div class="d-flex bg-white border mb-4 p-2 justify-content-center align-items-center">
+					
+					<div class="form-group ml-2 mr-2">
+                        <label for="id_str" >Текущая страница: {{zapros.str}}</label>
+                    
+						<div class='btn-spn btn-spn-lg input-group'>
+						  <span class='input-group-btn'>
+							<button
+							  class='btn btn-secondary btn-spn-down' 
+							  type='button'><i class="fa fa-minus"></i></button>
+						  </span> 
+						  {{formsort.str|add_class:"btn-spn-input form-control text-center"}}
+						  <span class='input-group-btn'>
+							<button        
+							  class='btn btn-secondary btn-spn-up'
+							  type='button'><i class="fa fa-plus"></i></button>
+						  </span>
+						</div>
+					</div>
+					
+					<div class="form-group ml-2 mr-2">
+                        <label for="id_kolich" >Текущее количество: {{zapros.kolich}}</label>
+                    
+						<div class='btn-spn btn-spn-lg input-group'>
+						  <span class='input-group-btn'>
+							<button
+							  class='btn btn-secondary btn-spn-down' 
+							  type='button'><i class="fa fa-minus"></i></button>
+						  </span> 
+						  {{formsort.kolich|add_class:"btn-spn-input form-control text-center"}}
+						  <span class='input-group-btn'>
+							<button        
+							  class='btn btn-secondary btn-spn-up'
+							  type='button'><i class="fa fa-plus"></i></button>
+						  </span>
+						</div>
+					</div>
+					
+					
+                    <div class="form-group ml-2 mr-2">
+                        <label for="id_sort" >Текущее поле для сортировки: {{zapros.sort}}</label>
+                        {{formsort.sort|add_class:"form-control"}}
+                    </div>
+					
+                    <div class="custom-control ml-2 mr-2 custom-switch">
+                        {{formsort.sortingType|add_class:"custom-control-input"}}
+						 <label class="custom-control-label" for="id_sortingType">По возрастанию/убыванию</label>
+                    </div>
+
+ 
+                    <div class="d-flex ml-1 flex-column">
+                        <button type="submit" class="btn btn-primary mt-1 mb-1">Применить</button>
+                    </div>
+				</div>
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class=" mb-4 col-xl-5 col-lg-5 ">
+
+                <div class=" border p-3 border border-dark bg-white">
+                    
+					                       
+						<div class="form-group">
+							<label >Статус</label>
+							
+								<div class="custom-control ml-2 mr-2 custom-switch">
+									{{form.prynatie|add_class:"custom-control-input"}}
+									 <label class="custom-control-label" for="id_prynatie">Принятые</label>
+								</div>
+								
+								<div class="custom-control ml-2 mr-2 custom-switch">
+									{{form.neprynatie|add_class:"custom-control-input"}}
+									 <label class="custom-control-label" for="id_neprynatie">Не принятые</label>
+								</div>
+						</div>
+						<div class="d-flex ">
+							<div class="form-group">
+								<label >Дата от</label>
+									{{form.datemin|add_class:"form-control"}}
+							</div>
+							<div class="form-group">
+								<label >Дата до</label>
+									{{form.datemax|add_class:"form-control"}}
+							</div>
+						</div>
+						<div class="d-flex ">
+						<div class="form-group">
+							<label >Деньги от</label>
+								{{form.moneymin|add_class:"form-control"}}
+						</div>
+						<div class="form-group">
+							<label >Деньги до</label>
+								{{form.moneymax|add_class:"form-control"}}
+						</div>
+						</div>
+						<div class="form-group">
+							<label >Название товара</label>
+								{{form.tovar|add_class:"form-control"}}
+						</div>
+						<div class="form-group">
+							<label >Имя клиента</label>
+								{{form.client|add_class:"form-control"}}
+						</div>
+						<button class="btn btn-success" type="sumbit"> Применить </button>
+                    </form>
+                </div>
+            </div>
+
+
+            <div class="col-xl-7 col-lg-7 ">
+                <div class="list-group ">
+                    <a  class="list-group-item list-group-item-action flex-column align-items-start bg-success border border-dark">
+                        <div class="d-flex w-100">
+                            <h6 class="mb-1 text-uppercase text-white"> Для добавления списания или пополнения перейдите в карточку нужного товара</h6>
+                        </div>
+                    </a>
+					{% for pa in paid %}
+                <a href="/admpaid/{{pa.id}}" class="list-group-item list-group-item-action flex-column align-items-start border border-dark">
+                    <div class="d-flex w-100 justify-content-between">
+					
+						
+						{% if pa.plusminus == True %}
+						<p class="mr-1 ml-1">Тип: Пополнение</p>
+						{% else %}
+						<p class="mr-1 ml-1">Тип: Списание</p>
+						{% endif %}
+						
+						<p class="mr-1 ml-1">Сумма: {{pa.money}}</p>
+                        <p class="mr-1 ml-1">{{pa.date}}</p>
+                    </div>
+					<div class="d-flex w-100 justify-content-between">
+						{% if pa.tovPer__VidArendiTovars__tovar__name == None %}
+						{% else %}
+						<p class="mr-1 ml-1">Товар: {{pa.tovPer__VidArendiTovars__tovar__name}}</p>
+						{% endif %}
+                        <p class="mr-1 ml-1">Клиент: {{pa.person__name}}</p>
+						{% if pa.status == True %}
+                        <p class="mr-1 ml-1">Статус: Принята</p>
+						{% else %}
+						<p class="mr-1 ml-1">Статус: Отклонена</p>
+						{% endif %}
+					</div>
+
+                </a>
+					{% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block js %}
+<link rel="stylesheet" type="text/css" href="{% static "numberbootstrap/kss.css" %}"/ >
+	<script src="{% static "numberbootstrap/java.js" %}"/></script>
+	
+	<script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+ <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+ 
+ <script>
+	$('#id_datemin').datetimepicker({
+            uiLibrary: 'bootstrap4',
+			format: 'yyyy-mm-dd HH:MM:ss',
+			modal: true,
+            footer: true
+
+        });
+		
+	$('#id_datemax').datetimepicker({
+            uiLibrary: 'bootstrap4',
+			format: 'yyyy-mm-dd HH:MM:ss',
+			modal: true,
+            footer: true
+
+        });
+ </script>
+	
+{% endblock %}

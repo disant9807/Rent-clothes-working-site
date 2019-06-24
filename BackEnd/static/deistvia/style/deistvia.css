@@ -1,0 +1,69 @@
+
+
+
+.deistvia
+{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    box-shadow: 0 0 30px 1px rgba(122,122,122,0.5);
+
+}
+.deistvia__type
+{
+    display: flex;
+    align-items: baseline;
+    margin-top: 10px;
+}
+.deistvia__size
+{
+
+    display: flex;
+    align-items: baseline;
+
+}
+
+.deistvia__button
+{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.deistvia__size__knopki
+{
+    display: flex;
+}
+.deistvia__type
+{
+    display: flex;
+}
+.deistvia__type__knopki
+{
+    display: flex;
+}
+.deistvia__button_style_big
+{
+    background-color: #D6231E;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: max-content;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: x-large;
+}
+.deistvia__size__zagolovok
+{
+    margin-right: 10px;
+}
+.deistvia__type__zagolovok
+{
+    margin-right: 10px;
+}
+.deistvia__zagolovok
+{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

@@ -1,0 +1,219 @@
+{% extends "Bot_base.html" %}
+{% load staticfiles %}
+{% load widget_tweaks %}
+
+
+{% block title %}
+
+<title> Cписок заказов</title>
+
+{% endblock %}
+
+{% block main %}
+
+
+    <div class="ml-3 mt-3 d-flex flex-column align-items-center">
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Главная</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Список заказов</li>
+            </ol>
+        </nav>
+
+        <h1 class="mb-3">Список заказов</h1>
+
+		
+		
+				<form class="" method="GET" action="/admzakazi">
+				<div class="d-flex bg-light border mb-4 p-2 justify-content-center align-items-center">
+					
+					<div class="form-group ml-2 mr-2">
+                        <label for="id_str" >Текущая страница: {{zapros.str}}</label>
+                    
+						<div class='btn-spn btn-spn-lg input-group'>
+						  <span class='input-group-btn'>
+							<button
+							  class='btn btn-secondary btn-spn-down' 
+							  type='button'><i class="fa fa-minus"></i></button>
+						  </span> 
+						  {{formsort.str|add_class:"btn-spn-input form-control text-center"}}
+						  <span class='input-group-btn'>
+							<button        
+							  class='btn btn-secondary btn-spn-up'
+							  type='button'><i class="fa fa-plus"></i></button>
+						  </span>
+						</div>
+					</div>
+					
+					<div class="form-group ml-2 mr-2">
+                        <label for="id_kolich" >Текущее количество: {{zapros.kolich}}</label>
+                    
+						<div class='btn-spn btn-spn-lg input-group'>
+						  <span class='input-group-btn'>
+							<button
+							  class='btn btn-secondary btn-spn-down' 
+							  type='button'><i class="fa fa-minus"></i></button>
+						  </span> 
+						  {{formsort.kolich|add_class:"btn-spn-input form-control text-center"}}
+						  <span class='input-group-btn'>
+							<button        
+							  class='btn btn-secondary btn-spn-up'
+							  type='button'><i class="fa fa-plus"></i></button>
+						  </span>
+						</div>
+					</div>
+					
+					
+                    <div class="form-group ml-2 mr-2">
+                        <label for="id_sort" >Текущее поле для сортировки: {{zapros.sort}}</label>
+                        {{formsort.sort|add_class:"form-control"}}
+                    </div>
+					
+                    <div class="custom-control ml-2 mr-2 custom-switch">
+                        {{formsort.sortingType|add_class:"custom-control-input"}}
+						 <label class="custom-control-label" for="id_sortingType">По возрастанию/убыванию</label>
+                    </div>
+
+ 
+                    <div class="d-flex ml-1 flex-column">
+                        <button type="submit" class="btn btn-primary mt-1 mb-1">Применить</button>
+                    </div>
+				</div>
+              
+		
+		
+        <div class="container">
+
+        <div class="row justify-content-start">
+
+            <div class="col-xl-5 col-lg-5" >
+
+            <div class="mb-4 border p-3  bg-white">
+               
+                    <div class="form-group">
+                        <label for="id_name">Пользователь</label>
+						{{main.person|add_class:"form-control"}}
+                    </div>
+					
+					<div class="form-group">
+                        <label for="id_name">Код заказа</label>
+						{{main.code|add_class:"form-control"}}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Дата</label>
+                        <div class="row">
+                            <div class="col">
+								{{main.datemin|add_class:"form-control"}}
+                            </div>
+                            <div class="col">
+								{{main.datemax|add_class:"form-control"}}
+                            </div>
+                        </div>
+                    </div>
+					
+					<div class="form-group">
+							<label >Статус</label>
+							
+								<div class="custom-control ml-2 mr-2 custom-switch">
+									{{main.raz|add_class:"custom-control-input"}}
+									 <label class="custom-control-label" for="id_raz">Не отмененные</label>
+								</div>
+								
+								<div class="custom-control ml-2 mr-2 custom-switch">
+									{{main.unraz|add_class:"custom-control-input"}}
+									 <label class="custom-control-label" for="id_unraz">отмененные</label>
+								</div>
+						</div>
+						
+						<div class="form-group">
+							<label >Выдача</label>
+							
+								<div class="custom-control ml-2 mr-2 custom-switch">
+									{{main.vidan|add_class:"custom-control-input"}}
+									 <label class="custom-control-label" for="id_vidan">Выданные</label>
+								</div>
+								
+								<div class="custom-control ml-2 mr-2 custom-switch">
+									{{main.noVidan|add_class:"custom-control-input"}}
+									 <label class="custom-control-label" for="id_noVidan">Не выданные</label>
+								</div>
+						</div>
+					
+                    <div class="d-flex flex-column">
+                        <button type="submit" class="btn btn-primary mt-1 mb-1">Применить</button>
+                    </div>
+
+                </form>
+            </div>
+            </div>
+
+
+        <div class="col-xl-7 col-lg-7 ">
+        <div class="list-group ">
+            <a href="./Bot_Add_client.html" class="list-group-item list-group-item-action flex-column align-items-start bg-success border border-dark">
+                <div class="d-flex w-100">
+                    <h6 class="mb-1 text-uppercase text-white">Для добавления заказа перейдите к нужному клиенту и нажмите кнопку добавить заказ</h6>
+                </div>
+            </a>
+			{% for zak in zakazi %}
+            <a href="/admzakaz/{{zak.id}}" class="list-group-item list-group-item-action flex-column align-items-start border border-dark">
+                <div class="d-flex w-100 justify-content-between align-items-center">
+					<h5 class="mb-1 ml-2">#{{zak.code}} </h5>
+                    <h6 class="mb-1 ml-2">{{zak.name}}</h6>
+					{% if zak.status == False %}
+					<h6 class="mb-1 ml-2">Статус: Отменена <h6>
+					{% else %}
+					<h6 class="mb-1 ml-2">Статус: Активна <h6>
+					{% endif %}
+                    <small  class="mr-2">{{zak.date}}</small>
+                </div>
+                <div class="border m-2 p-2">
+				<h5 class="mb-1 ml-2">Товары</h5>
+				{% if zak.tovari != None %}
+				{% for tov in zak.tovari %}
+				<h6 class="mb-1 ml-2">{{tov}}</h6>            
+				{% endfor %}
+				{% else %}
+				<h6 class="mb-1 ml-2">Пусто...</h6>   
+				{% endif %}
+                </div>
+            </a>
+			{% endfor %}
+        </div>
+        </div>
+        </div>
+        </div>
+
+     
+    </div>
+{% endblock %}
+
+{% block js %}
+	<link rel="stylesheet" type="text/css" href="{% static "numberbootstrap/kss.css" %}"/ >
+	<script src="{% static "numberbootstrap/java.js" %}"/></script>
+	<script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+ <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+ 
+	<script>
+		$('#id_datemin').datetimepicker({
+            uiLibrary: 'bootstrap4',
+			format: 'yyyy-mm-dd HH:MM:ss',
+			modal: true,
+            footer: true
+
+        });
+		
+	$('#id_datemax').datetimepicker({
+            uiLibrary: 'bootstrap4',
+			format: 'yyyy-mm-dd HH:MM:ss',
+			modal: true,
+            footer: true
+
+        });
+	</script>
+	
+{% endblock %}
+
+

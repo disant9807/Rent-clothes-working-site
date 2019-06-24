@@ -1,0 +1,230 @@
+
+{% extends "base.html" %}
+{% load widget_tweaks %}
+
+{% load staticfiles %}
+
+
+{% block content %}
+<div class="Base__flex Bread-flex">
+    <div class="Bread">
+        <a href="./Main.html" class="Base__txt-kelson Bread__txt">
+            Главная
+        </a>
+    </div>
+	<div class="Bread-poloska"></div>
+	<div class="Bread">
+        <a href="./Main.html" class="Base__txt-kelson Bread__txt">
+             Товар: {{Tovar.Tovar.name}}
+        </a>
+    </div>
+    <div class="Bread-poloska"></div>
+    <div class="Bread Bread_viible_orange">
+        <div class="Base__txt-kelson Bread__txt">
+            Добавление отзыва
+        </div>
+    </div>
+</div>
+
+<div class="Korzina Page__element-oba Tvr__Main">
+    <div class="Page__element-obertka">
+        <div class="zagolovok Page__zagolovok Page__zagolovok-funny Page__element-zagolovok">Добавление отзыва</div>
+    </div>
+
+    <div class=" Korzina_element Tvr__element">
+        <div class="Tov">
+            <div class="Base__flex Base__flex_type_column Tov__img-block">
+                <img src="{{Tovar.photMain}}" class ="Tov__img">
+                <div class="Tvr__vibor-photo Page__element-border">
+                    <div class="Tvr__Vibor-null">
+                        <div class="Base__txt-kelson Tvr__Vibor_txt">
+                            Еще
+                        </div>
+                    </div>
+                    <div class="Tvr__Vibor">
+                        <img src="./tovars/img/krossy_one.jpg" class ="Tvr__Vibor-img">
+                    </div>
+                    <div class="Tvr__Vibor">
+                        <img src="./tovars/img/krossy_one.jpg" class ="Tvr__Vibor-img">
+                    </div>
+                    <div class="Tvr__Vibor">
+                        <img src="./tovars/img/krossy_one.jpg" class ="Tvr__Vibor-img">
+                    </div>
+                    <div class="Tvr__Vibor">
+                        <img src="./tovars/img/krossy_one.jpg" class ="Tvr__Vibor-img">
+                    </div>
+                    <div class="Tvr__Vibor-null">
+                        <div class="Base__txt-kelson Tvr__Vibor_txt">
+                            Еще
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="Base__flex Base__flex_type_column tovar__opisanie Tvr__opi">
+
+                <div class="Base__zagolovok tovar__zagolovok tovar__zagolovok_no_margin-top">{{Tovar.Tovar.name}}</div>
+                <div class="Base">
+                    <div class="tovar__opisanie__text">{{Tovar.Tovar.opisanie}}</div>
+                    <div class="tovar__opisanie__text">Материал: {{Tovar.Tovar.material}}</div>
+                </div>
+
+                <div class="Base">
+                    <div class="tovar__opisanie__zagolovok Base__zagolovok tovar__zagolovok">аренда с возможностью возврата</div>
+                    <div class="tovar__opisanie__text">{{Tovar.Tovar.priceArenda}} руб/день</div>
+                    <div class="tovar__opisanie__zagolovok Base__zagolovok tovar__zagolovok">взять погонять</div>
+                    <div class="tovar__opisanie__text">{{Tovar.Tovar.pricePogon}} руб/день</div>              
+                </div>
+      
+            </div>
+        </div>
+    </div>
+    <div class="Base__poloska-gor"></div>
+
+    <div class="Base__zagolovok Tvr__Otz-zag">отзывы</div>
+
+    <div class="Menu">
+        <div class="Base__flex Colonka__Base-flex ">
+            <a href="#" class="Base__button  Colonka__button Menu__button"><i class="fas fa-caret-square-down Menu__logo"></i>Дата добавления</a>
+            <a href="#" class="Base__button  Colonka__button Menu__button"><i class="fas fa-caret-square-down Menu__logo"></i>Рейтинг</a>
+            <div class="boxes Tvr__sotr-check">
+                <input type="checkbox" id="box-1">
+                <label for="box-1">С фото</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="Base__flex Base__flex_type_column Tvr__Otzyvi">
+        {% for o in Tovar.Otz %}
+        <div class="Tvr__Otz">
+            <div href="#" class="Otzyvi__ssilka">
+                <div class="Otzyvi__top">
+                    <div class="Otzyvi__Name">
+                        {{o.name}}
+                    </div>
+                    <div class="Otzyvi__Data">
+                       {{o.date}}
+                    </div>
+
+                </div>
+                <div class="Otzyvi__main">
+
+                    <div class="Otzyvi__opisanie">
+                        <div class="Otzyvi__text">
+                           {{o.text}}
+                        </div>
+                    </div>
+
+                    <div class="Otzyvi__zvezda">
+                        <div class="Otzyvi__zvizdi">
+                            <i class="fas fa-star Otzyvi__zv-im"></i>
+                            <i class="fas fa-star Otzyvi__zv-im" ></i>
+                            <i class="fas fa-star Otzyvi__zv-im"></i>
+                            <i class="fas fa-star Otzyvi__zv-im"></i>
+                            <i class="fas fa-star Otzyvi__zv-im"></i>
+                        </div>
+                        <div class="Otzyvi__cifri">
+                            {{o.rating}}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="Tvr__Otz-photo">
+                <div class="Base__poloska-gor Tvr__Otz-poloska">
+                </div>
+                <div class="Base__flex Tvr__Otz-flexphoto">
+                    <a href="#" class="Tvr__Otz-img">
+                        <img src="./tovars/img/krossy_one.jpg" class ="Tvr__Otz-img-img">
+                    </a>
+
+                    <a href="#" class="Tvr__Otz-img">
+                        <img src="./tovars/img/krossy_one.jpg" class ="Tvr__Otz-img-img">
+                    </a>
+
+                    <a href="#" class="Tvr__Otz-img">
+                        <img src="./tovars/img/krossy_one.jpg" class ="Tvr__Otz-img-img">
+                    </a>
+                </div>
+                </div>
+
+            </div>
+        </div>
+        {% endfor %}
+		
+		<form action="/Otz/{{id}}/" method="POST">
+                <div class="Base__flex Base__flex_type_column">
+                     {% csrf_token %}
+                    <div class="fform-red_UN">
+                        <div class="Base__txt fform-red__zag"> Введите отзыв</div>
+
+                        {{form.text|add_class:" fform-red__Biginput"}}
+                       
+                    </div>
+
+                    <div class="fform-red">
+                        <div class="Base__txt fform-red__zag"> Количество звезд:</div>
+
+                        {{form.rating|add_class:"fform-red__width fform-red__input Base__input "}}
+         
+                    </div>
+
+                    
+                    <div class="fform-red-butt">
+                        <button type="submit" href="#" class="Base__button Base__button_color_orange Colonka__button">Сохранить</button>
+                    </div>
+                </div>
+            </form>
+		
+		
+
+    </div>
+</div>
+
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" type="text/css" href="{% static "fform-red/style/fform-red.css"%}"/ >
+<link rel="stylesheet" type="text/css" href="{% static "bread/style/bread.css" %}"/>
+<link rel="stylesheet" type="text/css" href="{% static "Tovar/style/Tovar.css" %}"/>
+<link rel="stylesheet" type="text/css" href="{% static "Tvr/style/Tvr.css" %}"/ >
+<link rel="stylesheet" type="text/css" href="{% static "Menu/style/Menu.css" %}"/ >
+<link rel="stylesheet" type="text/css" href="{% static "Colonka/style/Colonka.css" %}"/>
+<link rel="stylesheet" type="text/css" href="{% static "checkbox/style/checkbox.css" %}"/ >
+<link rel="stylesheet" type="text/css" href="{% static "Otzyvi/style/Otzyvi.css" %}"/ >
+
+{% endblock %}
+
+ {% block JS %}
+<script src="{% static "Modul/Jquery/jquery-3.3.1.js" %}"/></script>
+<script>
+
+    $(function(){
+        $('#Pogon').submit(function(e){
+    //отменяем стандартное действие при отправке формы
+            e.preventDefault();
+    //берем из формы метод передачи данных
+            var m_method=$(this).attr('method');
+    //получаем адрес скрипта на сервере, куда нужно отправить форму
+
+            var m_action=$(this).attr('action');
+    //получаем данные, введенные пользователем в формате input1=value1&input2=value2...,
+    //то есть в стандартном формате передачи данных формы
+
+            chislo = $('#Number').text()
+            var m_data=$(this).serialize() + '&' +'kolich'+'=' +chislo;
+            $.ajax({
+                type: m_method,
+                url: m_action,
+                data: m_data,
+                success: function(result){
+                    console.log(m_data)
+
+                }
+            });
+        });
+    });
+
+</script>
+{% endblock %}

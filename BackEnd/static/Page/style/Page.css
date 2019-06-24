@@ -1,0 +1,260 @@
+
+.page
+{
+    font-family: 'Museo Sans Cyrl',Sans-Serif;
+    background-color:#FFF4E0;
+    margin: 0;
+    width: 1180px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Page__Base__flex{
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.Page__finds
+{
+    margin-bottom: 2em;
+}
+
+.Page__colonka{
+    border-right: 0.1em solid #1F2226;
+    border-top: 0.1em solid #1F2226;
+    border-bottom: 0.1em solid #1F2226;
+}
+.Page__colonka-tovar{
+    border-top: 0.1em solid #1F2226;
+    border-bottom: 0.1em solid #1F2226;
+}
+.Page_element-top-bottom
+{
+    border-top: 0.1em solid #1F2226;
+    border-bottom: 0.1em solid #1F2226;
+}
+.Page__formii
+{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    width: max-content;
+    height: max-content;
+    padding: 10px 10px 10px 10px;
+}
+.Page__formii_margin-top-bottom_0px{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.Page__element-border{
+    border: 0.15em solid #1F2226;
+}
+
+.Page_visible_false
+{
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+
+.Page__formii_padding_0px
+{
+    padding: 0px 0px 0px 0px;
+}
+
+.Page__formii_padding_10px{
+    padding: 20px 20px 20px 20px;
+}
+
+.Page__formii_width_big{
+    width: 1400px;
+}
+
+.Page__formii_position_fixed{
+    position: fixed;
+}
+.Page__formii_position_absolute{
+    position: absolute;
+}
+.Page_formii_pos_left
+{
+    right: 0%;
+}
+.Page_fixed-element
+{
+   top: 30%;
+}
+.Page__font-awecome{
+    text-decoration: none;
+}
+.Page__font-awecome_color_red{
+    color: #D6231E;
+}
+
+..Page__font-awecome_color_black{
+    color: #1F2226;
+}
+
+.Page__font-awecome_color_orange{
+    color: #F8B500;
+}
+
+.Page__formii_pos_center{
+    margin: 0 auto
+}
+.Page__formii_pos_center-fixed
+{
+   left: 50%;
+    transform: translateX(-50%);
+}
+.Page_element_main{
+    z-index: 10;
+}
+.Page_element_min{
+    z-index: 0;
+}
+.Page__formii_pos_right{
+    left: 0%;
+}
+
+.formii__elem{
+    margin: 10px 10px 10px 10px;
+}
+
+.Page__zagolovok-funny
+{
+    border: 0.1em solid #1F2226;
+    padding: 0.5em 1em 0.7em 1em;
+    background-color: #F8B500;
+}
+
+.Page__zagolovok-funny_right{
+
+}
+
+.Page__element-zagolovok
+{
+    position: absolute;
+    z-index: 10;
+    right: 50%;
+    transform: translateX(50%);
+    bottom: -1px;
+}
+
+
+.Page__element-obertka
+{
+   position: relative;
+}
+.Page__element-oba{
+    border: 0.1em solid #1F2226;
+    padding-top: 60px;
+    margin-top: 5em;
+    padding-bottom: 0.4em;
+
+}
+
+.Page__element-oba_big{
+    padding-top: 100px;
+}
+
+.Page__zagolovok
+{
+    margin-top: 3em;
+    text-align: center;
+    margin-bottom: 1.5em;
+}
+
+.Page__poloska{
+    height: 0.1em;
+    background-color: #1F2226;
+    margin-bottom: 10px;
+}
+
+.header_inp-kat
+{
+    display: flex;
+    justify-content: center;
+}
+
+.Page__Tovar
+{
+    margin-bottom: 60px;
+}
+.Page__Tovar_theme_last
+{
+    margin-bottom: 10px;
+}
+.page__zagolovok
+{
+    margin-top: 30px;
+    text-align: center;
+    font-size: x-large;
+}
+.page__button
+{
+    margin: 30px auto 30px auto;
+}
+.page__BigZagolovok
+{
+    text-align: center;
+    font-size: 25pt;
+}
+.Page_Menu-kabinet
+{
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+.Page__button-obertka_theme_center{
+    margin-left: auto;
+    margin-right: auto;
+    width: max-content;
+}
+
+.Page_poloska
+{
+    background: linear-gradient(to bottom, #F8B500, #D6231E);
+    width: 0.15em;
+}
+.Page__element_center{
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.Page__button{
+    padding: 0.5em 1em 0.5em 1em;
+    text-decoration: none;
+    color: #1F2226;
+
+}
+.Page__button:hover{
+    background-color: #D6231E;
+    color: #FFF4E0;
+}
+
+@media (max-width: 1210px){
+    .page{
+        width: 1000px;
+    }
+}
+
+@media (max-width: 1000px){
+    .page{
+        width: 768px;
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+    }
+    .Page_Menu-kabinet
+    {
+        margin-top: 10em;
+    }
+    .Page__zagolovok
+    {
+        margin-bottom: 1em;
+    }
+
+}
+
+

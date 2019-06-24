@@ -1,0 +1,151 @@
+{% extends "Bot_base.html" %}
+{% load staticfiles %}
+{% load widget_tweaks %}
+
+
+{% block title %}
+
+<title> Карточка заказа </title>
+
+{% endblock %}
+
+{% block main %}
+
+
+<div class="d-flex flex-column align-items-center mt-3">
+    <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Главная</a></li>
+        <li class="breadcrumb-item"><a href="/admzakazi/">Список заказов</a></li>
+        <li class="breadcrumb-item active" aria-current="page">заказ: {{name}}</li>
+    </ol>
+    </nav>
+
+    <h1 class="mb-3">Заказ</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-5 col-lg-5">
+			
+    <div class="card mt-2 mb-4 border border-dark">
+        <div class="card-body">
+            <h4 class="card-title">Информация о заказе</h4>
+            <div class=" bg-light">
+            <ul class="list-group">
+			<form>
+				<li class="list-group-item">Номер: #{{zakaz.nomer}}</li>
+                <li class="list-group-item">Клиент: {{zakaz.name}}</li>
+                <li class="list-group-item">Дата заказа: {{zakaz.date}}</li>
+				{% if zakaz.status == False %}
+				<li class="list-group-item">Статус: Отменен</li>
+				{% else %}
+				<li class="list-group-item">Статус: Активен</li>
+				{% endif %}
+			</form>
+            </ul>
+
+				<div class="d-flex flex-column justify-content-center">
+
+					<div class="btn-group mt-2" role="group" aria-label="Basic example">
+					<form method="POST" action="/admzakaz/{{zakaz.id}}">
+					{% csrf_token %}
+					<input type="hidden" name="otmena" value="1" > </input>
+						<button type="sumbit" class="btn btn-danger ">Отменить</button>
+					</form>
+					
+					<form method="POST" action="/admzakaz/{{zakaz.id}}">
+					{% csrf_token %}
+					<input type="hidden" name="nootmena" value="1" > </input>
+						<button type="sumbit" class="btn btn-success ">Восстановить</button>
+					</form>
+					{% if zakaz.vid == False %}
+					<form method="POST" action="/admzakaz/{{zakaz.id}}">
+					{% csrf_token %}
+					<input type="hidden" name="vidacha" value="1" > </input>
+						<button type="sumbit" class="btn btn-success ">Выдать</button>
+					</form>
+					{% else %}
+						<div type="sumbit" class="btn btn-success ">Выданно</div>
+					{% endif %}
+					</div>
+				</div>
+
+			</div>
+		</div>
+    </div>             
+
+        </div>
+
+            <div class="col-xl-7 col-lg-7">
+                <div class="container bg-white border-dark border p-2 mt-2 mb-4">
+
+                    <h4 class="mt-2 mb-3 text-center">Товары в заказе</h4>
+
+                    <div class="list-group  ">
+					<a href="/admtovarszakaz/{{zakaz.id}}" class="rounded-0  btn btn-success">
+					Добавить товар в заказ
+					</a>
+					{% for Tovar in tovars %}
+                    <div  class="list-group-item list-group-item-action flex-column align-items-start ">
+						
+						<div class="d-flex flex-wrap">
+							<div class="d-flex mr-2 ml-2  justify-content-start">
+								<p class="font-weight-bold mr-1">Название: </p>
+								<p class="">{{Tovar.tovar__tovar__name}}</p>
+							</div>
+							
+							<div class="d-flex mr-2 ml-2 justify-content-start">
+								<p class="font-weight-bold mr-1">Стоимость платежа: </p>
+								<p class="">{{Tovar.tovar__stoimost}}</p>
+							</div>
+							
+							<div class="d-flex mr-2 ml-2 justify-content-start">
+								<p class="font-weight-bold mr-1">Оплат до выкупа: </p>
+								<p class="">{{Tovar.tovar__vikup}}</p>
+							</div>
+							
+							<div class="d-flex mr-2 ml-2  justify-content-start">
+								<p class="font-weight-bold mr-1">Оплат до возврата: </p>
+								<p class="">{{Tovar.tovar__Vozvrat}}</p>
+							</div>
+							
+							<div class="d-flex mr-2 ml-2  justify-content-start">
+								<p class="font-weight-bold mr-1">Оплата каждые : </p>
+								<p class="">{{Tovar.tovar__platej}} дней</p>
+							</div>
+						</div>
+							
+												
+							<div class="btn-group mt-2" role="group" aria-label="Basic example">
+								
+									<form action="/admzakaz/{{zakaz.id}}" id="form" method="POST">
+										{% csrf_token %}
+										<input type="hidden" id="delltovar" name="delltovar" value="1">  </input>
+										<input type="hidden" id="iddell" name="id" value="{{Tovar.id}}">  </input>								
+										<button class="btn btn-danger"  type="sumbit" > Удалить товар </button>
+									</form>	
+								<a href="/admtovar/{{Tovar.tovar__tovar__id}}" id="razmoroz" class="btn btn-secondary ">Перейти к товару</a>
+							</div>
+						
+                    </div>
+					{% endfor %}
+
+                    
+                </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block js %}
+<script>
+
+	
+	
+
+
+
+</script>
+{% endblock %}

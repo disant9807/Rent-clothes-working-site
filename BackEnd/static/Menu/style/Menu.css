@@ -1,0 +1,39 @@
+.Menu__button
+{
+   margin-left: 0.5em;
+    margin-right: 0.5em;
+}
+
+.Menu__filter
+{
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+}
+
+.Menu__logo
+{
+    margin-right: 0.25em;
+}
+.Menu_column_center
+{
+    align-items: center;
+}
+.Menu__flex
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+@media (max-width: 1000px)
+{
+    .Menu__button
+    {
+        font-size: 14pt;
+    }
+    .Menu__filter
+    {
+        font-size: 20pt;
+    }
+
+}

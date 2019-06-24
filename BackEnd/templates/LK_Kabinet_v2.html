@@ -1,0 +1,248 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}
+<title> Личный Кабинет </title>
+{% endblock %}
+
+{% block content %}
+<div class="Base__flex Bread-flex">
+    <div class="Bread">
+        <a href="/main/" class="Base__txt-kelson Bread__txt">
+            Главная
+        </a>
+    </div>
+    <div class="Bread-poloska"></div>
+    <div class="Bread Bread_viible_orange">
+        <div class="Base__txt-kelson Bread__txt">
+            Личный Кабинет
+        </div>
+    </div>
+</div>
+
+<div class="Page__element-oba">
+    <div class="Page__element-obertka">
+        <div class="zagolovok Page__zagolovok Page__zagolovok-funny Page__element-zagolovok">Личный кабинет</div>
+    </div>
+    <div id="Menu-vibor" class="Menu-kabinet Page_Menu-kabinet Kabinet__Menu">
+        <div class=" Kabinet__menu-form">
+
+            <div class="formii formii__theme_row formii_theme_none Kabinet__Menu-str">
+
+				<div class="Menu-kabinet__poloska"></div>
+
+                <a href="#person" class=" formii formii_theme_none Menu-kabinet__formii Menu-kabinet__formii_videlenie_true some_link1" v-on:click="person=true; grafik=false; history=false; dostavka=false" v-bind:class="{'formii_theme_orange':person}">
+                    <div class="Menu-kabinet__icon">
+                        <i class="fas fa-address-card fa-3x"></i>
+                    </div>
+                    <div class="Menu-kabinet__text">Пользователь</div>
+                </a>
+
+                <div class="Menu-kabinet__poloska"></div>
+
+                <a href="#varende" class="formii formii_theme_none Menu-kabinet__formii Menu-kabinet__formii_videlenie_true some_link3">
+                    <div class="Menu-kabinet__icon">
+                        <i class="fas fa-tshirt fa-3x"></i>
+                    </div>
+                    <div class="Menu-kabinet__text">Вещи в аренде</div>
+                </a>
+
+                <div class="Menu-kabinet__poloska"></div>
+
+
+            </div>
+
+            <div class="formii formii__theme_row formii_theme_none Kabinet__Menu-str">
+
+                <div class="Menu-kabinet__poloska Menu-kabinet__poloska_vivble"></div>
+
+                <a href="#izbran" class="formii formii_theme_none Menu-kabinet__formii Menu-kabinet__formii_videlenie_true some_link5">
+                    <div class="Menu-kabinet__icon">
+                        <i class="fas fa-shuttle-van fa-3x"></i>
+                    </div>
+                    <div class="Menu-kabinet__text">Заказы</div>
+                </a>
+
+                <div class="Menu-kabinet__poloska"></div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="Korzina Page__element-oba ">
+    <div class="Page__element-obertka">
+        <div class="zagolovok Page__zagolovok Page__zagolovok-funny Page__element-zagolovok" id="person">Пользователь</div>
+    </div>
+
+    <div class="Kabinet__element">
+
+        <div class=" Korzina_element">
+            <div class="tovar ">
+                <div class="tovar__img Kabinet__img">
+                    <img src="/static/IMG_KABINET/logo.jpg" class ="tovar__img__img">
+                </div>
+                <div class="Base__flex Base__flex_type_column tovar__Base  tovar__opisanie Korzina__Base-flex Korzina__element-str">
+
+                    <div class="Base__zagolovok tovar__zagolovok tovar__zagolovok_no_margin-top">{{person.name}}</div>
+                    <div class="Base">
+                        <div >Пол: {{person.sex}}</div>
+                        <div >Дата рождения: 20</div>
+                    </div>
+
+                    <div class="Base">
+                        <div class="tovar__opisanie__zagolovok Base__zagolovok tovar__zagolovok">email:</div>
+						<div> {{person.email}} </div>
+                        <div class="tovar__opisanie__zagolovok Base__zagolovok tovar__zagolovok">телефон:</div>
+						<div>  {{person.phone}} </div>
+                    </div>
+                </div>
+        </div>
+            <div class="Base__flex Kabinet__Base-flex">
+            <a href="/Edit/" style="margin-left:0.25em; margin-right:0.25em;" class="Base__button Page__button">
+                Редактировать
+            </a>
+			
+			<a href="/Editpass/" style="margin-left:0.25em; margin-right:0.25em;" class="Base__button Page__button">
+                Изменить пароль
+            </a>
+			
+			<a href="/Vihod/" style="margin-left:0.25em; margin-right:0.25em;" class="Base__button Page__button">
+                Выход
+            </a>
+			
+			{% if adminka != None %}
+			<a href="/admtovars/" style="margin-left:0.25em; margin-right:0.25em;" class="Base__button Page__button">
+                Вход в админку
+            </a>
+			{% endif %}
+			
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="Page__element-oba Kabinet__last-element">
+    <div class="Page__element-obertka">
+        <div class="zagolovok Page__zagolovok Page__zagolovok-funny Page__element-zagolovok" id="varende">Вещи в аренде</div>
+    </div>
+    <div class="Kabinet__element">
+        {% for tov in tovari %}
+        <div class=" Korzina_element">
+            <div class="tovar Korzina__tovar">
+                <a class="tovar__img">
+                    <img src="/static/{{tov.img}}" class ="tovar__img__img">
+                </a>
+                <div class="Base__flex Base__flex_type_column tovar__Base  tovar__opisanie Korzina__Base-flex Korzina__element-str">
+
+                    <div class="Base__zagolovok tovar__zagolovok tovar__zagolovok_no_margin-top">{{tov.name}}</div>
+                    <div class="Base">
+                        <div class="tovar__opisanie__text">{{tov.material}}</div>
+                    </div>
+                    <div class="Base">
+                        <div class="tovar__opisanie__zagolovok Base__zagolovok tovar__zagolovok">{{tov.rentname}}</div>
+                        <div class="tovar__opisanie__text Korzina__txt-price">Платеж: {{tov.rentstoimost}} рублей</div>
+						<div class="tovar__opisanie__text">Платеж раз в {{tov.rentplatej}} дней</div>
+						<div class="tovar__opisanie__text">Выкуп через {{tov.rentvikup}} дней</div>
+						<div class="tovar__opisanie__text">Возможность возврата через {{tov.rentvozvrat}} дней</div>	
+                        <div class="tovar__opisanie__zagolovok Base__zagolovok tovar__zagolovok">размер</div>
+                        <div class="tovar__opisanie__text">{{tov.size}}</div>
+                    </div>
+                </div>
+                <div class="Base__flex Base__flex_type_column Korzina__Base-flex Korzina__element-str">	
+                    <a href="/Otz/{{tov.id}}" class="Base__button Page__button Korzina__button"><i class="fas fa-times"></i>  Написать отзыв</a>
+                    <a href="/tovar/{{tov.id}}" class="Base__button Page__button Korzina__button"> Подробнее</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="Base__poloska-gor Kabinet__poloska"></div>
+        {% endfor %}
+        <div class="Base__flex Kabinet__Base-flex">
+        <a href="#Menu-vibor" class="Base__button_color_orange Base__button Page__button Korzina__button-arenda"><i class="fas fa-arrow-down Menu__logo"></i>Вверх</a>
+        </div>
+
+    </div>
+</div>
+
+<div class="Page__element-oba Kabinet__last-element">
+    <div class="Page__element-obertka">
+        <div class="zagolovok Page__zagolovok Page__zagolovok-funny Page__element-zagolovok" id="izbran">Заказы</div>
+    </div>
+    <div style="display:flex; flex-wrap:wrap; justify-content:center;">
+         {% for zak in zakazi %}
+		 
+		 
+        <a href="/zakaz/{{zak.zakaz.id}}"  style="text-decoration:none; color:#1F2226; width:18em; margin:2em; border:solid 0.15em black; padding:1em; background-color:white;">
+        <div  class="Base__button_color_orange Base__button Page__button Korzina__button-arenda">Заказ: #{{zak.zakaz.nomer}}</div>
+		<div class=" Korzina_element">
+            <div class="Base__zagolovok tovar__zagolovok tovar__zagolovok_no_margin-top">Дата: {{zak.zakaz.date}}</div>
+        </div>
+		 
+		 
+		{% for tov in zak.tovars %} 
+        <div class=" Korzina_element">
+            <div class="Base__zagolovok tovar__zagolovok tovar__zagolovok_no_margin-top">{{tov.name}}</div>
+        </div>
+		{% endfor %}
+		
+		{% if zak.zakaz.vid == True %}
+		 <div class=" Korzina_element">
+            <div class="Base__zagolovok tovar__zagolovok tovar__zagolovok_no_margin-top">Заказ выдан</div>
+        </div>
+		{% endif %}
+		
+		</a>
+
+       {% endfor %}
+
+    </div>
+</div>
+
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" type="text/css" href="{% static "Elements.css"%}"/ >
+<link rel="stylesheet" type="text/css" href="{% static "Kabinet/style/Kabinet.css"%}"/ >
+<link rel="stylesheet" type="text/css" href="{% static "bread/style/bread.css"%}"/>
+<link rel="stylesheet" type="text/css" href="{% static "Tovar/style/Tovar.css"%}"/>
+<link rel="stylesheet" type="text/css" href="{% static "Korzina/style/korz.css"%}"/ >
+<link rel="stylesheet" type="text/css" href="{% static "Menu/style/Menu.css"%}"/ >
+<link rel="stylesheet" type="text/css" href="{% static "formi/style/formii.css"%}"/ >
+<link rel="stylesheet" type="text/css" href="{% static "progres-bar/style/progres-bar.css"%}"/ >
+{% endblock %}
+
+{% block JS %}
+<script>
+$(function(){
+
+        $('.some_link1').on('click', function(e){
+            $('html,body').stop().animate({ scrollTop: $('#person').offset().top }, 1000);
+            e.preventDefault();
+        });
+
+        $('.some_link2').on('click', function(e){
+            $('html,body').stop().animate({ scrollTop: $('#grafik').offset().top }, 1000);
+            e.preventDefault();
+        });
+
+        $('.some_link3').on('click', function(e){
+            $('html,body').stop().animate({ scrollTop: $('#varende').offset().top }, 1000);
+            e.preventDefault();
+        });
+        $('.some_link4').on('click', function(e){
+            $('html,body').stop().animate({ scrollTop: $('#like').offset().top }, 1000);
+            e.preventDefault();
+        });
+        $('.some_link5').on('click', function(e){
+            $('html,body').stop().animate({ scrollTop: $('#izbran').offset().top }, 1000);
+            e.preventDefault();
+        });
+
+    });
+</script>
+{% endblock %}

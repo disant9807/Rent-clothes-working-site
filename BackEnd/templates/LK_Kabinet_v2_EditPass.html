@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+{% load widget_tweaks %}
+
+{% block title %}
+<title> Редактирование Пароля </title>
+{% endblock %}
+
+{% block content %}
+<div class="Base__flex Bread-flex">
+    <div class="Bread">
+        <a href="/main/" class="Base__txt-kelson Bread__txt">
+            Главная
+        </a>
+    </div>
+    <div class="Bread-poloska"></div>
+	<div class="Bread">
+        <a href="/kabinet/" class="Base__txt-kelson Bread__txt">
+            Личный Кабинет
+        </a>
+    </div>
+	   <div class="Bread-poloska"></div>
+    <div class="Bread Bread_viible_orange">
+        <div class="Base__txt-kelson Bread__txt">
+            Редактирование Пароля
+        </div>
+    </div>
+</div>
+
+
+<div class="Korzina Page__element-oba ">
+    <div class="Page__element-obertka">
+        <div class="zagolovok Page__zagolovok Page__zagolovok-funny Page__element-zagolovok" id="person">Редактирование Пароля</div>
+    </div>
+    <div class="Kabinet__element">
+        <div class=" Korzina_element" style="display:flex; justify-content:center; align-items:center;">
+
+            <div class="fform-red__main">
+            <form action="/Editpass/" enctype="multipart/form-data" method="post">
+                <div class="Base__flex Base__flex_type_column">
+                     {% csrf_token %}
+					 
+					 <div class="fform-red">
+                        <div class="Base__txt fform-red__zag"> {{message}}</div>
+												
+                    </div>
+					 
+                    <div class="fform-red">
+                        <div class="Base__txt fform-red__zag"> Введите новый пароль:</div>
+						<input type="password" class="fform-red__width Base__input fform-red__input"  name="password">  </input>
+						<input name="editpass" value="1" type="hidden"> </input>						
+                    </div>
+
+                    
+
+                    <div class="fform-red-butt">
+						<a href="/kabinet/" class="Base__button Base__button_color_orange Colonka__button">Отмена</a>
+                        <button style="font-size: 12pt; cursor:pointer;" type="submit" class="Base__button Base__button_color_orange Colonka__button">Сохранить</button>
+                    </div>
+
+
+                </div>
+
+
+
+            </form>
+                                </div>
+
+
+        </div>
+    </div>
+</div>
+<script src="{% static "Modul/Jquery/jquery-3.3.1.js" %}"/ ></script>
+
+
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" type="text/css" href="{% static "fform-red/style/fform-red.css"%}"/ >
+<link rel="stylesheet" type="text/css" href="{% static "Elements.css"%}"/ >
+<link rel="stylesheet" type="text/css" href="{% static "Colonka/style/Colonka.css" %}"/>
+<link rel="stylesheet" type="text/css" href="{% static "Kabinet/style/Kabinet.css"%}"/ >
+<link rel="stylesheet" type="text/css" href="{% static "bread/style/bread.css"%}"/>
+<link rel="stylesheet" type="text/css" href="{% static "Tovar/style/Tovar.css"%}"/>
+<link rel="stylesheet" type="text/css" href="{% static "Korzina/style/korz.css"%}"/ >
+<link rel="stylesheet" type="text/css" href="{% static "Menu/style/Menu.css"%}"/ >
+<link rel="stylesheet" type="text/css" href="{% static "formi/style/formii.css"%}"/ >
+<link rel="stylesheet" type="text/css" href="{% static "progres-bar/style/progres-bar.css"%}"/ >
+{% endblock %}
+
+{% block JS %}
+	<script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+ <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+ <script>
+	$('#datepicker').datetimepicker({
+			format: 'yyyy-mm-dd HH:MM:ss',
+			modal: true,
+            footer: true
+
+        });
+		
+	$("#canel").click(function(){
+		
+		location.reload();
+		
+	})
+	
+ </script>
+{% endblock %}
+
+

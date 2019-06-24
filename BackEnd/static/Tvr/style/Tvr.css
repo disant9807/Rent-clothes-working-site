@@ -1,0 +1,217 @@
+.Tov__img
+{
+    width: 30em;
+    margin-left: 1em;
+}
+.Tov
+{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+.Tvr__vibor-photo
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1F2226;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-top: 1em;
+    width: 24em;
+
+
+}
+
+.Tvr__element{
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.Tvr__Vibor-img
+{
+    width: 4em;
+    height: 4em;
+
+}
+.Tvr__Main
+{
+    margin-bottom: 1em;
+}
+
+.Tvr__Vibor{
+    height: 4em;
+    width: 4em;
+}
+.Tvr__Vibor-null
+{
+    background-color: #1F2226;
+    color: #FFF4E0;
+    width: 4em;
+    height: 4em;
+    text-align: center;
+}
+.Tvr__Vibor_txt{
+    line-height: 4em;
+
+}
+.Tvr__button-coll1
+{
+    margin-right: 0.5em;
+}
+.Tvr__button-coll2
+{
+    margin-left: 0.5em;
+
+}
+.Tvr__button
+{
+
+    margin-right: 1.25em;
+}
+.Tvr__dei
+{
+    margin-top: 1em;
+}
+.Tvr__txt
+{
+    font-size: 25pt;
+}
+.Tvr__opi
+{
+    border-left:0.15em solid #1F2226 ;
+    padding-left: 0.5em;
+}
+.Tvr__Otz
+{
+    width: 880px;
+    border: 0.15em solid #1F2226;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+
+}
+.Tvr__Otzyvi
+{
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1em;
+}
+.Tvr__sotr-check
+{
+    transform: translateY(25%);
+    margin-left: 0.5em;
+}
+.Tvr__Otz-img
+{
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+}
+.Tvr__Otz-img-img{
+    width: 4em;
+}
+.Tvr__Otz-photo
+{
+    padding-left: 1em;
+    padding-right: 1em;
+}
+.Tvr__Otz-poloska
+{
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+.Tvr__Otz-flexphoto
+{
+    justify-content: center;
+}
+.Tvr__Otz-zag
+{
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+.Tov__img-block
+{
+    align-items: center;
+}
+@media (max-width: 1210px)
+{
+    .Tov__img
+    {
+        width: 25em;
+    }
+    .Tvr__vibor-photo
+    {
+        align-items: center;
+    }
+
+
+}
+@media (max-width: 1000px)
+{
+    .Tvr__Otz-img-img
+    {
+        width: 7em;
+    }
+    .Tov__img
+    {
+        width: 30em;
+    }
+    .Tvr__vibor-photo
+    {
+        align-items: center;
+        width: 36em;
+    }
+    .Tvr__Otz
+    {
+        width: 720px;
+    }
+    .Tvr__opi
+    {
+        margin-top: 1em;
+    }
+    .Tvr__button
+    {
+        font-size: 20pt;
+    }
+    .Tvr__button-coll1
+    {
+        font-size: 20pt;
+    }
+    .Tvr__button-coll2
+    {
+        font-size: 20pt;
+    }
+    .Tvr__Vibor
+    {
+        width: 6em;
+        height: 6em;
+    }
+    .Tvr__txt
+    {
+        font-size: 40pt;
+
+    }
+    .Tvr__Vibor-null
+    {
+        width: 6em;
+        height: 6em;
+    }
+    .Tvr__Vibor-img
+    {
+        width: 6em;
+        height: 6em;
+    }
+    .Tvr__Vibor_txt
+    {
+
+        font-size: 16pt;
+    }
+    .Tvr__sotr-check
+    {
+        font-size: 30pt;
+    }
+
+}

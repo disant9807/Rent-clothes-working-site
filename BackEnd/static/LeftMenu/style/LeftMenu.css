@@ -1,0 +1,91 @@
+@import "/Elements.css";
+.LeftMenu
+{
+
+    background-color: white;
+    width: 300px;
+    box-shadow: 0 0 30px 1px rgba(122,122,122,0.5);
+}
+.LeftMenu__filter__form
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.LeftMenu__filter__form__element
+{
+    margin-top: 10px;
+
+
+}
+.LeftMenu__filter__input
+{
+    height: 25px;
+    border: 2px solid #1F2226;
+    border-radius: 3px;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+.LeftMenu__filter__input__size__50
+{
+    width: 80px;
+}
+.LeftMenu__filter__checked
+{
+
+}
+.LeftMenu__kategorii
+{
+
+}
+.LeftMenu__kategorii-element
+{
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+}
+.LeftMenu__kategorii-ssilka
+{
+    font-family: 'Kelson Sans';
+    font-size: 16pt;
+}
+.LeftMenu__poloska
+{
+    height: 3px;
+    background-color: #1F2226;
+}
+.LeftMenu_filter-button
+{
+    border-width: 0px;
+    margin-top: 20px;
+}
+.LeftMenu__filter__zagalovok
+{
+    margin-left: auto;
+    margin-right: auto;
+    width: max-content;
+}
+
+@media (max-width: 1416px)
+{
+    .LeftMenu
+    {
+
+        background-color: white;
+        width: 200px;
+        box-shadow: 0 0 30px 1px rgba(122,122,122,0.5);
+    }
+    .LeftMenu__filter__input
+    {
+        width: 120px;
+        height: 20px;
+    }
+    .LeftMenu__filter__input__size__50
+    {
+        width: 60px;
+    }
+
+
+
+}

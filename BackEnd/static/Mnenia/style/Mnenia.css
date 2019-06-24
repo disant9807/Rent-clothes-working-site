@@ -1,0 +1,132 @@
+.Mnenia
+{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: max-content;
+    box-shadow: 0 0 30px 1px rgba(122,122,122,0.5);
+    background-color: white;
+    margin-right: auto;
+    margin-left: auto;
+}
+.Mnenia__close
+{
+    text-decoration: none;
+    color: #1F2226;
+}
+.Mnenia__top
+{
+    margin-left: auto;
+    margin-right: auto;
+    width: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+}
+.Mnenia__ava
+{
+    width: 75px;
+    height: 75px;
+    background-color: #F8B500;
+    border-radius: 50%;
+
+}
+.Mnenia__name
+{
+    color: #D6231E;
+}
+.Mnenia__Social
+{
+    display: flex;
+}
+.Mnenia__Social__icon
+{
+    margin-right: 4px;
+    margin-left: 4px;
+}
+.Mnenia__name_text
+{
+    text-decoration: none;
+    font-size: 16pt;
+    color: #1F2226;
+}
+.Mnenia__img
+{
+    width: 300px;
+    height: 375px;
+    background-color: #FFF4E0;
+    margin-right: 30px;
+    margin-left: 30px;
+
+}
+
+.Mnenia__img__img
+{
+    width: 300px;
+}
+
+.Mnenia__opisanie
+{
+    width: 300px;
+    height: 375px;
+    background-color: #FFF4E0;
+    box-shadow: 0 0 30px 1px rgba(122,122,122,0.5);
+    margin-right: 30px;
+    margin-left: 30px;
+}
+.Mnenia__opisanie__head
+{
+    height: 50px;
+    background-color: #F8B500;
+    text-align: center;
+    line-height: 50px;
+    font-weight: 600;
+
+
+}
+.Mnenia__opisanie__text
+{
+
+}
+.Mnenia__center
+{
+    margin-top: 30px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 1000px;
+    display: flex;
+    justify-content: center;
+
+
+}
+.Mnenia__opisanie__text{
+    padding: 10px 10px 10px 10px;
+}
+.Mnenia__bottom
+{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Mnenia__Like
+{
+    margin-left: 20px;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+}
+.Like__text{
+    margin-left: 10px;
+}
+.Mnenia__izbran
+{
+    margin-left: 20px;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+}
+.izbrannoe__text
+{
+    margin-left: 10px;
+}

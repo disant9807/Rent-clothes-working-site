@@ -1,0 +1,85 @@
+<div id="success" class="Korzina_elements">
+
+        {% for tov in tovars %}
+        <div class=" Korzina_element">
+            <div class="tovar">
+                <a  href="/tovar/{{tov.id}}" class="tovar__img">
+                    <img src="/static/{{tov.img}}" class ="tovar__img__img">
+                </a>
+                <div class="Base__flex Base__flex_type_column tovar__Base  tovar__opisanie Korzina__Base-flex Korzina__element-str">
+
+                    <div class="Base__zagolovok tovar__zagolovok tovar__zagolovok_no_margin-top">{{tov.name}}</div>
+                    <div class="Base">
+                        <div class="tovar__opisanie__text">{{tov.material}}</div>
+                    </div>
+                    <div class="Base">
+                        <div class="tovar__opisanie__zagolovok Base__zagolovok tovar__zagolovok">{{tov.rentname}}</div>
+                        <div class="tovar__opisanie__text Korzina__txt-price">Платеж: {{tov.rentstoimost}} рублей</div>
+						<div class="tovar__opisanie__text">Платеж раз в {{tov.rentplatej}} дней</div>
+						<div class="tovar__opisanie__text">Выкуп через {{tov.rentvikup}} дней</div>
+						<div class="tovar__opisanie__text">Возможность возврата через {{tov.rentvozvrat}} дней</div>	
+                        <div class="tovar__opisanie__zagolovok Base__zagolovok tovar__zagolovok">размер</div>
+                        <div class="tovar__opisanie__text">{{tov.size}}</div>
+                    </div>
+                </div>
+
+                <div class="Base__flex Base__flex_type_column Korzina__Base-flex Korzina__element-str">
+                    <div  class="dell  Base__button Page__button Korzina__button"> 
+						<i class="fas fa-times"></i>
+						<form id="otpravka"  method="POST" action="/korzina/">
+							<input type="hidden" name="dellid" value="{{tov.nomer}}" > </input>
+							<input type="hidden" name="dell" value="1" > </input>
+							<button type="sumbit" id="go" style="display:none;" > </button>
+						</form>
+					</div>
+
+                    <div class="Base__flex Base__flex_type_column Menu_column_center">
+                        <div href="#" class="minus Base__button Page__button Korzina__button">
+                            <i class="fas fa-chevron-left "></i>
+							<form id="otpravka"  method="POST" action="/korzina/">
+								<input type="hidden" name="minid" value="{{tov.nomer}}" > </input>
+								<input type="hidden" name="minus" value="1" > </input>
+								<button type="sumbit" id="go" style="display:none;" > </button>
+							</form>
+                        </div>
+                        <div class="Base__txt-kelson Korzina__txt-menu">
+                            {{tov.kolich}}
+                        </div>
+                        <div href="#" class="plus Base__button Page__button Korzina__button">
+                            <i class="fas fa-chevron-right "></i>
+							<form id="otpravka"  method="POST" action="/korzina/">
+								<input type="hidden" name="plusid" value="{{tov.nomer}}" > </input>
+								<input type="hidden" name="plus" value="1" > </input>
+								<button type="sumbit" id="go" style="display:none;" > </button>
+							</form>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="Base__poloska-gor"></div>
+                        {% endfor %}
+
+
+
+        <div class="Korzina_element">
+
+            <div class="Base__flex Base__flex_type_column">
+                <div class="Base__zagolovok Korzina__zagolovok">
+                    Итого: {{sum}} рублей
+                </div>
+                <div class="Base__flex Korzina__base-center">
+                <div class="Page__button Base__button Base__button_color_orange Korzina__button-arenda">
+                    Арендовать
+                </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>

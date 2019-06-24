@@ -1,0 +1,146 @@
+.Kabinet__element
+{
+    margin-bottom: 2em;
+}
+.Kabinet__poloska
+{
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.Kabinet{
+
+}
+.Grafik__zagolovok
+{
+    margin-bottom: 0.5em;
+}
+.Grafik__txt
+{
+    text-align: center;
+    margin-bottom: 0.5em;
+}
+.Grafik__vibrann
+{
+
+    border: 0.15em solid #1F2226;
+}
+.Kabinet__grafik-elem
+{
+    padding: 10px;
+}
+
+.Menu-kabinet__poloska
+{
+    height: 120px;
+    width: 0.10em;
+    background-color: #1F2226;
+
+    background: linear-gradient(to top, #FFF4E0 5%, #1F2226 50%, #FFF4E0 95%);
+}
+.Menu-kabinet__text
+{
+    margin-top: 0.5em;
+}
+.Menu-kabinet__formii{
+    padding: 10px 10px 10px 10px;
+    text-decoration: none;
+    color: #1F2226;
+}
+.Menu-kabinet__formii_size_big{
+    height: 20em;
+}
+.Menu-kabinet__formii_videlenie_true:hover
+{
+    animation: Anim_orange  0.3s 1 ease-in-out;
+    background-color: #F8B500;
+}
+.Kabinet__last-element
+{
+    margin-bottom: 2em;
+}
+.Kabinet__Base-flex
+{
+    justify-content: center;
+    margin-top: 2em;
+}
+.Kabinet__Menu
+{
+    transform: translateY(-25%);
+    width: 100%;
+}
+.Kabinet__img
+{
+
+}
+.Kabinet__data{
+    margin-top: 2em;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+}
+.Kabinet__data-txt
+{
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+}
+.Kabinet_data-progres
+{
+    margin-top: 1em;
+}
+.Kabinet__prog-txt
+{
+    margin-top: 1em;
+}
+.Kabinet__menu-form
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.Kabinet__Menu-str
+{
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.Menu-kabinet__poloska_vivble
+{
+    display: none;
+}
+.Kabinet__graf
+{
+    justify-content: center;
+    flex-direction: row;
+
+}
+
+@media (max-width: 1000px)
+{
+    .Grafik__txt
+    {
+        font-size: 20pt;
+    }
+    .Menu-kabinet__text{
+        font-size: 17pt;
+    }
+    .Menu-kabinet__poloska_vivble
+    {
+        display: block;
+    }
+    .Kabinet__data
+    {
+        font-size: 25pt;
+    }
+    .Kabinet__element{
+        font-size: 20pt;
+    }
+    .Kabinet__graf
+    {
+        flex-wrap: wrap;
+        justify-content: center;
+        flex-direction: column;
+    }
+}

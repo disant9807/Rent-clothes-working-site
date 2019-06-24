@@ -1,0 +1,236 @@
+{% extends "Bot_base.html" %}
+{% load staticfiles %}
+{% load widget_tweaks %}
+
+
+{% block title %}
+
+<title> Cписок отзывов</title>
+
+{% endblock %}
+
+{% block main %}
+
+
+<div class="ml-3 mt-3 d-flex flex-column align-items-center">
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Главная</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Список Отзывов</li>
+        </ol>
+    </nav>
+
+    <h1 class="mb-3">Список Отзывов</h1>
+
+
+	<form action="/admnotzivi/" method="GET">
+				<div class="d-flex bg-white border mb-4 p-2 justify-content-center align-items-center">
+					
+					<div class="form-group ml-2 mr-2">
+                        <label for="id_str" >Текущая страница: {{zapros.str}}</label>
+                    
+						<div class='btn-spn btn-spn-lg input-group'>
+						  <span class='input-group-btn'>
+							<button
+							  class='btn btn-secondary btn-spn-down' 
+							  type='button'><i class="fa fa-minus"></i></button>
+						  </span> 
+						  {{formsort.str|add_class:"btn-spn-input form-control text-center"}}
+						  <span class='input-group-btn'>
+							<button        
+							  class='btn btn-secondary btn-spn-up'
+							  type='button'><i class="fa fa-plus"></i></button>
+						  </span>
+						</div>
+					</div>
+					
+					<div class="form-group ml-2 mr-2">
+                        <label for="id_kolich" >Текущее количество: {{zapros.kolich}}</label>
+                    
+						<div class='btn-spn btn-spn-lg input-group'>
+						  <span class='input-group-btn'>
+							<button
+							  class='btn btn-secondary btn-spn-down' 
+							  type='button'><i class="fa fa-minus"></i></button>
+						  </span> 
+						  {{formsort.kolich|add_class:"btn-spn-input form-control text-center"}}
+						  <span class='input-group-btn'>
+							<button        
+							  class='btn btn-secondary btn-spn-up'
+							  type='button'><i class="fa fa-plus"></i></button>
+						  </span>
+						</div>
+					</div>
+					
+					
+                    <div class="form-group ml-2 mr-2">
+                        <label for="id_sort" >Текущее поле для сортировки: {{zapros.sort}}</label>
+                        {{formsort.sort|add_class:"form-control"}}
+                    </div>
+					
+                    <div class="custom-control ml-2 mr-2 custom-switch">
+                        {{formsort.sortingType|add_class:"custom-control-input"}}
+						 <label class="custom-control-label" for="id_sortingType">По возрастанию/убыванию</label>
+                    </div>
+
+ 
+                    <div class="d-flex ml-1 flex-column">
+                        <button type="submit" class="btn btn-primary mt-1 mb-1">Применить</button>
+                    </div>
+				</div>
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class=" mb-4 col-xl-5 col-lg-5 ">
+
+                <div class=" border p-3 border border-dark bg-white">
+
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Клиент</label>
+							{{form.Client|add_class:"form-control"}}
+                            
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Вещь</label>
+                            {{form.Vesh|add_class:"form-control"}}
+                        </div>
+
+						
+						<div class="form-group">
+                            <label for="exampleFormControlInput1">Уровень отзыва</label>
+                            <div class="form-check">
+                                {{form.one|add_class:"form-check-input"}}
+                                <label class="form-check-label" for="defaultCheck4">
+                                    1
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                {{form.two|add_class:"form-check-input"}}
+                                <label class="form-check-label" for="defaultCheck5">
+                                    2
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                {{form.three|add_class:"form-check-input"}}
+                                <label class="form-check-label" for="defaultCheck6">
+                                    3
+                                </label>
+                            </div>
+							<div class="form-check">
+                                {{form.fo|add_class:"form-check-input"}}
+                                <label class="form-check-label" for="defaultCheck7">
+                                    4
+                                </label>
+                            </div>
+							<div class="form-check">
+                               {{form.five|add_class:"form-check-input"}}
+                                <label class="form-check-label" for="defaultCheck8">
+                                    5
+                                </label>
+                            </div>
+                        </div>
+						
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Статус</label>
+                            <div class="form-check">
+                                {{form.ok|add_class:"form-check-input"}}
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Принят
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                {{form.no|add_class:"form-check-input"}}
+                                <label class="form-check-label" for="defaultCheck2">
+                                    Отклонен
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                {{form.wtf|add_class:"form-check-input"}}
+                                <label class="form-check-label" for="defaultCheck3">
+                                    На рассмотрении
+                                </label>
+                            </div>
+							<div class="form-check">
+                                {{form.delete|add_class:"form-check-input"}}
+                                <label class="form-check-label" for="defaultCheck9">
+                                    Удален
+                                </label>
+                            </div>
+
+                        </div>
+						
+						<div class="form-group">
+							<label >Страница</label>
+							{{form.str|add_class:"form-control"}}
+						</div>
+						
+	
+						
+						<input type="hidden" name="Str" id="itogo" value="0">
+						<input type="hidden" name="Sort" id="sorting" value="DateAdd">
+						<input type="hidden" name="Sort_kak" id="sorting_kak" value="on">
+                        <div class="d-flex flex-column">
+                            <button id="poihali" type="submit" class="btn btn-primary mt-1 mb-1">Применить</button>
+                        </div>
+
+
+                    </form>
+                </div>
+            </div>
+
+
+            <div class="col-xl-7 col-lg-7 ">
+                <div class="list-group ">
+                    <a  class="list-group-item list-group-item-action flex-column align-items-start bg-success border border-dark">
+                        <div class="d-flex w-100">
+                            <h6 class="mb-1 text-uppercase text-white">Перейдите в карточку товара и там добавьте новый отзыв</h6>
+                        </div>
+                    </a>
+					
+					{% for otz in otzivi %}
+                <a href="/admnotziv/{{otz.id}}" class="list-group-item list-group-item-action flex-column align-items-start border border-dark">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">Клиент: {{otz.Person__name}}</h5>
+						
+						<h5 class="mb-1">Товар: {{otz.Tovar__name}}</h5>
+                        
+
+                        <small>{{otz.date}}</small>
+                    </div>
+
+                    <div class=" text-justify  mt-1">
+                        {{otz.Opisanie}}
+                    </div>
+					<div class="d-flex ">
+						<div class="d-flex align-items-center font-weight-bold">
+							<div>Статус:</div>
+							<div class="ml-2 text-success">{{otz.Status}}</div>
+						</div>
+						<div class="d-flex align-items-center font-weight-bold ml-5">
+								<div>Уровень отзыва:</div>
+								<div class="ml-2">{{otz.zvezdi}}</div>
+						</div>
+						<div class="d-flex align-items-center font-weight-bold ml-5">
+								<div>Удален ?:</div>
+								<div class="ml-2">{{otz.delete}}</div>
+						</div>
+					</div>
+
+                </a>
+					{% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block js %}
+	<link rel="stylesheet" type="text/css" href="{% static "numberbootstrap/kss.css" %}"/ >
+	<script src="{% static "numberbootstrap/java.js" %}"/></script>
+{% endblock %}

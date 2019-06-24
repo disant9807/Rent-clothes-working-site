@@ -1,0 +1,300 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}
+<title> {{Tovar.name}} </title>
+
+<link rel="stylesheet" type="text/css" href="{% static "/Photo/slick/slick.css" %}"/>
+<link rel="stylesheet" type="text/css" href="{% static "/Photo/slick/slick-theme.css" %}"/>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="Base__flex Bread-flex">
+    <div class="Bread">
+        <a href="/main/" class="Base__txt-kelson Bread__txt">
+            Главная
+        </a>
+    </div>
+    <div class="Bread-poloska"></div>
+    <div class="Bread Bread_viible_orange">
+        <div class="Base__txt-kelson Bread__txt">
+            Товар: {{Tovar.name}}
+        </div>
+    </div>
+</div>
+
+<div class="Korzina Page__element-oba Tvr__Main">
+    <div class="Page__element-obertka">
+        <div class="zagolovok Page__zagolovok Page__zagolovok-funny Page__element-zagolovok">{{Tovar.name}}</div>
+    </div>
+
+    <div class=" Korzina_element Tvr__element">
+        <div class="Tov">
+            <div class="Base__flex Base__flex_type_column Tov__img-block">
+				<img src="/static/{{Tovar.main}}" class="Tov__img">
+            </div>
+
+
+            <div class="Base__flex Base__flex_type_column tovar__opisanie Tvr__opi">
+
+                <div class="Base__zagolovok tovar__zagolovok tovar__zagolovok_no_margin-top">{{Tovar.name}}</div>
+                <div class="Base">
+                    <div class="tovar__opisanie__text">{{Tovar.opisanie}}</div>
+                    <div class="tovar__opisanie__text">Материал: {{Tovar.materia}}</div>
+                </div>
+
+                <div class="Base">
+				{% for rent in Tovar.arenda %}
+                    <div class="tovar__opisanie__zagolovok Base__zagolovok tovar__zagolovok">{{rent.name}}</div>
+                    <div class="tovar__opisanie__text">Платеж: {{rent.stoimost}} руб, каждые {{rent.platej}} дней  </div>
+					<div class="tovar__opisanie__text">Возможность возврата через {{ rent.vozvrat }} платежей</div>
+					{% if rent.vikup != None %}
+					<div class="tovar__opisanie__text">Выкуп через {{rent.vikup }} платежей</div>
+					{% else %}
+					<div class="tovar__opisanie__text">Без выкупа</div>
+					{% endif %}
+					<div style="margin-top:0.5em; margin-bottom:1.25em; display:flex;">
+					<div style="cursor:pointer;" type="sumbit" class="vibor Base__button Page__button Tvr__button Base__button_color_orange"> Выбрать <input id="arendid" type="hidden" value="{{rent.id}}"> </input> </div>
+					</div>
+				{% endfor%}	
+					
+					{% if Tovar.size != None %}
+
+                    <div class="tovar__opisanie__zagolovok Base__zagolovok tovar__zagolovok">размер</div>
+                    <div class="Base__flex">
+						
+                        {% for s in Tovar.size %}
+							{% if s.nal == True and s.koll > 0 %}
+								<div style="cursor:pointer;" href="#" class="viborsize Page__button Tvr__button"> {{s.name}} 
+									<input id="sizeid" type="hidden" value="{{s.id}}"></input>
+								</div>
+							{% endif %}
+                        {% endfor %}
+                    </div>
+					{% else %}
+					<div class="tovar__opisanie__zagolovok Base__zagolovok tovar__zagolovok">Нет в наличии</div>
+					{% endif %}
+                </div>
+                <div class="Base__poloska-gor"></div>
+                <div class="Base__flex Tvr__dei">
+
+                     <form  id="Arenda" action="/tovar/{{Tovar.id}}/" method="POST">
+                        {% csrf_token %}
+                         <input type="hidden"  name="addrent"  value="{{Tovar.id}}">
+						 <input value="no" id="size" type="hidden" name="size">
+						 <input value="no" type="hidden" id="arenda" name="arenda">
+						 <input value="1" type="hidden" id="kolich" name="kolich">
+                        <button id="goform" type="sumbit" class="Base__button Page__button Tvr__button Base__button_color_orange" style="display:none;"> Арендовать </button>
+						<div style="cursor:pointer;" id="but" class="Base__button Page__button Tvr__button Base__button_color_orange"> Арендовать </div>
+                    </form>
+                 
+                    <div class="Base__flex Tvr__button">
+                        <a style="cursor:pointer;" id='minus' class="Base__button Page__button Tvr__button-coll1">
+                            <i class="fas fa-chevron-left "></i>
+                        </a>
+                        <div id="Number" class="Base__txt-kelson Tvr__txt">
+                            1
+                        </div>
+                        <a style="cursor:pointer;" id='plus' class="Base__button Page__button Tvr__button-coll2">
+                            <i class="fas fa-chevron-right "></i>
+                        </a>
+                    </div>
+                </div>
+				<div class="tovar__opisanie__zagolovok Base__zagolovok tovar__zagolovok" style="display:none;" id="warning">
+				Необходимо выбрать и аренду и размер
+				</div>
+				<div class="tovar__opisanie__zagolovok Base__zagolovok tovar__zagolovok" id="success">
+	
+				</div>
+            </div>
+        </div>
+    </div>
+    <div class="Base__poloska-gor"></div>
+
+    <div class="Base__zagolovok Tvr__Otz-zag">отзывы</div>
+
+    <div class="Menu">
+
+    </div>
+
+    <div class="Base__flex Base__flex_type_column Tvr__Otzyvi">
+        {% for o in Otzivi %}
+        <div class="Tvr__Otz">
+            <div href="#" class="Otzyvi__ssilka">
+                <div class="Otzyvi__top">
+					{% if o.client.name != None %}
+                    <div class="Otzyvi__Name">
+                        {{o.client.name}}
+                    </div>
+					{% else %}
+					<div class="Otzyvi__Name">
+                        {{o.otziv.name}}
+                    </div>
+					{% endif %}
+                    <div class="Otzyvi__Data">
+                       {{o.date}}
+                    </div>
+
+                </div>
+                <div class="Otzyvi__main">
+
+                    <div class="Otzyvi__opisanie">
+                        <div class="Otzyvi__text">
+                           {{o.otziv.Opisanie}}
+                        </div>
+                    </div>
+
+                    <div class="Otzyvi__zvezda">
+                        <div class="Otzyvi__zvizdi">
+                            <i class="fas fa-star Otzyvi__zv-im"></i>
+                            <i class="fas fa-star Otzyvi__zv-im" ></i>
+                            <i class="fas fa-star Otzyvi__zv-im"></i>
+                            <i class="fas fa-star Otzyvi__zv-im"></i>
+                            <i class="fas fa-star Otzyvi__zv-im"></i>
+                        </div>
+                        <div class="Otzyvi__cifri">
+                            {{o.otziv.zvezdi}}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+{% endblock %}
+{% block style %}
+<link rel="stylesheet" type="text/css" href="{% static "bread/style/bread.css" %}"/>
+<link rel="stylesheet" type="text/css" href="{% static "Tovar/style/Tovar.css" %}"/>
+<link rel="stylesheet" type="text/css" href="{% static "Tvr/style/Tvr.css" %}"/ >
+<link rel="stylesheet" type="text/css" href="{% static "Menu/style/Menu.css" %}"/ >
+<link rel="stylesheet" type="text/css" href="{% static "Colonka/style/Colonka.css" %}"/>
+<link rel="stylesheet" type="text/css" href="{% static "checkbox/style/checkbox.css" %}"/ >
+<link rel="stylesheet" type="text/css" href="{% static "Otzyvi/style/Otzyvi.css" %}"/ >
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="https://yarnpkg.com/en/package/normalize.css">
+{% endblock %}
+
+{% block JS %}
+<script src="{% static "/ajax/style/setting.js" %}" type="text/javascript"></script>
+<script src="{% static "/Photo/slick/slick.js" %}"></script>
+<script>
+	
+	$(document).ready(function(){
+    $('#goform').click(function(){
+		 $.ajaxSetup({
+			 success: function(datam){
+						
+					}
+				 });
+				var m_data=$('#Arenda').serialize();
+			   $.post("/tovar/{{Tovar.id}}/", m_data,function(data){
+					$("#success").html(data);
+					setTimeout(function(){
+						location.reload();
+					} , 2000);
+			   });
+		});
+			});
+	
+	$(".vibor").click(function(){
+		$("#arenda").val($(this).find('#arendid').val());
+		$(".vibor").css('background-color','#F8B500')
+		$(this).css('background-color','#D6231E')
+	});
+	
+	$(".viborsize").click(function(){
+		$("#size").val($(this).find('#sizeid').val());
+		$(".viborsize").css('background-color','#F8B500')
+		$(this).css('background-color','#D6231E')
+	});
+	
+	$("#but").click(function(){
+		var rent = $("#arenda").val()
+		var size = $("#size").val()
+		if (rent != "no" && size !="no")
+		{
+			$("#goform").click();
+		}
+		else
+		{
+			$("#warning").css("display","block");
+		}
+	})
+	
+	chislo = 1;
+	ChZn(chislo);
+	
+	$('#minus').click(function(){
+		if(chislo >1){
+			chislo = chislo - 1;
+		}
+		ChZn(chislo);
+	});
+	
+	$('#plus').click(function(){
+		chislo = chislo + 1;
+		ChZn(chislo);
+	});
+	
+	function ChZn(va){
+		$('#Number').text(va);
+		$("#kolich").val(va)
+	}
+
+    $(function(){
+        $('#Pogon').submit(function(e){
+    //отменяем стандартное действие при отправке формы
+            e.preventDefault();
+    //берем из формы метод передачи данных
+            var m_method=$(this).attr('method');
+    //получаем адрес скрипта на сервере, куда нужно отправить форму
+
+            var m_action=$(this).attr('action');
+    //получаем данные, введенные пользователем в формате input1=value1&input2=value2...,
+    //то есть в стандартном формате передачи данных формы       
+            var m_data=$(this).serialize() + '&' +'kolich'+'=' +chislo;
+            $.ajax({
+                type: m_method,
+                url: m_action,
+                data: m_data,
+                success: function(result){
+                    console.log(m_data)
+
+                }
+            });
+        });
+    });
+	
+	$(function(){
+        $('#Arenda').submit(function(e){
+    //отменяем стандартное действие при отправке формы
+            e.preventDefault();
+    //берем из формы метод передачи данных
+            var m_method=$(this).attr('method');
+    //получаем адрес скрипта на сервере, куда нужно отправить форму
+
+            var m_action=$(this).attr('action');
+    //получаем данные, введенные пользователем в формате input1=value1&input2=value2...,
+    //то есть в стандартном формате передачи данных формы       
+            var m_data=$(this).serialize() + '&' +'kolich'+'=' +chislo;
+            $.ajax({
+                type: m_method,
+                url: m_action,
+                data: m_data,
+                success: function(result){
+                    console.log(m_data)
+
+                }
+            });
+        });
+    });
+
+</script>
+{% endblock %}

@@ -1,0 +1,110 @@
+{% extends "Bot_base.html" %}
+{% load staticfiles %}
+{% load widget_tweaks %}
+
+
+{% block title %}
+
+<title> Добавление Товара </title>
+
+{% endblock %}
+
+{% block main %}
+
+<div class="container mt-3">
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Главная</a></li>
+            <li class="breadcrumb-item"><a href="/admtovars/">Список товаров</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Добавление товара</li>
+        </ol>
+    </nav>
+    <h1 class="mb-3 text-center">Добавление товара</h1>
+
+
+    <div class="row justify-content-center">
+        <div class="col col-xl-7 col-lg-8 col-md-10 ">
+
+<form id="formadd" action="/admedittov/" enctype="multipart/form-data" method="POST">
+	<div id="token">
+	{% csrf_token %}
+	</div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Название товара</label>
+			{{form.name|add_class:"form-control"}}
+        <small id="emailHelp" class="form-text text-muted">Пишите название товара + модель.</small>
+    </div>
+
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Описание товара</label>
+        {{form.opisanie|add_class:"form-control"}}
+    </div>
+	
+	<div class="form-group">
+        <label for="exampleFormControlTextarea1">Материал</label>
+        {{form.material|add_class:"form-control"}}
+    </div>
+	
+	<div class="form-group">
+        <label for="exampleFormControlTextarea1">Пол</label>
+        {{form.sex|add_class:"form-control"}}
+    </div> 
+	
+	<div class="form-group">
+        <label for="exampleFormControlTextarea1">Сезоны</label>
+        {{form.seaz|add_class:"form-control"}}
+    </div> 
+
+    <div class="form-row ">
+
+	
+	 <div class="form-group col-md-6">
+        <label>Тип товара</label>
+         {{form.vidtovars|add_class:"form-control"}}
+    </div>
+	
+	<div class="form-group col-md-6">
+        <label>Бренд</label>
+         {{form.brand|add_class:"form-control"}}
+    </div>
+
+
+    </div>
+	
+
+
+
+
+    <div class="form-group">
+        <div class="form-row p-2 border border-primary align-items-strench ">
+            <div class="col-sm mt-2 mb-2 d-flex justify-content-center">
+                <div class="btn btn-primary">
+                    <h5 class="mb-3">Главная фотография</h5>
+                    <label for="exampleFormControlFile1">Выберите 1 главное фото</label>
+					{{form.main|add_class:"form-control-file"}}
+                </div>
+            </div>
+
+            <div class="col-sm mt-2 mb-2">
+                <div class="d-flex flex-column justify-content-center w-100">
+                    Главная фотография товара, которая будет везде показываться.
+                </div>
+            </div>
+        </div>
+    </div>
+	
+	
+    <div class="d-flex justify-content-center">
+    <button type="submit" class="btn   btn-success btn-lg ml-2 mt-1 mb-3">Сохранить</button>
+    </div>
+</form>
+
+<div id="Message">
+
+</div>
+
+</div>
+    </div>
+</div>
+{% endblock %}

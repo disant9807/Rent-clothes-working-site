@@ -1,0 +1,46 @@
+// ==UserScript==
+// @name         New Userscript
+// @namespace    http://tampermonkey.net/
+// @version      0.1
+// @description  try to take over the world!
+// @author       You
+// @match        https://pastebin.com/LQAekqik
+// @grant        none
+// @include      http*://prnt.sc/*
+// ==/UserScript==
+
+(function() {
+    const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
+    const randomLength = 4;
+    const urlBase = 'https://prnt.sc/mp';
+
+    function randomPage() {
+      let randomPage = [];
+      for (let i = 0; i < randomLength; i++) {
+        randomPage[i] = chars[Math.floor(Math.random() * chars.length)]
+      }
+      return urlBase + randomPage.join('');
+    }
+    function getRandomPage() {
+        const r = randomPage();
+        this.innerText = r;
+        fetch(r).then(res => res.text())
+            .then(text => {
+                let src = text.match(/class="no-click screenshot-image" src="(.*?)"/)[1]
+                document.getElementById("screenshot-image").src = src;
+                window.history.pushState({}, "", r);
+            })
+
+    }
+    window.onload = () => {
+        const place = document.getElementsByClassName("image-constrain")[0];
+        const button = document.createElement("button");
+        const block = document.createElement("div");
+        block.classList.add("page-constrain");
+        button.innerText = "Get Random";
+        button.classList.add("image__title");
+        button.onclick = getRandomPage;
+        block.appendChild(button);
+        place.prepend(block);
+    }
+})();

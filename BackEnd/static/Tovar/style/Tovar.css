@@ -1,0 +1,110 @@
+.Tovar
+{
+
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.tovar
+{
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+.tovar__opisanie
+{
+    margin-left: 50px;
+
+}
+
+.tovar__zagolovok
+{
+    font-size: larger;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+}
+.tovar__opisanie__text
+{
+    width: 500px;
+}
+
+.tovar__zagolovok_no_margin-top
+{
+    margin-top: 0px;
+}
+
+.tovar__Base
+{
+    justify-content: space-between;
+}
+.Tovar__tovar
+{
+    padding: 10px 10px 10px 10px;
+}
+
+.zagolovok_theme_vibrann
+{
+
+}
+.tovar__flex
+{
+	display:flex;	
+}
+
+.tovar__poloska{
+    height: 0.2em;
+    background-color: #D6231E;
+}
+
+.tovar__img
+{
+    width: 220px;
+    height: 220px;
+}
+.tovar__img__img
+{
+    width: 220px;
+}
+
+.Zagolovok
+{
+    text-align: center;
+}
+.tovar__opisanie__zagolovok__margin-bottom_50px
+{
+    margin-bottom: 50px;
+
+    font-size: 30pt;
+    color: #D6231E;
+}
+
+@media (max-width: 1180px)
+{
+    .tovar__opisanie__text
+    {
+
+        width: 500px;
+    }
+}
+
+@media (max-width: 1000px)
+{
+    .tovar__opisanie__text
+    {
+        font-size: 22pt;
+        width: inherit;
+        margin-bottom: 0.5em;
+    }
+    .tovar__zagolovok
+    {
+        font-size: 22pt;
+
+    }
+    .tovar
+    {
+        align-items: center;
+    }
+
+}

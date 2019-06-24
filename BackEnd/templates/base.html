@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+	 {% block title %}
+
+	{% endblock %}
+    <meta name="viewport" content="width=device-width">
+    <style>
+
+    </style>
+</head>
+<body class="page">
+{% load staticfiles %}
+{% load widget_tweaks %}
+<div class="head page_head ">
+
+    <div class="contact head__contact">
+        <a href="/auto/" class="contact__ssilka contact__ssilka_theme-left">авторизация:</a>
+        <a href="#" class="contact__ssilka">доставка</a>
+        <a href="#" class="contact__ssilka">условия</a>
+        <a href="#" class="contact__ssilka">о нас</a>
+    </div>
+    <div class="contact_poloska"></div>
+    <div class="head__poloska">
+    </div>
+
+    <div class="header head__page">
+        <a href="/main/" class="header_logo_img logo_null"> <img class="logo__img" src="{% static "img/logo.png"%}"/> </a>
+
+
+        <a  class="menu__ssilka znack__ssilka" id="btn-katlog"><div class="button menu__button ">
+            <i class="fas fa-tshirt znack__shirt"></i>
+            <div class="znack__img-txt">Каталог товаров</div>
+        </div>
+        </a>
+        <div class="button search header_search znack__ssilka znack__ssilka_margin-right_0">
+            <input type="text" class="input input__search" >
+            <a href="/tovars/?type=Ветровки" class="znack__ssilka"><div class="search__button">Искать</div></a>
+        </div>
+
+
+
+
+        <a href="/kabinet/#izbran" class="znack__ssilka znack__like ">
+            <div class="button button_znack">
+                <i class="fas fa-shuttle-van"></i>
+                <div class="znack__img-txt">Заказы</div>
+            </div>
+        </a>
+
+        <a href="/kabinet/" class="znack__ssilka">
+            <div class="button button_znack"><i class="fas fa-user"></i><div class="znack__img-txt">Кабинет</div></div>
+        </a>
+        <a href="/korzina/" class="znack__ssilka znack__ssilka_margin-right_0">
+            <div class="button button_znack">
+                <i class="fas fa-shopping-cart"></i>
+                <div class="znack__img-txt">Корзина</div>
+            </div>
+        </a>
+
+    </div>
+
+
+    <div class="head__poloska">
+    </div>
+</div>
+
+<div class="Base__flex Katalog" id="Katalog" style="display:none;">
+
+    <div class="Base__flex Base__flex_type_column Katalog__element">
+        <div class="Base__flex Katalog__card">
+            <div class="Base__zagolovok">верхняя одежда</div>
+        </div>
+        <div class="Base__flex ">
+            <div class="Base__poloska-ver"></div>
+            <div class="Base__flex Base__flex_type_column">
+                <div class="Base__flex Katalog__mejpolosie Katalog_last">
+                    <div class="Base__poloska-gor Katalog__poloska"></div>
+                    <a href="/tovars/?type=Ветровки" class="Base__txt-kelson Katalog__ssilk">
+                        Ветровки
+                    </a>
+                </div>
+                <div class="Base__flex Katalog__mejpolosie">
+                    <div class="Base__poloska-gor Katalog__poloska"></div>
+                    <a href="/tovars/?type=Пальто" class="Base__txt-kelson Katalog__ssilk">
+                    Пальто
+                    </a>
+                </div>
+                <div class="Base__flex Katalog__mejpolosie">
+                    <div class="Base__poloska-gor Katalog__poloska"></div>
+                    <a href="/tovars/?type=Пуховики" class="Base__txt-kelson Katalog__ssilk">
+                    Пуховики
+                    </a>
+                </div>
+                <div class="Base__flex Katalog__mejpolosie">
+                    <div class="Base__poloska-gor Katalog__poloska"></div>
+                    <a href="/tovars/?type=Куртки" class="Base__txt-kelson Katalog__ssilk">
+                    Куртки
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="Base__flex Base__flex_type_column Katalog__element">
+        <div class="Base__flex Katalog__card">
+            <div class="Base__zagolovok">кофты</div>
+        </div>
+        <div class="Base__flex ">
+            <div class="Base__poloska-ver"></div>
+            <div class="Base__flex Base__flex_type_column">
+                <div class="Base__flex Katalog__mejpolosie Katalog_last">
+                    <div class="Base__poloska-gor Katalog__poloska"></div>
+                    <a href="/tovars/?type=Худи" class="Base__txt-kelson Katalog__ssilk">
+                    Худи
+                    </a>
+                </div>
+                <div class="Base__flex Katalog__mejpolosie">
+                    <div class="Base__poloska-gor Katalog__poloska"></div>
+                    <a href="/tovars/?type=Жакеты" class="Base__txt-kelson Katalog__ssilk">
+                    Жакеты
+                    </a>
+                </div>
+                <div class="Base__flex Katalog__mejpolosie">
+                    <div class="Base__poloska-gor Katalog__poloska"></div>
+                    <a href="/tovars/?type=Майки" class="Base__txt-kelson Katalog__ssilk">
+                    Майки
+                    </a>
+                </div>
+                <div class="Base__flex Katalog__mejpolosie">
+                    <div class="Base__poloska-gor Katalog__poloska"></div>
+                    <a href="/tovars/?type=Рубашки" class="Base__txt-kelson Katalog__ssilk">
+                    Рубашки
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="Base__flex Base__flex_type_column Katalog__element">
+        <div class=" Base__flex Katalog__card">
+            <div class="Base__zagolovok">штаны</div>
+        </div>
+        <div class="Base__flex ">
+            <div class="Base__poloska-ver"></div>
+            <div class="Base__flex Base__flex_type_column">
+                <div class="Base__flex Katalog__mejpolosie Katalog_last">
+                    <div class="Base__poloska-gor Katalog__poloska"></div>
+                    <a href="/tovars/?type=Джинсы" class="Base__txt-kelson Katalog__ssilk">
+                    Джинсы
+                    </a>
+                </div>
+                <div class="Base__flex Katalog__mejpolosie">
+                    <div class="Base__poloska-gor Katalog__poloska"></div>
+                    <a href="/tovars/?type=Трико" class="Base__txt-kelson Katalog__ssilk">
+                    Тренники
+                    </a>
+                </div>
+                <div class="Base__flex Katalog__mejpolosie">
+                    <div class="Base__poloska-gor Katalog__poloska"></div>
+                    <a href="/tovars/?type=Джоггеры" class="Base__txt-kelson Katalog__ssilk">
+                    Джоггеры
+                    </a>
+                </div>
+                <div class="Base__flex Katalog__mejpolosie">
+                    <div class="Base__poloska-gor Katalog__poloska"></div>
+                    <a href="/tovars/?type=Классика" class="Base__txt-kelson Katalog__ssilk">
+                    Классика
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="Base__flex Base__flex_type_column Katalog__element">
+        <div class=" Base__flex Katalog__card">
+            <div class="Base__zagolovok">обувь</div>
+        </div>
+        <div class="Base__flex ">
+            <div class="Base__poloska-ver"></div>
+            <div class="Base__flex Base__flex_type_column">
+                <div class="Base__flex Katalog__mejpolosie  Katalog_last">
+                    <div class="Base__poloska-gor Katalog__poloska"></div>
+                    <a href="/tovars/?type=Кроссовки" class="Base__txt-kelson Katalog__ssilk">
+                    Кроссовки
+                    </a>
+                </div>
+                <div class="Base__flex Katalog__mejpolosie">
+                    <div class="Base__poloska-gor Katalog__poloska"></div>
+                    <a href="/tovars/?type=Кеды" class="Base__txt-kelson Katalog__ssilk">
+                    Кеды
+                    </a>
+                </div>
+                <div class="Base__flex Katalog__mejpolosie">
+                    <div class="Base__poloska-gor Katalog__poloska"></div>
+                    <a href="/tovars/?type=Ботинки" class="Base__txt-kelson Katalog__ssilk">
+                    Ботинки
+                    </a>
+                </div>
+                <div class="Base__flex Katalog__mejpolosie">
+                    <div class="Base__poloska-gor Katalog__poloska"></div>
+                    <a href="/tovars/?type=Туфли" class="Base__txt-kelson Katalog__ssilk">
+                    Туфли
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+   {% block content %}{% endblock %}
+
+<div class="head page_head ">
+
+    <div class="head__poloska">
+    </div>
+
+    <div class="header head__page">
+
+
+        <div class="button menu__button_bott">
+            <a href="#" class="menu__bott">О нас</a>
+            <a href ="#" class="menu__bott bott-konec">Контакты</a>
+            <a href="#"  class="menu__bott bott-konec">Соглащение пользователя</a>
+            <a href="#" class="menu__bott bott-konec">FAQ</a>
+            <a href="#" class="menu__bott bott-konec">Брендам</a>
+
+        </div>
+
+        <div class="head__soc">
+            <a href="#" class="fab fa-instagram znack__ssilka fa-2x "></a>
+            <a href="#" class="fab fa-vk znack__ssilka fa-2x "></a>
+            <a href="#" class="fab fa-viber znack__ssilka fa-2x "></a>
+        </div>
+
+
+        <a href="#" class="znack__ssilka ">
+            <div class="button button_znack">
+                <i class="fas fa-wrench"></i>
+                <div class="znack__img-txt">Поддержка</div>
+            </div>
+        </a>
+
+
+
+    </div>
+
+
+    <div class="head__poloska">
+    </div>
+</div>
+<link rel="stylesheet" type="text/css" href="{% static "fonts/Style/fonts.css" %}"/ >
+<link rel="stylesheet" type="text/css" href="{% static "Page/style/Page.css" %}"/ >
+<link rel="stylesheet" type="text/css" href="{% static "Elements.css" %}"/ >
+<link rel="stylesheet" type="text/css" href="{% static "base/style/base.css" %}"/ >
+<link rel="stylesheet" type="text/css" href="{% static "header/style/Header.css" %}"/ >
+<link rel="stylesheet" type="text/css" href="{% static "Katalog/style/Katalog.css" %}"/ >
+    {% block style %}{% endblock %}
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="https://yarnpkg.com/en/package/normalize.css">
+</body>
+<script src="{% static "Modul/Jquery/jquery-3.3.1.js" %}"/></script>
+<script>
+    $('#btn-katlog').click(pokaz);
+    function pokaz() {
+        $('#Katalog').css("display",function (index, old) {
+            (old == 'flex')? $('#Katalog').fadeOut() :$('#Katalog').fadeIn();
+        });
+    }
+	
+</script>
+
+   {% block JS %}{% endblock %}
+
+
+</html>

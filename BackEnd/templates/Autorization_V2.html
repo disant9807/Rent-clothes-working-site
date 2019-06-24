@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}
+<title> Авторизация </title>
+{% endblock %}
+
+{% block content %}
+
+
+<div class="Base__flex Bread-flex">
+    <div class="Bread">
+        <a href="/main/" class="Base__txt-kelson Bread__txt">
+            Главная
+        </a>
+    </div>
+    <div class="Bread-poloska"></div>
+    <div class="Bread Bread_viible_orange">
+        <div class="Base__txt-kelson Bread__txt">
+            Авторизация
+        </div>
+    </div>
+</div>
+
+<div style="margin-bottom:2em;">
+
+<div class=" Page__element-oba">
+    <div class="Page__element-obertka">
+        <div class="zagolovok Page__zagolovok Page__zagolovok-funny Page__element-zagolovok">Авторизация</div>
+    </div>
+    <div class="Autoriz ">
+    <form method="post" action="/auto/">
+        <div class=" Base__flex Autoriz__flex">
+            <div class="Base__flex Base__flex_type_column Autoriz__Base-column  Autoriz__txt-main">
+                <div class="Base__txt-kelson Autoriz__column-element Autoriz__txt">Логин</div>
+                <div class="Base__txt-kelson Autoriz__column-element Autoriz__txt">Пароль</div>
+            </div>
+
+            <div class="Base__flex Base__flex_type_column Autoriz__Base-column Autoriz-LEFT">
+                <input  type="text" name="login" placeholder="dimon228"   id="login" class="Autoriz__column-element Autoriz__input">
+                <input  type="password" name="password" placeholder="NeOtgadaesh"  id="password" class="Autoriz__column-element Autoriz__input">
+            </div>
+            <button type="submit" class="Base__button Base__button_color_orange Page__button Autoriz__flex-el">Отправить</button>
+        </div>
+        {% csrf_token %}
+    </form>
+	<div style="margin-top:1em; display:flex; justify-content:center;">
+		<a href="/Registration/"> Регистрация </a>
+	</div>
+    </div>
+</div>
+</div>
+
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" type="text/css" href="{% static "Main/style/Main.css"%}"/ >
+<link rel="stylesheet" type="text/css" href="{% static "Autoriz/style/Autoriz.css"%}"/ >
+<link rel="stylesheet" type="text/css" href="{% static "bread/style/bread.css"%}"/ >
+{% endblock %}

@@ -1,0 +1,29 @@
+.SET__img
+{
+    width: 20em;
+}
+.SET__dei
+{
+    justify-content: center;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+.SET__zag
+{
+    font-family: "Baron Neue";
+    font-size: 14pt;
+    text-align: center;
+    margin-top: 0.5em;
+    margin-bottom:0.5em;
+}
+@media (max-width: 1000px)
+{
+    .SET__zag
+    {
+        font-size: 25pt;
+        margin-left: 0.5em;
+        margin-right: 0.5em;
+    }
+
+
+}

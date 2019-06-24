@@ -1,0 +1,361 @@
+{% extends "Bot_base.html" %}
+{% load staticfiles %}
+{% load widget_tweaks %}
+
+
+{% block title %}
+
+<title> Карточка Товара</title>
+
+{% endblock %}
+
+{% block main %}
+
+<div class="container mt-3 mb-3">
+	
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="#">Главная</a></li>
+			<li class="breadcrumb-item"><a href="/admpaid/">Список операций</a></li>
+			<li class="breadcrumb-item active" aria-current="page">Операция: {{name}}</li>
+		</ol>
+	</nav>
+
+	<h1 class="mb-3 text-center">Карточка операции</h1>
+	
+    <div class="row justify-content-center">
+			
+        <div class="col">
+			
+			<div  class="mb-3 p-2 border border-dark bg-white">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1 ml-2">Клиент: {{pers.name}}</h5>
+                    <small  class="mr-2">{{pers.datelast}}</small>
+                </div>
+                <div class="d-flex flex-wrap justify-content-between">
+                    <div class="d-flex ml-2 mr-2">
+                        <p class="mb-1 ">Пол: </p>
+						
+						{% if pers.sex == True %}
+                        <p class="mb-1 ml-1">Мужской</p>
+						{% else %}
+						<p class="mb-1 ml-1">:Женский</p>
+						{% endif %}
+                    </div>
+                    <div class="d-flex ml-2 mr-2">
+						
+                        <p class="mb-1 ">Статус: </p>
+						{% if pers.zamoroz == False %}
+                        <p class="mb-1 ml-1">Разморожен</p>
+						{% else %}
+						<p class="mb-1 ml-1">Заморожен</p>
+						{% endif %}
+                    </div>
+
+
+                    <div class="d-flex ml-2 mr-2">
+                        <p class="mb-1 ">Баланс: </p>
+                        <p class="mb-1 ml-1">{{pers.balans}}</p>
+                    </div>
+
+                    <div class="d-flex ml-2 mr-2 align-items-center">
+                        <p class="mb-1 ">Число шмоток: </p>
+                        <p class="mb-1 ml-1">{{pers.schchislo}}</p>
+						
+                    </div>
+					<a href="/admnkardperson/{{pers.id}}" class="ml-2 mr-2  btn btn-secondary btn-sm"> Перейти </a>
+
+
+                </div>
+            </div>
+			
+            <div class="card border-dark bg-success" >
+				
+                <div class="card-body">
+                    <h5 class="text-white mr-1 ml-1 card-title">Операция</h5>
+					<div class="d-flex flex-wrap justify-content-between"> 
+                    {% if status == True %}
+                    <h5 class="text-white font-weight-normal mr-1 ml-1">Статус: Принята</h5>
+					{% else %}
+					<h5 class="text-white font-weight-normal mr-1 ml-1">Статус: Отклонена</h5>
+					{% endif %}	
+					
+					{% if plusminus == True %}
+					<h5 class="text-white font-weight-normal mr-1 ml-1">Тип: Пополнение</h5>
+					{% else %}
+					<h5 class="text-white font-weight-normal mr-1 ml-1">Тип: Списание</h5>
+					{% endif %}	
+					
+					<h5 class="text-white font-weight-normal mr-1 ml-1 card-text"> Дата: {{date}}</h5>
+					<h5 class="text-white font-weight-normal mr-1 ml-1 card-text"> Деньги: {{money}}</h5>
+					</div>
+					<form method="POST" action="/admpaid/{{id}}">
+					{% csrf_token %}
+						<input type="hidden" name="block" value="1"> </input>
+						<button type="sumbit" class="btn btn-dark m-1">Заблокировать</button>
+					</form>
+					<form method="POST" action="/admpaid/{{id}}">
+					{% csrf_token %}
+						<input type="hidden" name="unblock" value="1"> </input>
+						<button type="sumbit" class="btn btn-light m-1">Разблокировать</button>
+					</form>
+                </div>
+
+            </div>
+		</div>
+	<div class="col">
+			
+            <div class="p-2 list-group bg-white border border-dark">
+			<h5 class="">Размеры </h5>
+			{% if size == None %}
+			<h6 class="mt-2 ">Пусто </h6>
+			{% else %}
+			<h6 class="mt-2 ">Размер: {{size}} </h6>
+			{% endif %}
+
+
+			</div>
+			
+            <div class="p-2 mt-3 list-group bg-white border border-dark">
+			<h5 class=" ">Аренда </h5>
+			
+			{% if arenda == None %}
+			<h6 class="mt-2 ">Пусто </h6>
+			{% else %}
+			{% endif %}
+			{% for s in arenda %}
+            <div  class="list-group-item list-group-item-action flex-column align-items-start">
+			
+                <div class="">
+					<div class="d-flex align-items-center justify-content-between ml-3">
+                    <h5 class="mb-1"><span class="badge badge-pill badge-primary">{{s.name}}</span></h5>
+					<form id="delSize">
+					<input type=hidden name="dellrent" value="1">
+					<input type=hidden name="iddellrent" value="{{s.id}}">				
+					</form>
+					
+
+					</div>
+					<div class="d-flex align-items-center justify-content-between ml-3 ">
+					<p class=" mr-3 mb-1">Платежей до выкупа: <span class="badge badge-pill badge-secondary">{{s.vikup}}</span> </p>
+					<p class="  mb-1">Платежей до возврата: <span class="badge badge-pill badge-secondary">{{s.vozvrat}}</span> </p>
+					</div>
+					<div class="d-flex align-items-center justify-content-between ml-3">
+					<p class=" mr-3 mb-1">Частота платежа: <span class="badge badge-pill badge-secondary">{{s.platej}}</span> </p>
+					<p class=" mb-1">Стоимость оплаты: <span class="badge badge-pill badge-secondary">{{s.stoimost}}</span> </p>
+					</div>
+					
+                </div>
+                
+            </div>
+			{% endfor %}
+			</div>			
+			
+			<div  class="mt-3 border border-dark p-2 bg-white">
+			<h5 class=" ">Товар </h5>
+			
+			{% if tovar == None %}
+			<h6 class="mt-2 ">Пусто </h6>
+			{% else %}
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">{{tovar.name}}</h5>
+
+                    </div>
+                    <div class="d-flex flex-wrap justify-content-between">
+                        <div class="d-flex ml-2 mr-2">
+                            <p class="mb-1 ">Пол: </p>
+                            <p class="mb-1 ml-1">{{tovar.sex}}</p>
+                        </div>
+                        <div class="d-flex ml-2 mr-2">
+                            <p class="mb-1 ">Описание: </p>
+                            <p class="mb-1 ml-1">{{tovar.opisanie}}</p>
+                        </div>
+						
+						<div class="d-flex ml-2 mr-2">
+                            <p class="mb-1 ">Бренд: </p>
+                            <p class="mb-1 ml-1">{{tovar.brand}}</p>
+                        </div>
+						
+						<div class="d-flex ml-2 mr-2">
+                            <p class="mb-1 ">Материал: </p>
+                            <p class="mb-1 ml-1">{{tovar.Material}}</p>
+                        </div>
+						
+						<div class="d-flex ml-2 mr-2">
+                            <p class="mb-1 ">Дата добавления: </p>
+                            <p class="mb-1 ml-1">{{tovar.date}}</p>
+                        </div>
+						
+						<div class="d-flex ml-2 mr-2">
+                            <p class="mb-1 ">Удален: </p>
+                            <p class="mb-1 ml-1">{{tovar.Del}}</p>
+                        </div>
+						<a href="/admtovar/{{tovar.id}}" class="ml-2 mr-2  btn btn-secondary btn-sm"> Перейти </a>
+						
+                    </div>
+			{% endif %}
+                </div>
+			
+        </div>
+
+</div>
+
+
+
+
+
+
+
+</div>
+
+{% endblock %}
+{% block js %}
+ <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+ <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+ <script src="{% static "/ajax/style/setting.js" %}" type="text/javascript"></script>
+<script>
+	$(".alert").alert()
+	$('#otmenapass').click(function(){
+		$('#formpass').css('display','none');
+	})
+	$('#otmenasize').click(function(){
+		$('#formsize').css('display','none');
+	})
+	$('#butpass').click(function(){
+		$('#formpass').css('display','block');
+	})
+	$('#butsize').click(function(){
+		$('#formsize').css('display','block');
+	})
+	$('#datepicker').datetimepicker({
+            uiLibrary: 'bootstrap4',
+			format: 'yyyy-mm-dd HH:MM:ss',
+			modal: true,
+            footer: true
+
+        });
+
+	$('#butRent').click(function(){
+		$('#formrent').css('display','block');
+	})
+	
+	$('#otmenarent').click(function(){
+		$('#formrent').css('display','none');
+	})
+	
+	$(document).ready(function(){
+    $('#startrent').click(function(){
+		 $.ajaxSetup({
+			 success: function(datam){
+						
+					}
+				 });
+				var m_data=$('#formaddrent').serialize();
+			   $.post("/admtovar/{{id}}", m_data,function(data){
+					$("#messagerent").html(data);
+					$('#formaddrent')[0].reset();
+					setTimeout(function(){
+						location.reload();
+					} , 2000);
+			   });
+		});
+			});
+	
+	$(document).ready(function(){
+    $('#clickme').click(function(){
+		 $.ajaxSetup({
+			 success: function(datam){
+						
+					}
+				 });
+				var m_data=$('#formaddtov').serialize();
+			   $.post("/admtovar/{{id}}", m_data,function(data){
+					$("#message").html(data);
+					$('#formaddtov')[0].reset();
+					setTimeout(function(){
+						location.reload();
+					} , 2000);
+			   });
+		});
+			});
+	
+	$(document).ready(function(){
+    $('#clickme2').click(function(){
+		 $.ajaxSetup({
+			 success: function(datam){
+						
+					}
+				 });
+				var m_data=$('#formaddsize').serialize();
+			   $.post("/admtovar/{{id}}", m_data,function(data){
+					$("#message2").html(data);
+					$('#formaddsize')[0].reset();
+					setTimeout(function(){
+						location.reload();
+					} , 2000);
+					
+			   });
+		});
+			});
+	
+	$(document).ready(function(){
+    $('.clickdell').click(function(){
+		 $.ajaxSetup({
+			 success: function(datam){
+						
+					}
+				 });
+				 var form = $(this).parent()
+				var m_data= form.serialize();
+			   $.post("/admtovar/{{id}}", m_data,function(data){
+					$("#message3").html(data);
+					setTimeout(function(){
+						location.reload();
+					} , 2000);
+					
+			   });
+		});
+			});
+			
+	
+	$(document).ready(function(){
+    $('.clickdellrent').click(function(){
+		 $.ajaxSetup({
+			 success: function(datam){
+						
+					}
+				 });
+				 var form = $(this).parent()
+				var m_data= form.serialize();
+			   $.post("/admtovar/{{id}}", m_data,function(data){
+					$("#message5").html(data);
+					setTimeout(function(){
+						location.reload();
+					} , 2000);
+					
+			   });
+		});
+			});
+	
+			
+	$(document).ready(function(){
+    $('.custom-control-input').click(function(){
+		 $.ajaxSetup({
+			 success: function(datam){
+						
+					}
+				 });
+				 var form = $(this).parent().parent();
+				var m_data= form.serialize();
+			   $.post("/admtovar/{{id}}", m_data,function(data){
+					$("#message3").html(data);
+					setTimeout(function(){
+						location.reload();
+					} , 2000);
+					
+			   });
+		});
+			});
+	
+</script>
+{% endblock %}

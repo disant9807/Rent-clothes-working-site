@@ -1,0 +1,96 @@
+
+.Colonka__Zagolovok{
+    margin-top: 0.7em;
+    margin-bottom: 0.3em;
+
+}
+
+.Colonka__poloska
+{
+    height: 0.15em;
+    width: 10em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+.Colonka__Base-flex
+{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+
+}
+.Colonka__Base-flex-left
+{
+    justify-content: flex-start;
+}
+
+.Colonka__Base{
+    padding: 1em;
+}
+
+.Colonka__input{
+
+    color: #1F2226;
+}
+.Colonka__input-stoimost{
+    width: 3em;
+
+}
+
+.Сolonka__Tovar{
+    border-top: 0.1em solid #1F2226;
+}
+.Colonka__sets
+{
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.Colonka__set
+{
+    margin: 0.5em;
+}
+
+.Colonka__null_4em
+{
+    width: 4em;
+    text-align: center;
+}
+.Colonka__button{
+
+    padding: 0.5em 1em 0.5em 1em;
+    text-decoration: none;
+    color: #1F2226;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    align-self: center;
+    margin-left: 0.25em;
+    margin-right: 0.25em;
+}
+.Colonka__Zagolovok_margin_big
+{
+    margin-top: 2em;
+}
+
+.Colonka__button:hover{
+    background-color: #D6231E;
+    color: #FFF4E0;
+}
+
+.Colonka__check{
+    align-self: flex-start;
+}
+@media (max-width: 1000px) {
+    .Colonka__button
+    {
+        font-size: 20pt;
+    }
+    .Colonka__Base
+    {
+        font-size: 20pt;
+    }
+    .Colonka__Base-flex-left
+    {
+    }
+}

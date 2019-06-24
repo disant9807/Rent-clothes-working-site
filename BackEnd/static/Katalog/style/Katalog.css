@@ -1,0 +1,91 @@
+.Katalog{
+    justify-content: center;
+    margin-top: 1em;
+    padding-top: 1em;
+    border: 0.15em solid #1F2226;
+    background-color: #D6231E;
+    flex-wrap: wrap;
+    margin-bottom: 1em;
+}
+.Katalog__card-set
+{
+    justify-content: center;
+    align-items: center;
+    padding: 0.5em;
+    padding-bottom: 0.7em;
+    width: 10em;
+    text-align: center;
+    border-width: 0.15em;
+    background-color: #F8B500;
+    color: #1F2226;
+}
+.Katalog__element
+{
+    margin-right: 1em;
+    margin-left: 1em;
+    align-items: flex-start;
+    justify-content: flex-end;
+
+}
+
+
+.Katalog__card
+{
+    justify-content: center;
+    align-items: center;
+    padding: 0.5em;
+    padding-bottom: 0.7em;
+    width: 10em;
+    text-align: center;
+    border-width: 0.15em;
+    background-color: #1F2226;
+    color: #FFF4E0;
+}
+.Katalog_last{
+    margin-top: 0.5em;
+}
+.Katalog__znack
+{
+    margin-right: 0.25em;
+}
+.Katalog__ssilk
+{
+    text-decoration: none;
+    color: #FFF4E0;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    font-size: 16pt;
+    border: 0.08em solid #FFF4E0;
+    padding-right: 0.5em;
+    padding-left: 0.5em;
+    padding-top: 0.15em;
+    padding-bottom: 0.15em;
+}
+
+.Katalog__poloska
+{
+    width: 1em;
+}
+.Katalog-poloska-set
+{
+    background-color: #F8B500;
+}
+.Katalog__mejpolosie
+{
+    align-items: center;
+}
+.Katalog__mejpolosie :hover {
+    background-color: #1F2226;
+    color: #FFF4E0;
+}
+@media (max-width: 1000px)
+{
+    .Katalog
+    {
+        font-size: 20pt;
+    }
+    .Katalog__ssilk
+    {
+        font-size: 25pt;
+    }
+}

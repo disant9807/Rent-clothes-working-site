@@ -1,0 +1,599 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}
+<title> Сеты </title>
+{% endblock %}
+
+{% block content %}
+
+<div class="Base__flex Bread-flex">
+    <div class="Bread">
+        <a href="./Main.html" class="Base__txt-kelson Bread__txt">
+            Главная
+        </a>
+    </div>
+    <div class="Bread-poloska"></div>
+    <div class="Bread Bread_viible_orange">
+        <div class="Base__txt-kelson Bread__txt">
+            Каталог сетов
+        </div>
+    </div>
+</div>
+
+<div class="Page__finds">
+<div class="Page__element-oba ">
+    <div class="Page__element-obertka">
+        <div class="zagolovok Page__zagolovok Page__zagolovok-funny Page__element-zagolovok">сеты</div>
+    </div>
+
+     <div class="Menu">
+        <div class="Menu__flex">
+            <div class="Base__button  Colonka__button Menu__filter" id="filter">Фильтр</div>
+
+            <div class="Base__flex Colonka__Base-flex ">
+            <div id="stoimost" class="Base__button  Colonka__button "><i class="fas fa-caret-square-down Menu__logo"></i>Стоимость</div>
+            <div id="stoimost_i" class="Base__button  Colonka__button "><i class="fas fa-caret-square-up Menu__logo"></i>Стоимость</div>
+            <div id="dateadd" class="Base__button  Colonka__button "><i class="fas fa-caret-square-down Menu__logo"></i>Дата добавления</div>
+                       <div id="dateadd_i" class="Base__button  Colonka__button "><i class="fas fa-caret-square-up Menu__logo"></i>Дата добавления</div>
+            <div id="arenda" class="Base__button  Colonka__button"><i class="fas fa-caret-square-down Menu__logo"></i>Аренда</div>
+                            <div id="arenda_i" class="Base__button  Colonka__button"><i class="fas fa-caret-square-up Menu__logo"></i>Аренда</div>
+            <div id="love" class="Base__button  Colonka__button "><i class="fas fa-caret-square-down Menu__logo"></i>Любимые</div>
+                            <div id="love_i" class="Base__button  Colonka__button "><i class="fas fa-caret-square-up Menu__logo"></i>Любимые</div>
+            </div>
+        </div>
+    </div>
+
+<div class="Base__flex Page__Base__flex">
+    <div class=" Base__flex_type_column  Colonka__Base-flex Colonka__Base Page__colonka Colonka__Base-flex-left" id="filter-elem">
+
+        <form action="/sets/" method="get" id="filter-form">
+
+        <div class="Base__flex Base__flex_type_column Colonka__Base-flex">
+
+        <div class="Base__flex Base__flex_type_column Colonka__Base-flex">
+            <div class="Base__txt-kelson   Base__txt_size_big Colonka__Zagolovok">Название</div>
+            {% if form.name %}
+                <input type="text" name="name" id="name" value="{{form.name}}" class="Base__input Colonka__input Base__input_color_white">
+            {% else %}
+                <input type="text" name="name" id="name"  class="Base__input Colonka__input Base__input_color_white">
+            {% endif %}
+
+        </div>
+
+            <div class="Base__txt-kelson  Base__txt_size_big  Colonka__Zagolovok Colonka__Zagolovok_margin_big">Сезон</div>
+
+            <div class="boxes">
+                {% if form.leto %}
+                <input type="checkbox" id="leto" name="leto" checked>
+                <label for="leto">Лето</label>
+                {% else %}
+                <input type="checkbox" id="leto" name="leto">
+                <label for="leto">Лето</label>
+                {% endif %}
+                {% if form.vesna %}
+                <input type="checkbox" id="vesna" name="vesna" checked>
+                <label for="vesna">Весна</label>
+                {% else %}
+                <input type="checkbox" id="vesna" name="vesna" >
+                <label for="vesna">Весна</label>
+                {% endif %}
+                {% if form.osen %}
+                <input type="checkbox" id="osen" name="osen"checked>
+                <label for="osen">Осень</label>
+                {% else %}
+                <input type="checkbox" id="osen" name="osen">
+                <label for="osen">Осень</label>
+                {% endif %}
+                {% if form.zima %}
+                <input type="checkbox" id="zima" name="zima" checked>
+                <label for="zima">Зима</label>
+                {% else %}
+                <input type="checkbox" id="zima" name="zima">
+                <label for="zima">Зима</label>
+                {% endif %}
+            </div>
+
+
+            <div class="Base__txt-kelson  Base__txt_size_big  Colonka__Zagolovok">Пол</div>
+
+            <div class="boxes">
+                {% if form.woman %}
+                <input type="checkbox" id="woman" name="woman" checked>
+                <label for="woman">Женский</label>
+                {% else %}
+                <input type="checkbox" id="woman" name="woman" >
+                <label for="woman">Женский</label>
+                {% endif %}
+                {% if form.man %}
+                <input type="checkbox" id="man" name="man" checked>
+                <label for="man">Мужской</label>
+                {% else %}
+                <input type="checkbox" id="man" name="man">
+                <label for="man">Мужской</label>
+                {% endif %}
+                {% if form.uni %}
+                <input type="checkbox" id="Uni" name="uni" checked>
+                <label for="Uni">Унисекс</label>
+                {% else %}
+                <input type="checkbox" id="Uni" name="uni">
+                <label for="Uni">Унисекс</label>
+                {% endif %}
+
+            </div>
+
+
+            <div class="Base__txt-kelson  Base__txt_size_big Colonka__Zagolovok">Размер</div>
+
+            <div class="boxes">
+                {% if form.s %}
+                <input type="checkbox" id="s" name="s" checked>
+                <label for="s">S</label>
+                {% else %}
+                <input type="checkbox" id="s" name="s">
+                <label for="s">S</label>
+                {% endif %}
+
+                {% if form.m %}
+                <input type="checkbox" id="m" name="m" checked>
+                <label for="m">M</label>
+                {% else %}
+                <input type="checkbox" id="m" name="m" >
+                <label for="m">M</label>
+                {% endif %}
+
+                {% if form.l %}
+                <input type="checkbox" id="l" name="l"  checked>
+                <label for="l">L</label>
+                {% else %}
+                <input type="checkbox" id="l" name="l">
+                <label for="l">L</label>
+                {% endif %}
+
+                {% if form.xl %}
+                <input type="checkbox" id="xl" name="xl" checked>
+                <label for="xl">xl</label>
+                {% else %}
+                <input type="checkbox" id="xl" name="xl" >
+                <label for="xl">xl</label>
+                {% endif %}
+            </div>
+
+            <div class="Base__flex Base__flex_type_column Colonka__Base-flex ">
+            <div class="Base__txt-kelson  Base__txt_size_big Colonka__Zagolovok">Cтоимость</div>
+            <div class="Base__flex Colonka__Base-flex">
+                {% if form.PriceMin %}
+                <input class="Base__input Colonka__input-stoimost Colonka__input Base__input_color_white" name="PriceMin" id="PriceMin" value="{{form.PriceMin}}" >
+                {% else %}
+                <input class="Base__input Colonka__input-stoimost Colonka__input Base__input_color_white" name="PriceMin" id="PriceMin">
+                {% endif %}
+                <div class="Colonka__null_4em">от и до</div>
+                {% if form.PriceMax %}
+                <input class="Base__input Colonka__input-stoimost Colonka__input Base__input_color_white" name="PriceMax" id="PriceMax" value="{{form.PriceMax}}"></input>
+                {% else %}
+                <input class="Base__input Colonka__input-stoimost Colonka__input Base__input_color_white" name="PriceMax" id="PriceMax" ></input>
+                {% endif %}
+            </div>
+        </div>
+
+        <input type="hidden" name="Str" id="itogo" value="0">
+        <input type="hidden" name="Sort" id="sorting" value="DateAdd">
+        <input type="hidden" name="Sort_kak" id="sorting_kak" value="on">
+        <button id="poihali" type="submit" href="#" class="Base__button Base__button_color_orange Colonka__button">Применить</button>
+            <div class="Base__poloska-gor Colonka__poloska"></div>
+        </div>
+        </form>
+    </div>
+
+
+    <div class="Sets__sets Colonka__sets Page__colonka-tovar">
+		
+			{% for Set in Sets %}
+		
+        <div class="sets sets_border_orange Colonka__set">
+            <a href="./tovar-set_v2.html" class="sets__ssilka">
+                <div class="sets__visi">
+                    <div class="sets__txt">
+                        {{Set.opisanie}}
+                    </div>
+                    <div class="sets__up">
+                    </div>
+                </div>
+            </a>
+            <div class="sets__head sets__head__orange">
+                <div class="sets__head__top">{{Set.name}}</div>
+                <div class="sets__head__bot">{{Set.cena}} руб/день</div>
+            </div>
+
+            <div class="sets__photo">
+                <img src="{{Set.foto}}" class="sets__photo__img">
+            </div>
+        </div>
+			{% endfor %}
+    </div>
+</div>
+    <div class="Menu">
+        <div class="Base__flex Colonka__Base-flex ">
+            <div class="Base__button  Colonka__button Menu__button " id ="min"  >min</div>
+            <div class="Base__button  Colonka__button Menu__button " id ="nazad"  >...</div>
+            <input type="hidden" name="one" id="one_I" value="1">
+            <div class="Base__button  Colonka__button Menu__button str" id="one" value="1" >1</div>
+            <input type="hidden" name="one" id="two_I" value="2">
+            <div class="Base__button  Colonka__button Menu__button str" id="two"  value="2" >2</div>
+            <input type="hidden" name="one" id="three_I" value="3">
+
+            <div class="Base__button  Colonka__button Menu__button str" id="three" value="3">3</div>
+            <div class="Base__button  Colonka__button Menu__button " id ="dalee"  >...</div>
+            <div class="Base__button  Colonka__button Menu__button " id ="max"  >max</div>
+        </div>
+    </div>
+</div>
+</div>
+
+{% endblock %}
+
+
+
+{% block style %}
+<link rel="stylesheet" type="text/css" href="{% static "bread/style/bread.css "%}"/ >
+<link rel="stylesheet" type="text/css" href="{% static "tovars/style/tovars.css "%}"/ >
+<link rel="stylesheet" type="text/css" href="{% static "Colonka/style/Colonka.css "%}"/ >
+<link rel="stylesheet" type="text/css" href="{% static "Elements.css "%}"/ >
+<link rel="stylesheet" type="text/css" href="{% static "Menu/style/Menu.css "%}"/ >
+<link rel="stylesheet" type="text/css" href="{% static "checkbox/style/checkbox.css "%}"/ >
+<link rel="stylesheet" type="text/css" href="{% static "sets/style/Sets.css "%}"/ >
+<link rel="stylesheet" type="text/css" href="{% static "breadkfest/style/breadkfest.css "%}"/ >
+{% endblock %}
+
+{% block JS %}
+<script>
+   
+
+    $('#filter').click(filter)
+    function filter() {
+        $('#filter-elem').css('display',function (index,old) {
+            (old == 'flex')? $('#filter-elem').fadeOut() :$('#filter-elem').fadeIn();
+        });
+    }
+
+    var Vibrann = 1 + {{form.Str}};
+    $('#itogo').val(Vibrann - 1);
+    listanie();
+
+
+    $('#dalee').click(function(){
+
+        one = + $('#one_I').val();
+
+        two = + $('#two_I').val();
+
+        three = + $('#three_I').val();
+
+        $('#one_I').val(one = one + 3);
+
+        $('#two_I').val(two = two + 3);
+
+        $('#three_I').val(three = three + 3);
+        Vibrann = one;
+        $('#itogo').val(Vibrann - 1);
+        NormCifra();
+        $('#poihali').trigger('click');
+    });
+
+    $('#nazad').click(function(){
+
+        one = + $('#one_I').val();
+
+        two = + $('#two_I').val();
+
+        three = + $('#three_I').val();
+
+        if (one >3){
+            $('#one_I').val(one = one - 3);
+
+            $('#two_I').val(two = two - 3);
+
+            $('#three_I').val(three = three - 3);
+            Vibrann = three;
+            $('#itogo').val(Vibrann - 1);
+            NormCifra();
+            $('#poihali').trigger('click');
+        }
+    });
+
+    $('#min').click(function(){
+
+        one = + $('#one_I').val();
+
+        two = + $('#two_I').val();
+
+        three = + $('#three_I').val();
+
+        if (Vibrann >1){
+            $('#one_I').val(one = 1);
+
+            $('#two_I').val(two = 2);
+
+            $('#three_I').val(three = 3 );
+            Vibrann = one;
+            $('#itogo').val(Vibrann - 1);
+            NormCifra();
+            $('#poihali').trigger('click');
+        }
+    });
+
+    $('#one').click(function() {
+
+        Vibrann = $('#one_I').val();
+        $('#itogo').val(Vibrann - 1);
+        RedColor( $('#one'));
+        $('#poihali').trigger('click');
+
+
+    })
+
+    $('#two').click(function() {
+
+        Vibrann = $('#two_I').val();
+        $('#itogo').val(Vibrann - 1);
+        RedColor($('#two'));
+        $('#poihali').trigger('click');
+
+    })
+
+    $('#three').click(function() {
+
+        Vibrann = $('#three_I').val();
+        $('#itogo').val(Vibrann - 1);
+        RedColor($('#three'));
+        $('#poihali').trigger('click');
+
+    })
+
+    function NormCifra(){
+
+        one = + $('#one_I').val();
+
+        if(one == Vibrann){
+            RedColor($('#one'));
+        }
+
+        two = + $('#two_I').val();
+
+        if(two == Vibrann){
+            RedColor($('#two'));
+        }
+
+        three = + $('#three_I').val();
+
+        if(three == Vibrann){
+            RedColor($('#three'));
+        }
+
+        one = + $('#one_I').val();
+        two = + $('#two_I').val();
+        three = + $('#three_I').val();
+        $('#one').text(one);
+        $('#two').text(two);
+        $('#three').text(three);
+    }
+
+    function RedColor(elem){
+
+        one =  $('#one');
+        two = $('#two');
+        three = $('#three');
+
+        one.css({'background-color':'#FFF4E0','color':'#1F2226'});
+        two.css({'background-color':'#FFF4E0','color':'#1F2226'});
+        three.css({'background-color':'#FFF4E0','color':'#1F2226'});
+
+        elem.css({'background-color':'#D6231E','color':'#FFF4E0'});
+    }
+
+    function UnRedColor(){
+        one =  $('#one');
+        two = $('#two');
+        three = $('#three');
+
+        one.css({'background-color':'#FFF4E0','color':'#1F2226'});
+        two.css({'background-color':'#FFF4E0','color':'#1F2226'});
+        three.css({'background-color':'#FFF4E0','color':'#1F2226'});
+    }
+
+    function listanie(){
+        one = + $('#one_I').val();
+        two = + $('#two_I').val();
+        three = + $('#three_I').val();
+        if (one !=Vibrann && two !=Vibrann && three !=Vibrann){
+            if (one > Vibrann){
+                $('#one_I').val( one - 3);
+                $('#two_I').val( two - 3);
+                $('#three_I').val(three - 3);
+                return listanie();
+            }
+            if (one < Vibrann){
+                $('#one_I').val( one + 3);
+                $('#two_I').val( two + 3);
+                $('#three_I').val(three + 3);
+                return listanie();
+            }
+        }
+        return NormCifra();
+    }
+
+    start();
+    proverka();
+
+        function proverka()
+        {
+            var pole = '{{form.Sort}}'
+            var boolka = '{{form.Sort_kak}}'
+
+            if (pole == 'DateAdd' && boolka == 'on'){
+                visi(false,$('#dateadd_i'));
+                visi(true,$('#dateadd'));
+                viborSort($('#dateadd'));
+                izmenenieElem('DateAdd',true);
+            }
+
+            if (pole == 'DateAdd' && boolka == 'off'){
+                visi(false,$('#dateadd'));
+                visi(true,$('#dateadd_i'));
+                viborSort($('#dateadd_i'));
+                izmenenieElem('DateAdd',false);
+            }
+
+            if (pole == 'stoimost' && boolka == 'on'){
+                visi(false,$('#stoimost_i'));
+                visi(true,$('#stoimost'));
+                viborSort($('#stoimost'));
+                izmenenieElem('stoimost',true);
+            }
+
+            if (pole == 'stoimost' && boolka == 'off'){
+                visi(false,$('#stoimost'));
+                visi(true,$('#stoimost_i'));
+                viborSort($('#stoimost_i'));
+                izmenenieElem('stoimost',false);
+            }
+
+            if (pole == 'arenda' && boolka == 'on'){
+                visi(false,$('#arenda_i'));
+                visi(true,$('#arenda'));
+                viborSort($('#arenda'));
+                izmenenieElem('arenda',true);
+            }
+
+            if (pole == 'arenda' && boolka == 'off'){
+                visi(false,$('#arenda'));
+                visi(true,$('#arenda_i'));
+                viborSort($('#arenda_i'));
+                izmenenieElem('arenda',false);
+            }
+
+            if (pole == 'like' && boolka == 'on'){
+                visi(false,$('#love_i'));
+                visi(true,$('#love'));
+                viborSort($('#love'));
+                izmenenieElem('like',true);
+            }
+
+            if (pole == 'like' && boolka == 'off'){
+                visi(false,$('#love'));
+                visi(true,$('#love_i'));
+                viborSort($('#love_i'));
+                izmenenieElem('like',false);
+            }
+
+        }
+
+        $('#stoimost').click(function(){
+            visi(false,$(this));
+            visi(true,$('#stoimost_i'));
+            viborSort($('#stoimost_i'));
+            izmenenieElem('stoimost',false);
+            $('#poihali').trigger('click');
+        });
+        $('#stoimost_i').click(function(){
+            visi(false,$(this));
+            visi(true,$('#stoimost'));
+            viborSort($('#stoimost'));
+            izmenenieElem('stoimost',true);
+            $('#poihali').trigger('click');
+        });
+        $('#dateadd').click(function(){
+            visi(false,$(this));
+            visi(true,$('#dateadd_i'));
+            viborSort($('#dateadd_i'));
+            izmenenieElem('DateAdd',false);
+            $('#poihali').trigger('click');
+        });
+        $('#dateadd_i').click(function(){
+            visi(false,$(this));
+            visi(true,$('#dateadd'));
+            viborSort($('#dateadd'));
+            izmenenieElem('DateAdd',true);
+            $('#poihali').trigger('click');
+        });
+        $('#arenda').click(function(){
+            visi(false,$(this));
+            visi(true,$('#arenda_i'));
+            viborSort($('#arenda_i'));
+            izmenenieElem('arenda',false);
+            $('#poihali').trigger('click');
+        });
+        $('#arenda_i').click(function(){
+            visi(false,$(this));
+            visi(true,$('#arenda'));
+            viborSort($('#arenda'));
+            izmenenieElem('arenda',true);
+            $('#poihali').trigger('click');
+        });
+        $('#love').click(function(){
+            visi(false,$(this));
+            visi(true,$('#love_i'));
+            viborSort($('#love_i'));
+            izmenenieElem('like',false);
+            $('#poihali').trigger('click');
+        });
+        $('#love_i').click(function(){
+            visi(false,$(this));
+            visi(true,$('#love'));
+            viborSort($('#love'));
+            izmenenieElem('like',true);
+            $('#poihali').trigger('click');
+        });
+
+
+   function izmenenieElem(value, bolka){
+
+        $('#sorting').val(value)
+        if (bolka == true){
+            $('#sorting_kak').val('on');
+        }
+
+        if(bolka == false){
+            $('#sorting_kak').val('off');
+        }
+
+   }
+
+   function viborSort(elem){
+
+        $('#stoimost').css({'background-color':'#FFF4E0','color':'#1F2226'});
+        $('#stoimost_i').css({'background-color':'#FFF4E0','color':'#1F2226'});
+        $('#dateadd').css({'background-color':'#FFF4E0','color':'#1F2226'});
+        $('#dateadd_i').css({'background-color':'#FFF4E0','color':'#1F2226'});
+        $('#arenda').css({'background-color':'#FFF4E0','color':'#1F2226'});
+        $('#arenda_i').css({'background-color':'#FFF4E0','color':'#1F2226'});
+        $('#love').css({'background-color':'#FFF4E0','color':'#1F2226'});
+        $('#love_i').css({'background-color':'#FFF4E0','color':'#1F2226'});
+
+        elem.css({'background-color':'#D6231E','color':'#FFF4E0'});
+   }
+
+   function visi (boolka, elem){
+        if (boolka == true){
+            elem.css({'display':'block'});
+        }
+        if(boolka == false){
+            elem.css({'display':'none'});
+        }
+   }
+
+   function start ()
+   {
+        visi(true,$('#stoimost'));
+        visi(false, $('#stoimost_i'));
+        visi(true,$('#dateadd'));
+        visi(false, $('#dateadd_i'));
+        visi(true,$('#arenda'));
+        visi(false,$('#arenda_i'));
+        visi(true,$('#love'));
+        visi(false, $('#love_i'));
+   }
+
+</script>
+{% endblock %}
