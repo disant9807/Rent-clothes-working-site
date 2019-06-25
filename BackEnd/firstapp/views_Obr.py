@@ -1599,7 +1599,7 @@ class Zakazi():
         zakaz = Zakaz.objects.get(id=id)
 
         dann = {'date': zakaz.date, 'nomer': zakaz.nomer, 'name': zakaz.person.name, 'id': zakaz.id,
-                'status': zakaz.status}
+                'status': zakaz.status, 'vid':zakaz.vidann}
 
         tovars = zakaz.tovarszakaz_set.all()
 

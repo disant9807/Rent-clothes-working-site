@@ -73,9 +73,14 @@
                     Итого: {{sum}} рублей
                 </div>
                 <div class="Base__flex Korzina__base-center">
-                <div class="Page__button Base__button Base__button_color_orange Korzina__button-arenda">
-                    Арендовать
-                </div>
+                
+					<form id="otpravka"  method="POST" action="/korzina/">
+					{% csrf_token %}
+						<input type="hidden" name="addzakaz" value="1" > </input>
+						<button class="Page__button Base__button Base__button_color_orange Korzina__button-arenda" type="sumbit" > Арендовать </button>
+								
+					</form>
+  
                 </div>
             </div>
 
